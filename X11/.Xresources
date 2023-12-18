@@ -27,7 +27,7 @@
 *.color7: #e4e4e4
 *.color15: #ffffff
 
-URxvt*font: xft:DejaVuSansMono:size=14:antialias=true
+URxvt*font: xft:DejaVuSansMono:size=10:antialias=true
 URxvt*borderLess: false
 URxvt*externalBorder: 0
 URxvt*internalBorder: 4
@@ -49,3 +49,6 @@ URxvt*tabbedex.tab-fg: 110
 URxvt*tabbedex.tab-bg: 236
 URxvt*tabbedex.transparent: true
 URxvt*tabbedex.new-button: false
+
+! dpi
+Xft.dpi: 150 
