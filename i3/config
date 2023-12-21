@@ -49,7 +49,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec urxvtc 
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -107,7 +107,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -156,8 +156,10 @@ workspace_auto_back_and_forth yes
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+#########
+# Modes #
+#########
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -186,20 +188,138 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+#########
+# i3bar #
+#########
 bar {
-        status_command i3status
+    status_command i3status --config ~/.config/i3/i3status.conf
+    
+    # Disable all tray icons
+    tray_output none
+
+    # tray_output primary
+    colors {
+        background $black2
+        statusline $white2
+        separator $white2
+
+        # border background text
+        focused_workspace 	$background $background $red1
+        active_workspace 	$black2 $black1 $white2
+        inactive_workspace 	$black1 $black2 $foreground
+        urgent_workspace 	$red1 $red1 $white2
+        binding_mode 		$background $red2 $white2
+    }
 }
 
 ##########
 # CUTSOM #
 ##########
 
+mode "$mode_display" {
+    bindsym d exec --no-startup-id sh "$HOME/.config/X11/monitor.sh", mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+a mode "$mode_display"
+
 focus_follows_mouse no
 
 # default window workspace behavior, to find class and instance `xprop | grep WM_CLASS`
-assign [class="Google-chrome" instance="google-chrome"] $ws2
+# assign [class="Google-chrome" instance="google-chrome"] $ws2
 
 bindsym XF86MonBrightnessUp exec brightnessctl s 2%+
 bindsym XF86MonBrightnessDown exec brightnessctl s 2%-
+
+bindsym Mod4+l exec --no-startup-id i3lock --color 000000
+
+# shutdown / restart / suspend...
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
+
+mode "$mode_system" {
+	bindsym l exec --no-startup-id i3lock --color 000000, mode "default"
+	bindsym e exec --no-startup-id i3-msg exit, mode "default"
+	bindsym s exec --no-startup-id i3lock --color 000000 && systemctl suspend, mode "default"
+	bindsym h exec --no-startup-id i3lock --color 000000 && systemctl hibernate, mode "default"
+	bindsym r exec --no-startup-id systemctl reboot, mode "default"
+	bindsym CTRL+s exec --no-startup-id systemctl poweroff -i, mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym Mod4+BackSpace mode "$mode_system"
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+for_window [class="Arandr"] floating enable
+
+# scratchpad
+for_window [class="Alacritty" instance="scratchpad_terminal"] move to scratchpad, border none
+bindsym $mod+Shift+t [instance="scratchpad_terminal"] scratchpad show
+exec alacritty --class Alacritty,scratchpad_terminal
+
+for_window [class="Alacritty" instance="scratchpad_htop"] move to scratchpad, border none
+bindsym $mod+Shift+p [instance="scratchpad_htop"] scratchpad show
+exec alacritty --class Alacritty,scratchpad_htop -e htop
+
+##########
+# Colors #
+##########
+
+# special
+set_from_resource $foreground foreground #C6C6C6
+set_from_resource $background background #1C1C1C
+set_from_resource $cursorColor cursorColor #C6C6C6
+
+# black
+set_from_resource $black1 color0 #303030
+set_from_resource $black2 color8 #444444
+set $trueblack #000000
+
+# red
+set_from_resource $red1 color1 #d75f5f
+set_from_resource $red2 color9 #d75f5f
+
+# green
+set_from_resource $green1 color2 #87AF87
+set_from_resource $green2 color10 #87AF87
+
+# yellow
+set_from_resource $yellow1 color3 #ffd75f
+set_from_resource $yellow2 color11 #ffd75f
+
+# blue
+set_from_resource $blue1 color4 #87afd7
+set_from_resource $blue2 color12 #87afd7
+
+# magenta
+set_from_resource $cyan1 color5 #afafd7
+set_from_resource $cyan2 color13 #afafd7
+
+# cyan
+set_from_resource $cyan1 color6 #afd7ff
+set_from_resource $cyan2 color14 #afd7ff
+
+# white
+set_from_resource $white1 color7 #4E4E4E
+set_from_resource $white2 color15 #ffffff
+
+
+##########
+# DESIGN #
+##########
+
+# hide borders
+hide_edge_borders both
+
+# class border backgr. text indicator child_border 
+client.focused 		#333333 $black2 $white2 #285577
+client.focused_inactive #333333 $background $foreground #484e50
+client.unfocused 	#333333 #222222 #888888 #292d2e #222222
+client.urgent 		$red1 $red1 $white2 $red1 $red1
+client.placeholder 	#000000 #0c0c0c $white2 #000000 #0c0c0c
+
