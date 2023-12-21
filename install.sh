@@ -17,3 +17,8 @@ ln -s "$HOME/dotfiles/zathura" "$HOME/.config"
 # i3 
 rm -rf "$HOME/.config/i3"
 ln -s "$HOME/dotfiles/i3" "$HOME/.config"
+
+# zsh
+mkdir -p "$HOME/.config/zsh"
+ln -sf "$HOME/dotfiles/zsh/.zshenv" "$HOME"
+ln -sf "$HOME/dotfiles/zsh/.zshrc" "$HOME"
