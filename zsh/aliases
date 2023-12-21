@@ -42,5 +42,3 @@ alias gmos='git merge origin/staging'
 
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
-
-
