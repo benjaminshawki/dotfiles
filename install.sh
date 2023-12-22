@@ -21,15 +21,15 @@ ln -s "$DOTFILES/i3" "$XDG_CONFIG_HOME"
 # zsh
 mkdir -p "$XDG_CONFIG_HOME/zsh"
 ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
-ln -sf "$DOTFILES/zsh/.zshrc" "$HOME"
-
-#######
-# Zsh #
-#######
-
-mkdir -p "$XDG_CONFIG_HOME/zsh"
-ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
 ln -sf "$DOTFILES/zsh/.zshrc" "$XDG_CONFIG_HOME/zsh"
 ln -sf "$DOTFILES/zsh/aliases" "$XDG_CONFIG_HOME/zsh/aliases"
 rm -rf "$XDG_CONFIG_HOME/zsh/external"
 ln -sf "$DOTFILES/zsh/external" "$XDG_CONFIG_HOME/zsh"
+
+# fonts
+mkdir -p "$XDG_DATA_HOME"
+cp -rf "$DOTFILES/fonts" "$XDG_DATA_HOME"
+
+# alacritty
+rm -rf "$XDG_CONFIG_HOME/alacritty"
+ln -s "$DOTFILES/alacritty" "$XDG_CONFIG_HOME"

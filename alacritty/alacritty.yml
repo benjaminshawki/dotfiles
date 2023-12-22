@@ -1,0 +1,7 @@
+font:
+  family: 'Inconsolata Nerd Font Mono'
+  style: Medium
+  size: 14 
+  offset:
+    x: 1
+    y: 1
