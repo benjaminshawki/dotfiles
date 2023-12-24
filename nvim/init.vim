@@ -2,6 +2,7 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
    Plug 'chrisbra/csv.vim'
    Plug 'simeji/winresizer'
    Plug 'simnalamburt/vim-mundo'
+   Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 set clipboard+=unnamedplus

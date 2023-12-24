@@ -270,7 +270,8 @@ for_window [class="Arandr"] floating enable
 # scratchpad
 for_window [class="Alacritty" instance="scratchpad_terminal"] move to scratchpad, border none
 bindsym $mod+Shift+t [instance="scratchpad_terminal"] scratchpad show
-exec alacritty --class Alacritty,scratchpad_terminal
+#exec alacritty --class Alacritty,scratchpad_terminal
+exec "$DOTFILES/zsh/scratchpad.sh"
 
 for_window [class="Alacritty" instance="scratchpad_htop"] move to scratchpad, border none
 bindsym $mod+Shift+p [instance="scratchpad_htop"] scratchpad show

@@ -47,3 +47,5 @@ set recolor-keephue             "false"
 set adjust-open "best-fit"
 
 #set guioptions                  "" # Nothing visible at startup
+
+set selection-clipboard clipboard
