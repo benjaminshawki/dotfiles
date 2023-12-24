@@ -5,7 +5,7 @@
 ########
 mkdir -p "$XDG_CONFIG_HOME/nvim"
 mkdir -p "$XDG_CONFIG_HOME/undo"
-ln -sf "$DOTFILES/nvim/init.vim" "$XDG_CONFIG_HOME/nvim"
+ln -sf "$DOTFILES/nvim/init.lua" "$XDG_CONFIG_HOME/nvim"
 
 # install neovim plugin manager
 [ ! -f "$DOTFILES/nvim/autoload/plug.vim" ] \
@@ -75,6 +75,6 @@ ln -sf "$DOTFILES/tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
 && git clone https://github.com/tmux-plugins/tpm \
 "$XDG_CONFIG_HOME/tmux/plugins/tpm"
 
-mkdir -p "$XDG_CONFIG_HOME/tmuxp"
-ln -sf "$DOTFILES/tmuxp/dotfiles.yml" "$XDG_CONFIG_HOME/tmuxp/dotfiles.yml"
+rm -rf "$XDG_CONFIG_HOME/tmuxp"
+ln -sf "$DOTFILES/tmuxp" "$XDG_CONFIG_HOME"
 

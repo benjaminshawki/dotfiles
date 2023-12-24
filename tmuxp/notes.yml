@@ -1,0 +1,16 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/notes.yml"
+
+session_name: notes
+start_directory: $HOME/Notes
+
+windows:
+    - window_name: nvim notes
+      layout: tiled
+      panes:
+          - nvim +FZF
+    - window_name: terms
+      layout: tiled
+      panes:
+          -
+          - ls -lah
+          -
