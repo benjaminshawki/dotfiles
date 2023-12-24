@@ -20,6 +20,7 @@ require("lazy").setup({
      'junegunn/fzf.vim',
      'simnalamburt/vim-mundo',
      'christoomey/vim-tmux-navigator',
+     'github/copilot.vim',
 })
 
 -- Basic Settings
@@ -44,3 +45,6 @@ vim.api.nvim_set_keymap('n', '<space>', '<nop>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>bn', ':bn<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>tn', 'gt', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-w>h', '<C-w>s', {noremap = true})
+
+-- Plugin Settings
+vim.g.copilot_filetypes = {markdown = true}
