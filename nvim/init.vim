@@ -35,4 +35,4 @@ let mapleader = "\<space>"
 nnoremap <leader>bn :bn<cr> ;buffer next
 nnoremap <leader>tn gt ;new tab
 
-
+nnoremap <c-w>h <c-w>s 

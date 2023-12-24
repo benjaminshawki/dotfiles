@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -46,7 +46,7 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+#tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec alacritty
@@ -244,8 +244,6 @@ focus_follows_mouse no
 
 bindsym XF86MonBrightnessUp exec brightnessctl s 2%+
 bindsym XF86MonBrightnessDown exec brightnessctl s 2%-
-
-bindsym Mod4+l exec --no-startup-id i3lock --color 000000
 
 # shutdown / restart / suspend...
 
