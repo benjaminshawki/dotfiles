@@ -26,3 +26,4 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # npm
 #PATH="$HOME/.local/bin:$PATH"
 #export npm_config_prefix="$HOME/.local"
+. "$HOME/.cargo/env"
