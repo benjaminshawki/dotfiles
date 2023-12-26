@@ -14,10 +14,10 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ' '
 
 require("lazy").setup({
-    'chrisbra/csv.vim',
     'moll/vim-bbye',
     'simeji/winresizer',
-    'junegunn/fzf.vim',
+    -- 'junegunn/fzf.vim',
+    { "junegunn/fzf", build = "./install --bin" },
     'simnalamburt/vim-mundo',
     'christoomey/vim-tmux-navigator',
     'rafamadriz/friendly-snippets', 
@@ -32,6 +32,15 @@ require("lazy").setup({
    
     'dasupradyumna/midnight.nvim', 
     {'nvim-treesitter/nvim-treesitter', cmd = 'TSUpdate' },
+    {
+      "ibhagwan/fzf-lua",
+      -- optional for icon support
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      config = function()
+        -- calling `setup` is optional for customization
+        require("fzf-lua").setup({})
+      end
+    }
 })
 
 -- Basic Settings

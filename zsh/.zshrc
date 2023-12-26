@@ -1,5 +1,6 @@
 PATH="$HOME/.local/bin:$PATH"
 export npm_config_prefix="$HOME/.local"
+export PATH="$PATH:$HOME/.vim/bundle/vim-superman/bin"
 
 fpath=($ZDOTDIR/external $fpath)
 
