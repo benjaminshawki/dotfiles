@@ -41,7 +41,8 @@ require("lazy").setup({
         require("fzf-lua").setup({})
       end
     },
-    'jez/vim-superman'
+    'jez/vim-superman',
+    'github/copilot.vim',
 })
 
 -- Basic Settings
@@ -111,3 +112,7 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+-- Github Copilot
+-- markdown copilot default enable
+vim.g.copilot_filetypes = {markdown = true, typescript = true, javascript = true, css = true, html = true, dockerfile = true, java = true, jsdoc = true, json = true, llvm = true, lua = true, luadoc = true, make = true, python = true, rust = true, sql = true, toml = true, tsx = true, vim = true, vimdoc = true, query = true, xml = true, yaml = true}

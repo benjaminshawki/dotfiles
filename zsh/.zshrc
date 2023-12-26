@@ -56,3 +56,5 @@ bindkey -r '^g'
 #bindkey -s '^g' clear-screen
 
 bindkey '^G' clear-screen
+
+alias nvusage="watch -n 0.5 nvidia-smi"
