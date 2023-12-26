@@ -40,7 +40,8 @@ require("lazy").setup({
         -- calling `setup` is optional for customization
         require("fzf-lua").setup({})
       end
-    }
+    },
+    'jez/vim-superman'
 })
 
 -- Basic Settings
