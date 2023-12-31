@@ -28,4 +28,4 @@
 *.color15: #ffffff
 
 ! dpi
-Xft.dpi: 150 
+ Xft.dpi: 150 

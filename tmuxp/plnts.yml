@@ -1,0 +1,13 @@
+session_name: arch_installer
+start_directory: $HOME/dev/plnts.com/
+
+windows:
+  - window_name: nvim
+    layout: tiled
+    panes:
+      - nvim ./ && google-chrome-stable https://localhost:3333
+  - window_name: terms
+    layout: tiled
+    panes:
+      - npm run dev
+      - 

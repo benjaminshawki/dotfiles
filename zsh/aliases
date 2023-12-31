@@ -48,3 +48,6 @@ alias tmuxl='tmux list-session'
 alias tmuxa='tmux attatch-session -t'
 alias tmuxn='tmux new-session -s'
 alias tmuxk='tmux kill-session -t'
+
+# nviddia-smi
+alias nvusage="watch -n 0.5 nvidia-smi"
