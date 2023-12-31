@@ -56,4 +56,3 @@ bindkey -r '^g'
 #bindkey -s '^g' clear-screen
 
 bindkey '^G' clear-screen
-
