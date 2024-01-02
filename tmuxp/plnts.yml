@@ -1,11 +1,11 @@
-session_name: arch_installer
+session_name: pltns
 start_directory: $HOME/dev/plnts.com/
 
 windows:
   - window_name: nvim
     layout: tiled
     panes:
-      - nvim ./ && google-chrome-stable https://localhost:3333
+      - nvim +FZF && google-chrome-stable --new-window https://localhost:3333 && clear
   - window_name: terms
     layout: tiled
     panes:
