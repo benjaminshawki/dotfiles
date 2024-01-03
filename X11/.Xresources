@@ -2,27 +2,31 @@
 *.background: #1C1C1C
 *.cursorColor: #444444
 
-! black 236 238
-*.color0: #303030
-*.color8: #444444
-! red 167
-*.color1: #d75f5f
-*.color9: #d75f5f
-! green 108
-*.color2: #87AF87
-*.color10: #87AF87
-! yellow 221
-*.color3: #ffd75f
-*.color11: #ffd75f
-! blue 110
-*.color4: #87afd7
-*.color12: #87afd7
-! magenta 146
-*.color5: #afafd7
-*.color13: #afafd7
-! cyan 75
-*.color6: #afd7ff
-*.color14: #afd7ff
-! white 239 15
-*.color7: #e4e4e4
-*.color15: #ffffff
+*.background: #121212
+*.foreground: #BFBFBF
+
+*.color0: #232323
+*.color8: #767C77
+
+*.color1: #FF5454
+*.color9: #FF1A75
+
+*.color2: #00CC7A
+*.color10: #1AFFA3
+
+*.color3: #FFD700
+*.color11: #FFFF00
+
+*.color4: #FF7431
+*.color12: #FFAA54
+
+*.color5: #00BFFF
+*.color13: #28C9FF
+
+*.color6: #48D1CC
+*.color14: #09FFF2
+
+*.color7: #BFBFBF
+*.color15: #F9F9F9
+
+! vim:ft=xdefaults
