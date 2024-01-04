@@ -7,6 +7,7 @@ export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 
 export EDITOR="nvim"
 export VISUAL="nvim"
+export BROWSER="google-chrome-stable"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
