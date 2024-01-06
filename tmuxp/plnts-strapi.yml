@@ -1,0 +1,13 @@
+session_name: plnts-strapi
+start_directory: $HOME/dev/strapi.plnts.com/
+
+windows:
+  - window_name: nvim
+    layout: tiled
+    panes:
+      - nvim +FZF 
+  - window_name: terms
+    layout: tiled
+    panes:
+      - google-chrome-stable --new-window http://localhost:3333/en && npm run develop
+      - 

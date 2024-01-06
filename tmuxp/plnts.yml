@@ -1,13 +1,13 @@
-session_name: pltns
+session_name: plnts
 start_directory: $HOME/dev/plnts.com/
 
 windows:
   - window_name: nvim
     layout: tiled
     panes:
-      - google-chrome-stable --new-window http://localhost:3333/en && nvim +FZF 
+      - nvim +FZF 
   - window_name: terms
     layout: tiled
     panes:
-      - npm run dev
+      - google-chrome-stable --new-window http://localhost:3333/en && npm run dev
       - 
