@@ -2,10 +2,10 @@ session_name: arch_installer
 start_directory: $HOME/workspace/arch_installer
 
 windows:
-  - window_name: nvim aps.csv
+  - window_name: nvim 
     layout: tiled
     panes:
-      - nvim
+      - nvim apps.csv
   - window_name: terms
     layout: tiled
     panes:
