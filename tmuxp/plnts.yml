@@ -5,7 +5,7 @@ windows:
   - window_name: nvim
     layout: tiled
     panes:
-      - nvim +FZF && google-chrome-stable --new-window https://localhost:3333 && clear
+      - google-chrome-stable --new-window http://localhost:3333/en && nvim +FZF 
   - window_name: terms
     layout: tiled
     panes:
