@@ -51,3 +51,6 @@ alias tmuxk='tmux kill-session -t'
 
 # nviddia-smi
 alias nvusage="watch -n 0.5 nvidia-smi"
+
+# pnpm
+alias pn='pnpm'
