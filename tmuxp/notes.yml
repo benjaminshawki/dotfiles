@@ -11,6 +11,9 @@ windows:
     - window_name: terms
       layout: tiled
       panes:
+          - 
           -
-          - ls -lah
-          -
+    - window_name: TODO
+      layout: tiled
+      panes:
+          - nvim TODO/`date +%Y-%m-%d`.md
