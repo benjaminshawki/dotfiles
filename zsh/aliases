@@ -54,3 +54,6 @@ alias nvusage="watch -n 0.5 nvidia-smi"
 
 # pnpm
 alias pn='pnpm'
+
+# Connect to hsleidenvpn (not sure if this is working)
+alias vpn-hsleiden='sudo openconnect --protocol=fortinet -C "$(openfortivpn-webview vpn-ssl.hsleiden.nl)" vpn-ssl.hsleiden.nl'
