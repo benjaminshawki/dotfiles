@@ -1,0 +1,15 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/ab-test.yml"
+
+session_name: ab-test
+start_directory: $HOME/dev/ab-test-statsig/
+
+windows:
+    - window_name: nvim ab-test
+      layout: tiled
+      panes:
+          - nvim +FZF
+    - window_name: terms
+      layout: tiled
+      panes:
+          - google-chrome-stable --new-window http://localhost:3000
+          - npm run dev
