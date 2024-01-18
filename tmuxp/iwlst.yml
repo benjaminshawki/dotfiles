@@ -1,0 +1,14 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/iwlst.yml"
+
+session_name: iwlst
+start_directory: $HOME/Notes/Studies/IN2/IWLST/oplevering
+
+windows:
+  - window_name: nvim stageverslag
+    layout: tiled
+    panes:
+      - $DOTFILES/tmuxp-scripts/iwlst.sh
+  - window_name: nvim onderzoek
+    layout: tiled
+    panes:
+      - nvim $HOME/Notes/Studies/IN2/IWLST/oplevering/onderzoek.md +StartMdPreview 
