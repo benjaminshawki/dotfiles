@@ -12,3 +12,15 @@ windows:
     layout: tiled
     panes:
       - nvim $HOME/Notes/Studies/IN2/IWLST/oplevering/onderzoek.md +StartMdPreview 
+  - window_name: nvim bib
+    layout: tiled
+    panes:
+      - nvim $HOME/Notes/Studies/IN2/IWLST/oplevering/ref.bib
+  - window_name: nvim apa
+    layout: tiled
+    panes:
+      - nvim $HOME/Notes/Studies/IN2/IWLST/oplevering/apa.csl
+  - window_name: zsh
+    layout: tiled
+    panes:
+      -
