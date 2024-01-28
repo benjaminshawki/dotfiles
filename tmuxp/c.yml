@@ -1,0 +1,15 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/c.yml"
+
+session_name: c
+start_directory: $HOME/Notes/cs/c
+
+windows:
+    - window_name: nvim
+      layout: tiled
+      panes: 
+          - nvim +FZF
+    - window_name: terms
+      layout: tiled
+      panes:
+          - 
+          -
