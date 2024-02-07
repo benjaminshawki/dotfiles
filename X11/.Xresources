@@ -28,3 +28,5 @@
 *.color15: #F9F9F9
 
 ! vim:ft=xdefaults
+
+Xft.dpi: 150

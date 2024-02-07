@@ -294,6 +294,7 @@ mode "$mode_display" {
     bindsym h exec --no-startup-id sh "$HOME/.config/X11/hdmi-hp-4k.sh", mode "hdmi-hp"
     bindsym w exec --no-startup-id sh "$HOME/.config/X11/monitor-hdmi-1080.sh", mode "hdmi-1080"
     bindsym e exec --no-startup-id sh "$HOME/.config/X11/monitor-hdmi-2560x1440.sh", mode "hdmi-1440"
+    bindsym a exec --no-startup-id sh "$HOME/.config/X11/auto.sh", mode "auto"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
