@@ -11,5 +11,5 @@ windows:
     - window_name: terms
       layout: tiled
       panes:
-          - 
+          - zathura "$HOME/Notes/Books/K. N. King - C Programming_ A Modern Approach-W. W. Norton & Company (2008).pdf" &
           -

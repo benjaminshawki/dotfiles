@@ -1,0 +1,24 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/itsten.yml"
+
+session_name: itsten
+start_directory: $HOME/dev/pintandpillageitsten-main/
+
+windows:
+  - window_name: Notes
+    layout: tiled
+    panes: 
+      - cd $HOME/Notes/Studies/IN2/ITSTEN/
+  - window_name: FE
+    layout: tiled
+    panes:
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/ && nvim +:E
+  - window_name: BE
+    layout: tiled
+    panes:
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/ && nvim +:E
+  - window_name: start
+    layout: tiled
+    panes:
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/
+

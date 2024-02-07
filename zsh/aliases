@@ -1,4 +1,4 @@
-alias ll='ls -lah'
+alias ll='ls -lah --color=auto'
 
 # ----------------------
 # Git Aliases
@@ -57,3 +57,6 @@ alias pn='pnpm'
 
 # Connect to hsleidenvpn (not sure if this is working)
 alias vpn-hsleiden='sudo openconnect --protocol=fortinet -C "$(openfortivpn-webview vpn-ssl.hsleiden.nl)" vpn-ssl.hsleiden.nl'
+
+# use prime renderer oflload
+alias prime='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
