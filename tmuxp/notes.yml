@@ -4,15 +4,17 @@ session_name: notes
 start_directory: $HOME/Notes
 
 windows:
-    - window_name: nvim notes
+    - window_name: notes
       layout: tiled
       panes:
-          - nvim +FZF
+          - cd $(find . -type d | fzf)
+
     - window_name: terms
       layout: tiled
       panes:
           - 
           -
+
     - window_name: TODO
       layout: tiled
       panes:

@@ -43,6 +43,8 @@ alias gmos='git merge origin/staging'
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
+alias cdgit='cd $(git rev-parse --show-toplevel)'
+
 # TMUX
 alias tmuxl='tmux list-session'
 alias tmuxa='tmux attatch-session -t'

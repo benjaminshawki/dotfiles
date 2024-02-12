@@ -7,18 +7,17 @@ windows:
   - window_name: Notes
     layout: tiled
     panes: 
-      - cd $HOME/Notes/Studies/IN2/ITSTEN/
+      - cd $HOME/Notes/Studies/IN2/ITSTEN/ && ll
   - window_name: FE
     layout: tiled
     panes:
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/ && nvim +:E
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/ && nvim +FZF
   - window_name: BE
     layout: tiled
     panes:
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/ && nvim +:E
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/ && nvim +FZF
   - window_name: start
     layout: tiled
     panes:
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/
-
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/ && npm run serve
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/ && mvn spring-boot:run

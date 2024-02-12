@@ -1,0 +1,17 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/ipsenh.yml"
+
+session_name: ipsenh
+start_directory: $HOME/Notes/Studies/IN2/IPSENH/
+
+windows:
+  - window_name: Teams
+    layout: tiled
+    panes: 
+      - cd $HOME/Notes/Studies/IN2/IPSENH/teams/
+  - window_name: Scratch
+    layout: tiled
+    panes:
+      - cd $HOME/Notes/Studies/IN2/IPSENH/docker-scratch/
+  - window_name: tmp
+    panes:
+      - zathura "$HOME/Notes/Books/wat is onderzoek_nel verhoeven.epub" &
