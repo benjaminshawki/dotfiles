@@ -14,8 +14,6 @@ rm -rf "$XDG_CONFIG_HOME/X11"
 ln -s "$DOTFILES/X11" "$XDG_CONFIG_HOME"
 xrdb -merge "$XDG_CONFIG_HOME/X11/.Xresources"
 
-$DOTFILES/X11/dynamic-dpi.sh
-
 ###########
 # zathura #
 ###########

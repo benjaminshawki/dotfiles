@@ -1,31 +1,35 @@
-[colors.bright]
-black = "#767C77"
-red = "#FF1A75"
-green = "#1AFFA3"
-yellow = "#FFFF00"
-blue = "#FFAA54"
-magenta = "#28C9FF"
-cyan = "#09FFF2"
-white = "#F9F9F9"
+[colors.primary]
+  background = '#121212'
+  foreground = "#BFBFBF"
+
+[colors.cursor]
+  text = '#F9F9F9'
+  cursor = '#BFBFBF'
 
 [colors.normal]
-black = "#232323"
-red = "#FF5454"
-green = "#00CC7A"
-yellow = "#FFD700"
-blue = "#FF7431"
-magenta = "#00BFFF"
-cyan = "#48D1CC"
-white = "#BFBFBF"
+  black =   '#232323'
+  red =     '#FF5454'
+  green =   '#00CC7A'
+  yellow =  '#FFD700'
+  blue =    '#00bFFF'
+  magenta = '#FF00FF'
+  cyan =    '#48d1cc'
+  white =   '#bfbfbf'
 
-[colors.primary]
-background = "#121212"
-foreground = "#BFBFBF"
+[colors.bright]
+  black =   '#767c77'
+  red =     '#ff1a75'
+  green =   '#1affa3'
+  yellow =  '#ffff00'
+  blue =    '#28c9ff'
+  magenta = '#ff33ff'
+  cyan =    '#09fff2'
+  white =   '#f9f9f9'
 
 [font]
-normal = { family = "Inconsolata Nerd Font Mono", style = "Medium" }
-size = 14
+  normal = { family = "Inconsolata Nerd Font Mono", style = "Medium" }
+  size = 14
 
 [font.offset]
-x = 1
-y = 1
+  x = 1
+  y = 1
