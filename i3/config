@@ -288,7 +288,7 @@ bindsym Ctrl+BackSpace exec dunstctl history-pop
 exec --no-startup-id nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }
 
 mode "$mode_display" {
-    bindsym d exec --no-startup-id sh "$HOME/.config/X11/monitor-laptop-only.sh", mode "default"
+    bindsym d exec --no-startup-id sh "$HOME/.config/X11/default.sh", mode "default"
     bindsym c exec --no-startup-id sh "$HOME/.config/X11/monitor-usb-c-4k.sh", mode "usb-c"
     bindsym m exec --no-startup-id sh "$HOME/.config/X11/monitor-hdmi-3440x1440.sh", mode "hdmi-wide"
     bindsym h exec --no-startup-id sh "$HOME/.config/X11/hdmi-hp-4k.sh", mode "hdmi-hp"
