@@ -1,5 +1,5 @@
 [colors.primary]
-  background = '#121212'
+  background = '#000000'
   foreground = "#BFBFBF"
 
 [colors.cursor]
@@ -33,3 +33,6 @@
 [font.offset]
   x = 1
   y = 1
+
+[window]
+  opacity = 1
