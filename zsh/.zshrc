@@ -43,6 +43,9 @@ if [ $(command -v "fzf") ]; then
     source /usr/share/fzf/key-bindings.zsh
 fi
 
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*" 2>/dev/null'
+#export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob $HOME/.config/cache'
 #export FZF_CTRL_T_COMMAND="rg --files --hidden --follow --glob '!.git/' --glob '!package-lock.json' --glob '!node_modules/'"
 
 # Preview file content using bat (https://github.com/sharkdp/bat)
@@ -53,9 +56,16 @@ export FZF_CTRL_T_OPTS="
 # Print tree structure in the preview window
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 
-if [ "$(tty)" = "/dev/tty1" ];
-then
-    pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
+if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+	exec sway
+fi
+
+if [[ -v TMUX ]]; then
+    # inside tmux, we don't know if Sway got restarted
+    swaymsg(){
+        export SWAYSOCK=$XDG_RUNTIME_DIR/sway-ipc.$UID.$(pgrep -x sway).sock
+        command swaymsg "$@"
+    }
 fi
 
 source $DOTFILES/zsh/scripts.sh

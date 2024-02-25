@@ -1,0 +1,69 @@
+/* General Waybar styling */
+#waybar {
+    background-color: transparent; /* Unchanged */
+    font-family: sans-serif;
+}
+
+/* Module specific styling */
+#workspaces, #mode, #window, #scratchpad, #idle_inhibitor,
+#network, #cpu, #memory, #temperature, #backlight, #battery,
+#clock, #pulseaudio, #keyboard-state, #language, #tray, #media {
+    background-color: rgba(35, 35, 35, 0.70);
+    color: rgba(191, 191, 191, 1);
+    padding: 0 10px;
+    border-radius: 4px;
+}
+
+/* Workspace styling */
+#workspaces button {
+    background-color: rgba(35, 35, 35, 0.70);
+    color: rgba(191, 191, 191, 1);
+}
+
+#workspaces button.focused {
+    background-color: rgba(0, 204, 122, 0.70);
+    color: rgba(18, 18, 18, 1);
+}
+
+#workspaces button.urgent {
+    background-color: rgba(255, 84, 84, 0.70);
+    color: rgba(18, 18, 18, 1);
+}
+
+/* CPU, Memory, and Temperature */
+#cpu, #memory, #temperature {
+    color: rgba(255, 215, 0, 1);
+}
+
+/* Network Module Styling */
+#network {
+    color: rgba(0, 191, 255, 1);
+}
+
+/* Pulseaudio Volume */
+#pulseaudio {
+    color: rgba(72, 209, 204, 1);
+}
+
+.battery-good {
+    color: rgba(26, 255, 163, 1); 
+}
+
+.battery-warning {
+    color: rgba(255, 215, 0, 1);
+}
+
+.battery-critical {
+    color: rgba(255, 84, 84, 1);
+}
+
+/* Clock Styling */
+#clock {
+    color: rgba(249, 249, 249, 1);
+}
+
+/* Customizing icons based on the module */
+.icon {
+    font-family: 'Font Awesome 5 Free'; /* Adjust based on the actual font you use for icons */
+}
+

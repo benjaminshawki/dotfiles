@@ -7,12 +7,12 @@ mkdir -p "$XDG_CONFIG_HOME/nvim"
 mkdir -p "$XDG_CONFIG_HOME/undo"
 ln -sf "$DOTFILES/nvim/init.lua" "$XDG_CONFIG_HOME/nvim"
 
-#######
-# X11 #
-#######
-rm -rf "$XDG_CONFIG_HOME/X11"
-ln -s "$DOTFILES/X11" "$XDG_CONFIG_HOME"
-xrdb -merge "$XDG_CONFIG_HOME/X11/.Xresources"
+# #######
+# # X11 #
+# #######
+# rm -rf "$XDG_CONFIG_HOME/X11"
+# ln -s "$DOTFILES/X11" "$XDG_CONFIG_HOME"
+# xrdb -merge "$XDG_CONFIG_HOME/X11/.Xresources"
 
 ###########
 # zathura #
@@ -20,11 +20,17 @@ xrdb -merge "$XDG_CONFIG_HOME/X11/.Xresources"
 rm -rf "$XDG_CONFIG_HOME/zathura"
 ln -s "$DOTFILES/zathura" "$XDG_CONFIG_HOME"
 
+###########
+# waybar #
+###########
+rm -rf "$XDG_CONFIG_HOME/waybar"
+ln -s "$DOTFILES/waybar" "$XDG_CONFIG_HOME"
+
 ######
-# i3 #
+# sway #
 ######
-rm -rf "$XDG_CONFIG_HOME/i3"
-ln -s "$DOTFILES/i3" "$XDG_CONFIG_HOME"
+rm -rf "$XDG_CONFIG_HOME/sway"
+ln -s "$DOTFILES/sway" "$XDG_CONFIG_HOME"
 
 #######
 # zsh #
