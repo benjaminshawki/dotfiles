@@ -57,7 +57,7 @@ export FZF_CTRL_T_OPTS="
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-	exec sway
+	exec sway --unsupported-gpu
 fi
 
 if [[ -v TMUX ]]; then

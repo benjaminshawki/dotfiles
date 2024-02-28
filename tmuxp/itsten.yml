@@ -11,13 +11,13 @@ windows:
   - window_name: FE
     layout: tiled
     panes:
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/ && nvim +FZF
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/ && git checkout main && nvim +FZF
   - window_name: BE
     layout: tiled
     panes:
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/ && nvim +FZF
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/ && git checkout main && nvim +FZF
   - window_name: start
     layout: tiled
     panes:
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/ && npm run serve
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/ && mvn spring-boot:run
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/ && git checkout main && npm run serve
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/ && git checkout main && cp $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/src/main/resources/application.properties.itsten $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/src/main/resources/application.properties && mvn spring-boot:run

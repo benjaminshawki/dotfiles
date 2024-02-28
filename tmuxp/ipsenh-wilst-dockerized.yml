@@ -7,12 +7,12 @@ windows:
   - window_name: FE
     layout: tiled
     panes:
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/ && nvim Dockerfile
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/ && git checkout feat/dockerized && nvim Dockerfile
   - window_name: BE
     layout: tiled
     panes:
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/ && nvim Dockerfile
+      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/ && git checkout feat/dockerized && cp $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/src/main/resources/application.properties.ipsenh $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/src/main/resources/application.properties && nvim Dockerfile
   - window_name: start
     layout: tiled
     panes:
-      - cd $HOME/dev/pintandpillageitsten-main/ && git checkout feat/Dockerized && nvim docker-compose.yml
+      - cd $HOME/dev/pintandpillageitsten-main/ && nvim docker-compose.yml
