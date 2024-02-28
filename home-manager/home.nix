@@ -62,18 +62,18 @@
     EDITOR = "nvim";
   };
 
-  home.file.".config/alacritty".source = ./dotfiles/alacritty;
-  home.file.".config/dunst".source = ./dotfiles/dunst;
-  home.file.".config/fonts".source = ./dotfiles/fonts;
-  home.file.".config/nvim".source = ./dotfiles/nvim;
-  home.file.".config/ranger".source = ./dotfiles/ranger;
-  home.file.".config/sway".source = ./dotfiles/sway;
-  home.file.".config/tmux".source = ./dotfiles/tmux;
-  home.file.".config/tmuxp".source = ./dotfiles/tmuxp;
-  home.file.".config/tmuxp-scripts".source = ./dotfiles/tmuxp-scripts;
-  home.file.".config/waybar".source = ./dotfiles/waybar;
-  home.file.".config/zathura".source = ./dotfiles/zathura;
-  home.file.".config/zsh".source = ./dotfiles/zsh;
+  home.file.".config/alacritty".source = ./alacritty;
+  home.file.".config/dunst".source = ./dunst;
+  home.file.".config/fonts".source = ./fonts;
+  home.file.".config/nvim".source = ./nvim;
+  home.file.".config/ranger".source = ./ranger;
+  home.file.".config/sway".source = ./sway;
+  home.file.".config/tmux".source = ./tmux;
+  home.file.".config/tmuxp".source = ./tmuxp;
+  home.file.".config/tmuxp-scripts".source = ./tmuxp-scripts;
+  home.file.".config/waybar".source = ./waybar;
+  home.file.".config/zathura".source = ./zathura;
+  home.file.".config/zsh".source = ./zsh;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
