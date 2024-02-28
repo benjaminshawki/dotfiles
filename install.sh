@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
+#nix-channel --update
+
+# Home manager
+rm -rf "$XDG_CONFIG_HOME/home-manager"
+ln -s "$DOTFILES/home-manager" "$XDG_CONFIG_HOME"
+
 ########    
 # nvim # 
 ########
