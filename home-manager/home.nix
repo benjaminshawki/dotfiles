@@ -18,10 +18,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    pkgs.hello
-
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -65,6 +61,19 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+  home.file.".config/alacritty".source = ./dotfiles/alacritty;
+  home.file.".config/dunst".source = ./dotfiles/dunst;
+  home.file.".config/fonts".source = ./dotfiles/fonts;
+  home.file.".config/nvim".source = ./dotfiles/nvim;
+  home.file.".config/ranger".source = ./dotfiles/ranger;
+  home.file.".config/sway".source = ./dotfiles/sway;
+  home.file.".config/tmux".source = ./dotfiles/tmux;
+  home.file.".config/tmuxp".source = ./dotfiles/tmuxp;
+  home.file.".config/tmuxp-scripts".source = ./dotfiles/tmuxp-scripts;
+  home.file.".config/waybar".source = ./dotfiles/waybar;
+  home.file.".config/zathura".source = ./dotfiles/zathura;
+  home.file.".config/zsh".source = ./dotfiles/zsh;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

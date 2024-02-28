@@ -15,6 +15,11 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
+  # Zsh
+  environment.shells = with pkgs; [ zsh ];
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking.hostName = "nixos"; # Define your hostname.
