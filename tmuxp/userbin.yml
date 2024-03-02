@@ -1,0 +1,8 @@
+session_name: userbin
+start_directory: $HOME/bin/
+
+windows:
+  - window_name: terms
+    layout: tiled
+    panes:
+      -
