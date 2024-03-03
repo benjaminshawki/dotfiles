@@ -77,8 +77,28 @@
     neovim
     openssh
     git
+    man
+    man-pages
+    wget
+    curl
+    networkmanager
+    fzfq
+    udiskie
+    ripgrep
+    htop
+    ranger
+    netstat
+    tmux
+    tmuxp
+    dunhst
+    libnotify
+    pipewire
 
-  #  wget
+    # TODO: check if these or variants are needed
+    #rsync
+    #scrot
+    xcape
+
 
   ];
 

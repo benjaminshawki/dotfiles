@@ -7,6 +7,10 @@
 rm -rf "$XDG_CONFIG_HOME/home-manager"
 ln -s "$DOTFILES/home-manager" "$XDG_CONFIG_HOME"
 
+# Kanshi
+rm -rf "$XDG_CONFIG_HOME/kanshi"
+ln -s "$DOTFILES/kanshi" "$XDG_CONFIG_HOME"
+
 ########    
 # nvim # 
 ########
