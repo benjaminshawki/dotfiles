@@ -171,7 +171,7 @@ exec --no-startup-id dunst
 bindsym $mod+x exec dunstctl close-all
 bindsym Ctrl+BackSpace exec dunstctl history-pop
 
-exec kanshi
+#exec_always kanshi
 # Output's
 
 #output eDP-1 mode 2880x1800 scale 1.5

@@ -56,6 +56,7 @@ export FZF_CTRL_T_OPTS="
 # Print tree structure in the preview window
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 
+# Wayland stuff
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
 	exec sway --unsupported-gpu
 fi
@@ -67,6 +68,8 @@ if [[ -v TMUX ]]; then
         command swaymsg "$@"
     }
 fi
+
+export MOZ_ENABLE_WAYLAND=1
 
 source $DOTFILES/zsh/scripts.sh
 ftmuxp
@@ -82,6 +85,7 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
 eval "$(zoxide init zsh)"
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

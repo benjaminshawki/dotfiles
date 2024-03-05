@@ -1,5 +1,3 @@
-# This file should be in "$XDG_CONFIG_HOME/tmuxp/ipsenh-itsten-dockerized.yml"
-
 session_name: ipsenh-itsten-dockerized
 start_directory: $HOME/dev/pintandpillageitsten-main/
 

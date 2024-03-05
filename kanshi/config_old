@@ -1,0 +1,4 @@
+{
+    output "DP-3" mode 3840x2160 position 0,0 scale 1.75
+    output "eDP-1" mode 2880x1800 position 0,2160 scale 1.2
+}
