@@ -1,13 +1,13 @@
 # This file should be in "$XDG_CONFIG_HOME/tmuxp/notes.yml"
 
 session_name: notes
-start_directory: $HOME/Notes
+start_directory: $HOME/Notes/
 
 windows:
     - window_name: notes
       layout: tiled
       panes:
-          - cd $(find . -type d | fzf)
+          - FZF_DIR=$(find . -type d | fzf) && [ -n "$FZF_DIR" ] && cd "$FZF_DIR"
 
     - window_name: terms
       layout: tiled
