@@ -11,9 +11,22 @@
     ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  # boot.loader = {
+  #   systemd-boot.enable = true;
+  #   efi.canTouchEfiVariables = true;
+  # };
+
+  boot.loader = {
+    grub = {
+      enable = true;
+      version = 2;
+      device = "nodev"; # for UEFI systems, use "nodev" to prevent installing to a specific device
+      efiSupport = true;
+      useOSProber = true; # enables searching for other operating systems
+    };
+    systemd-boot.enable = false; # disable systemd-boot
+    efi.canTouchEfiVariables = true;
+  };
 
   # Zsh
   environment.shells = with pkgs; [ zsh ];
@@ -64,16 +77,39 @@
     packages = with pkgs; [];
   };
 
-  # Enable automatic login for the user.
-  services.getty.autologinUser = "benjamin";
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  environment.variables = {
+    DOTFILES = "/home/benjamin/dotfiles";
+    XDG_CONFIG_HOME = "/home/benjamin/.config";
+  };
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
+
+#  programs.hyprland = {
+#    enable=true;
+#    xwayland.enable = true;
+#  };
+
+  programs.sway = {
+    enable = true;
+  };
+
+  hardware = {
+    opengl.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     neovim
     openssh
     git
@@ -82,17 +118,43 @@
     wget
     curl
     networkmanager
-    fzfq
+    fzf
     udiskie
     ripgrep
     htop
     ranger
-    netstat
     tmux
     tmuxp
-    dunhst
     libnotify
     pipewire
+    xdg-desktop-portal
+    xdg-desktop-portal-wlr
+    zoxide
+    alacritty
+    zathura
+
+    # syncthing # TODO: Check this out? sync desktop / phone data?
+    # keybase # TODO: Check this out? private drive, git, chat.
+
+    #Wayland
+    wayland
+    waybar
+    grim slurp
+    mako
+    wdisplays
+    
+    # Programming languages stuff
+    libgcc
+
+
+    glib
+    grim
+    slurp
+    wl-clipboard
+    gnupg
+
+    # TODO Add to home manager
+    google-chrome
 
     # TODO: check if these or variants are needed
     #rsync
@@ -102,6 +164,13 @@
 
   ];
 
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
+
+  # openssh
   services.openssh = {
   	enable = true;
 	settings = {
@@ -109,6 +178,25 @@
 		PasswordAuthentication = true;
 	};
   };
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
+  # TODO: Add to home-manager
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    # Certain features, including CLI integration and system authentication support,
+    # require enabling PolKit integration on some desktop environments (e.g. Plasma).
+    #polkitPolicyOwners = [ "yourUsernameHere" ];
+  };
+
+  # sevices.pcscd.enable = true;
+
+  # System76
+  hardware.system76.enableAll = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
