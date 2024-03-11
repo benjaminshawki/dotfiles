@@ -27,3 +27,5 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # term
 export TERM="xterm-256color"
 . "$HOME/.cargo/env"
+
+export USER_BIN="$HOME/bin"

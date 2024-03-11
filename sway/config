@@ -227,15 +227,8 @@ for_window [window_role="task_dialog"] floating enable
 
 for_window [class="Arandr"] floating enable
 
-# Screenshots
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date).png"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date).png"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date).png"
-
-## Clipboard Screenshots
-bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+# Clipboard Screenshots
+bindsym Print exec $USER_BIN/screenshot.sh &
 
 bindsym $mod+b exec $BROWSER &
 
