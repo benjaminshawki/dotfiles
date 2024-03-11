@@ -229,6 +229,8 @@ for_window [class="Arandr"] floating enable
 
 # Clipboard Screenshots
 bindsym Print exec $USER_BIN/screenshot.sh &
+bindsym Shift+Print exec $USER_BIN/screenshot-highlighted-window.sh &
+
 
 bindsym $mod+b exec $BROWSER &
 
