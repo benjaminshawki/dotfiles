@@ -19,6 +19,11 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 10
 bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
 
+# Mouse
+input "PNP0C50:0b 0911:5288 Mouse" {
+  tap enabled
+}
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
