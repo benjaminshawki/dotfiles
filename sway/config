@@ -23,7 +23,6 @@ bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
 input "PNP0C50:0b 0911:5288 Mouse" {
   tap enabled
 }
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -175,6 +174,10 @@ exec --no-startup-id dunst
 # dunst keyboard shortcuts
 bindsym $mod+x exec dunstctl close-all
 bindsym Ctrl+BackSpace exec dunstctl history-pop
+
+# Autostart
+# A tmuxp script for watching my dev dir and auto creating a tmuxp yml file
+exec_always ~/create_tmuxp_on_dir.sh
 
 #exec_always kanshi
 # Output's
