@@ -40,11 +40,11 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}% CPU",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% RAM"
     },
     "temperature": {
         "critical-threshold": 80,
@@ -56,6 +56,8 @@
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
+				"adapter": "AC",
+    		"bat": "BAT0",
         "states": {
             "good": 95,
             "warning": 30,
@@ -67,9 +69,6 @@
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""]
-    },
-    "battery#bat2": {
-        "bat": "BAT2"
     },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
