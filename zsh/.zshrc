@@ -64,12 +64,12 @@ unset FZF_ALT_C_OPTS FZF_CTRL_R_OPTS FZF_DEFAULT_OPTS
 export FZF_ALT_C_OPTS="${FZF_ALT_C_OPTS:+$FZF_ALT_C_OPTS }--preview 'bat -n --color=always {}' --preview-window down:5:hidden:wrap --bind '?:toggle-preview'"
 
 # View full command in preview window (?)
-export FZF_CTRL_R_OPTS="${FZF_CTRL_R_OPTS:+$FZF_CTRL_R_OPTS }--preview 'bat -n --color=always {}' --preview-window down:5:hidden:wrap --bind '?:toggle-preview'"
+export FZF_CTRL_R_OPTS="${FZF_CTRL_R_OPTS:+$FZF_CTRL_R_OPTS }--preview 'bat -n --color=always {}' --preview-window down:10:hidden:wrap --bind '?:toggle-preview'"
 
 # Exact-match rather than fuzzy matching by default (use ' to negate)
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }"
 
-# Prevent fzf from reducing height to 40% by default
+# Use min-height
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }--border --min-height=50 --reverse"
 
 # Directly execute the command (Ctrl-X Ctrl-R)

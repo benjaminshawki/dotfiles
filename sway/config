@@ -32,9 +32,10 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec; $HOME/bin/launcher_monitor.sh'
-
-for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 20 ppt, move position 0 px 0 px
+# FZF Launcher
+exec_always --no-startup-id $USER_BIN/fzf-launcher-close-when-unfocussed.sh
+bindsym $mod+d exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec; /path/to/your_modified_script.sh &'
+for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 90 ppt, move position center
 
 # change focus
 bindsym $mod+h focus left
@@ -239,8 +240,10 @@ for_window [class="Arandr"] floating enable
 bindsym Print exec $USER_BIN/screenshot.sh &
 bindsym Shift+Print exec $USER_BIN/screenshot-highlighted-window.sh &
 
-
 bindsym $mod+b exec $BROWSER &
+
+# Color picker
+bindsym CTRL+Print exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy 
 
 
 ##########
