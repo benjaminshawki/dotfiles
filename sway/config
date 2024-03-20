@@ -262,7 +262,16 @@ set $white2 #FFFFFF
 # hide borders
 hide_edge_borders both
 
+
+# Display
 output * bg #000000 solid_color
+
+# Run monitor setup script at startup
+exec_always --no-startup-id $USER_BIN/setup_monitors.sh
+
+# Optional: Bind a key to manually run the monitor setup script
+# Replace Mod4 with your mod key (e.g., the Windows key)
+bindsym $mod+a exec $USER_BIN/setup_monitors.sh
 
 # class border backgr. text indicator child_border
 client.focused #414868 $white2 $trueblack #7AA2F7
