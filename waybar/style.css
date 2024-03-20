@@ -1,6 +1,6 @@
 /* General Waybar styling */
 #waybar {
-    background-color: transparent; /* Unchanged */
+    background-color: transparent;
     font-family: sans-serif;
 }
 
@@ -8,61 +8,66 @@
 #workspaces, #mode, #window, #scratchpad, #idle_inhibitor,
 #network, #cpu, #memory, #temperature, #backlight, #battery,
 #clock, #pulseaudio, #keyboard-state, #language, #tray, #media {
-    background-color: rgba(0, 0, 0, 0.70); /* Pitch black background with transparency */
-    color: #C0CAF5; /* Tokyo Night foreground color */
+    background-color: rgba(0, 0, 0, 0.70);
+    color: #C0CAF5; 
     padding: 0 10px;
     border-radius: 4px;
 }
 
 /* Workspace styling */
 #workspaces button {
-    background-color: rgba(0, 0, 0, 0.70); /* Pitch black background with transparency */
-    color: #C0CAF5; /* Tokyo Night foreground color */
+    background-color: rgba(0, 0, 0, 0.70);
+    color: #C0CAF5; 
+}
+
+#workspaces button:hover {
+    background-color: rgba(0, 204, 122, 0.70);
+    color: #1A1B26; 
 }
 
 #workspaces button.focused {
-    background-color: rgba(0, 204, 122, 0.70); /* Using green for focused, adjust if needed */
-    color: #1A1B26; /* Tokyo Night dark background color */
+    background-color: rgba(0, 204, 122, 0.70);
+    color: #1A1B26; 
 }
 
 #workspaces button.urgent {
-    background-color: rgba(255, 84, 84, 0.70); /* Retained urgency color */
-    color: #1A1B26; /* Tokyo Night dark background color */
+    background-color: rgba(255, 84, 84, 0.70);
+    color: #1A1B26; 
 }
 
 /* CPU, Memory, and Temperature */
 #cpu, #memory, #temperature {
-    color: #E0AF68; /* Tokyo Night yellow color */
+    color: #E0AF68; 
 }
 
 /* Network Module Styling */
 #network {
-    color: #7AA2F7; /* Tokyo Night blue color */
+    color: #7AA2F7; 
 }
 
 /* Pulseaudio Volume */
 #pulseaudio {
-    color: #73DACA; /* A cyan-like color from Tokyo Night palette */
+    color: #73DACA;
 }
 
 .battery-good {
-    color: #9ECE6A; /* Tokyo Night green color */
+    color: #9ECE6A; 
 }
 
 .battery-warning {
-    color: #E0AF68; /* Tokyo Night yellow color */
+    color: #E0AF68; 
 }
 
 .battery-critical {
-    color: #F7768E; /* Tokyo Night red color */
+    color: #F7768E; 
 }
 
 /* Clock Styling */
 #clock {
-    color: #C0CAF5; /* Tokyo Night foreground color */
+    color: #C0CAF5; 
 }
 
 /* Customizing icons based on the module */
 .icon {
-    font-family: 'Font Awesome 5 Free'; /* Adjust based on the actual font you use for icons */
+    font-family: 'Font Awesome 5 Free';
 }
