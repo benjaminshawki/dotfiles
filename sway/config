@@ -20,9 +20,14 @@ bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 10
 bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
 
 # Mouse
-input "PNP0C50:0b 0911:5288 Mouse" {
+input "2321:21128:PNP0C50:0b_0911:5288_Touchpad" {
   tap enabled
 }
+
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_options caps:escape
+}
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
