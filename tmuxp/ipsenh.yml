@@ -1,17 +1,26 @@
 # This file should be in "$XDG_CONFIG_HOME/tmuxp/ipsenh.yml"
 
 session_name: ipsenh
-start_directory: $HOME/Notes/Studies/IN2/IPSENH/
+start_directory: $HOME/Notes/Studies/IN2/IPSENH/oplevering/onderzoek/
 
 windows:
-  - window_name: Teams
-    layout: tiled
+  - window_name: onderzoek
+    layout: tiled 
     panes: 
-      - cd $HOME/Notes/Studies/IN2/IPSENH/teams/
-  - window_name: Scratch
+      - nvim onderzoek.md +StartMdPreview
+  - window_name: bib
     layout: tiled
     panes:
-      - cd $HOME/Notes/Studies/IN2/IPSENH/docker-scratch/
-  - window_name: tmp
+      - nvim ref.bib
+  - window_name: apa
+    layout: tiled
+    panes:
+      - nvim $HOME/Notes/Studies/IN2/IWLST/oplevering/apa.csl
+  - window_name: book
     panes:
       - zathura "$HOME/Notes/Books/wat is onderzoek_nel verhoeven.epub" &
+  - window_name: Containerized
+    layout: tiled
+    start_directory: ~/dev/pintandpillage-containerized/
+    panes:
+      - 
