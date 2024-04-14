@@ -1,6 +1,8 @@
 alias ll='ls -lah --color=auto'
 alias tree='tree -C'
 alias nixos-v='sudo nixos-rebuild switch --show-trace --print-build-logs --verbose'
+alias remarkable='wine .wine/drive_c/Program\ Files/reMarkable/reMarkable.exe &'
+alias mvli='ls -t ~/Pictures | head -n 1 | xargs -I {} cp ~/Pictures/{} .'
 
 # ----------------------
 # Git Aliases
