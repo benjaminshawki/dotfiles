@@ -1,5 +1,5 @@
 session_name: plnts2-strapi
-start_directory: $HOME/dev/plnts2/strapi.plnts.com/
+start_directory: $HOME/workspace/plnts2/strapi.plnts.com/
 
 windows:
   - window_name: nvim

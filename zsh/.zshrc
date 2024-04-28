@@ -1,12 +1,16 @@
 PATH="$HOME/.local/bin:$PATH"
 export npm_config_prefix="$HOME/.local"
 export PATH="$PATH:$HOME/.vim/bundle/vim-superman/bin"
+export JDTLS_JVM_ARGS="-javaagent:$HOME/java/libs/lombok.jar"
+
+export BROWSER="google-chrome-unstable"
 
 fpath=($ZDOTDIR/external $fpath)
 
 source "$XDG_CONFIG_HOME/zsh/aliases"
 
 export XDG_CURRENT_DESKTOP=sway
+export QT_QPA_PLATFORM=wayland
 
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char

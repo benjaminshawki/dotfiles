@@ -17,6 +17,8 @@ ln -s "$DOTFILES/kanshi" "$XDG_CONFIG_HOME"
 mkdir -p "$XDG_CONFIG_HOME/nvim"
 mkdir -p "$XDG_CONFIG_HOME/undo"
 ln -sf "$DOTFILES/nvim/init.lua" "$XDG_CONFIG_HOME/nvim"
+ln -sf "$DOTFILES/nvim/lua" "$XDG_CONFIG_HOME/nvim"
+ln -sf "$DOTFILES/nvim/ftplugin/" "$XDG_CONFIG_HOME/nvim"
 
 # #######
 # # X11 #

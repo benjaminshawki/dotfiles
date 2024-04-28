@@ -21,6 +21,6 @@ windows:
       - zathura "$HOME/Notes/Books/wat is onderzoek_nel verhoeven.epub" &
   - window_name: Containerized
     layout: tiled
-    start_directory: ~/dev/pintandpillage-containerized/
+    start_directory: ~/workspace/pintandpillage-containerized/
     panes:
       - 

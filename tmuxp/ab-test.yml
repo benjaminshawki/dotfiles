@@ -1,7 +1,7 @@
 # This file should be in "$XDG_CONFIG_HOME/tmuxp/ab-test.yml"
 
 session_name: ab-test
-start_directory: $HOME/dev/ab-test-statsig/
+start_directory: $HOME/workspace/ab-test-statsig/
 
 windows:
     - window_name: nvim ab-test

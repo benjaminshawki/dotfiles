@@ -1,5 +1,5 @@
 session_name: plnts
-start_directory: $HOME/dev/plnts.com/
+start_directory: $HOME/workspace/plnts.com/
 
 windows:
   - window_name: nvim

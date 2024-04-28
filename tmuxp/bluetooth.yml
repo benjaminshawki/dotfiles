@@ -1,5 +1,5 @@
 session_name: bluetooth
-start_directory: $HOME/dev/bluetooth
+start_directory: $HOME/workspace/bluetooth
 
 windows:
   - window_name: bluetooth

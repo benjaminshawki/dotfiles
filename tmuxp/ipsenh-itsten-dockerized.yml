@@ -1,16 +1,16 @@
 session_name: ipsenh-itsten-dockerized
-start_directory: $HOME/dev/pintandpillageitsten-main/
+start_directory: $HOME/workspace/pintandpillageitsten-main/
 
 windows:
   - window_name: FE
     layout: tiled
     panes:
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/ && git checkout feat/dockerized && nvim Dockerfile
+      - cd $HOME/workspace/pintandpillageitsten-main/PintAndPillageFrontend/ && git checkout feat/dockerized && nvim Dockerfile
   - window_name: BE
     layout: tiled
     panes:
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/ && git checkout feat/dockerized && cp $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/src/main/resources/application.properties.ipsenh $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/src/main/resources/application.properties && nvim Dockerfile
+      - cd $HOME/workspace/pintandpillageitsten-main/PintAndPillageJavaBackend/ && git checkout feat/dockerized && cp $HOME/workspace/pintandpillageitsten-main/PintAndPillageJavaBackend/src/main/resources/application.properties.ipsenh $HOME/workspace/pintandpillageitsten-main/PintAndPillageJavaBackend/src/main/resources/application.properties && nvim Dockerfile
   - window_name: start
     layout: tiled
     panes:
-      - cd $HOME/dev/pintandpillageitsten-main/ && nvim docker-compose.yml
+      - cd $HOME/workspace/pintandpillageitsten-main/ && nvim docker-compose.yml

@@ -1,0 +1,12 @@
+session_name: ISECU
+start_directory: $HOME/Notes/Studies/IN2/ISECU/
+
+windows:
+    - window_name: nvim
+      layout: tiled
+      panes:
+          - nvim +FZF
+    - window_name: terms
+      layout: tiled
+      panes:
+          -

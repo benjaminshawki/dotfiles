@@ -1,5 +1,5 @@
 session_name: railroads
-start_directory: $HOME/dev/railroads
+start_directory: $HOME/workspace/railroads
 
 windows:
   - window_name: railroads

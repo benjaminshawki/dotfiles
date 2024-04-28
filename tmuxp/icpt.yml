@@ -1,0 +1,14 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/c.yml"
+
+session_name: ICPT
+start_directory: $HOME/Notes/Studies/IN2/ICPT/
+
+windows:
+    - window_name: nvim
+      layout: tiled
+      panes:
+          -
+    - window_name: terms
+      layout: tiled
+      panes:
+          - zathura "$HOME/Notes/Books/concepts-in-programming-languages-12.pdf" &
