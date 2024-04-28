@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
 #nix-channel --update
