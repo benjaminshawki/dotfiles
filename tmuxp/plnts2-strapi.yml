@@ -9,5 +9,5 @@ windows:
   - window_name: terms
     layout: tiled
     panes:
-      - google-chrome-stable --new-window http://localhost:1338/en 
+      - $BROWSER --new-window http://localhost:1338/en 
       - npm run develop
