@@ -5,6 +5,11 @@ export JDTLS_JVM_ARGS="-javaagent:$HOME/java/libs/lombok.jar"
 
 export BROWSER="google-chrome-unstable"
 
+# Dotnet
+export DOTNET_ROOT=/usr/share/dotnet
+export MSBuildSDKsPath=/usr/share/dotnet/sdk/8.0.105/Sdks
+export PATH=$PATH:$DOTNET_ROOT
+
 fpath=($ZDOTDIR/external $fpath)
 
 source "$XDG_CONFIG_HOME/zsh/aliases"

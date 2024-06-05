@@ -21,7 +21,9 @@ bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
 
 # Mouse
 input "2321:21128:PNP0C50:0b_0911:5288_Touchpad" {
-  tap enabled
+    # dwt enabled
+    tap enabled
+    # middle_emulation enabled
 }
 
 input "1:1:AT_Translated_Set_2_keyboard" {
@@ -220,6 +222,8 @@ bindsym Print exec $USER_BIN/screenshot.sh &
 bindsym Shift+Print exec $USER_BIN/screenshot-highlighted-window.sh &
 
 bindsym $mod+b exec $BROWSER &
+bindsym $mod+Shift+b exec $BROWSER_STABLE &
+
 
 # Color picker
 bindsym CTRL+Print exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy 

@@ -1,0 +1,12 @@
+session_name: plnts-services
+start_directory: $HOME/workspace/plnts-services/
+
+windows:
+    - window_name: nvim
+      layout: tiled
+      panes:
+          -
+    - window_name: terms
+      layout: tiled
+      panes:
+          -
