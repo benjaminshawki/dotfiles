@@ -47,6 +47,7 @@ bindkey -M vicmd v edit-command-line
 
 
 # FZF
+# FZF
 source ~/dotfiles/zsh/external/bd.zsh
 
 if [ $(command -v "fzf") ]; then
@@ -54,25 +55,23 @@ if [ $(command -v "fzf") ]; then
     source /usr/share/fzf/key-bindings.zsh
 fi
 
+# Exclude .wine directory
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!.wine/*" 2>/dev/null'
 
-# export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*" 2>/dev/null'
-# #export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob $HOME/.config/cache'
-# #export FZF_CTRL_T_COMMAND="rg --files --hidden --follow --glob '!.git/' --glob '!package-lock.json' --glob '!node_modules/'"
-#
-# # Preview file content using bat (https://github.com/sharkdp/bat)
-# export FZF_CTRL_T_OPTS="
-#   --preview 'bat -n --color=always {}'
-#   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-#
-# # Print tree structure in the preview window
-# export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always {}' --preview-window down:20:hidden:wrap
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# Print tree structure in the preview window
+export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 
 # Unset vars to prevent them from being appended to multiple times if bash
 # shells are nested and as a result .bashrc is sourced multiple times
 unset FZF_ALT_C_OPTS FZF_CTRL_R_OPTS FZF_DEFAULT_OPTS
 
 # View full path in preview window (?)
-export FZF_ALT_C_OPTS="${FZF_ALT_C_OPTS:+$FZF_ALT_C_OPTS }--preview 'bat -n --color=always {}' --preview-window down:5:hidden:wrap --bind '?:toggle-preview'"
+export FZF_ALT_C_OPTS="${FZF_ALT_C_OPTS:+$FZF_ALT_C_OPTS }--preview 'tree -C {}' --preview-window down:5:hidden:wrap --bind '?:toggle-preview'"
 
 # View full command in preview window (?)
 export FZF_CTRL_R_OPTS="${FZF_CTRL_R_OPTS:+$FZF_CTRL_R_OPTS }--preview 'bat -n --color=always {}' --preview-window down:10:hidden:wrap --bind '?:toggle-preview'"
@@ -85,6 +84,45 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }--border --min-h
 
 # Directly execute the command (Ctrl-X Ctrl-R)
 # bind "$(bind -s | grep '^"\\C-r"' | sed 's/"/"\\C-x/;s/"$/\\C-m"/')"
+
+# source ~/dotfiles/zsh/external/bd.zsh
+#
+# if [ $(command -v "fzf") ]; then
+#     source /usr/share/fzf/completion.zsh
+#     source /usr/share/fzf/key-bindings.zsh
+# fi
+#
+#
+# # export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*" 2>/dev/null'
+# # #export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob $HOME/.config/cache'
+# # #export FZF_CTRL_T_COMMAND="rg --files --hidden --follow --glob '!.git/' --glob '!package-lock.json' --glob '!node_modules/'"
+# #
+# # # Preview file content using bat (https://github.com/sharkdp/bat)
+# # export FZF_CTRL_T_OPTS="
+# #   --preview 'bat -n --color=always {}'
+# #   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+# #
+# # # Print tree structure in the preview window
+# # export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+#
+# # Unset vars to prevent them from being appended to multiple times if bash
+# # shells are nested and as a result .bashrc is sourced multiple times
+# unset FZF_ALT_C_OPTS FZF_CTRL_R_OPTS FZF_DEFAULT_OPTS
+#
+# # View full path in preview window (?)
+# export FZF_ALT_C_OPTS="${FZF_ALT_C_OPTS:+$FZF_ALT_C_OPTS }--preview 'bat -n --color=always {}' --preview-window down:5:hidden:wrap --bind '?:toggle-preview'"
+#
+# # View full command in preview window (?)
+# export FZF_CTRL_R_OPTS="${FZF_CTRL_R_OPTS:+$FZF_CTRL_R_OPTS }--preview 'bat -n --color=always {}' --preview-window down:10:hidden:wrap --bind '?:toggle-preview'"
+#
+# # Exact-match rather than fuzzy matching by default (use ' to negate)
+# export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }"
+#
+# # Use min-height
+# export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }--border --min-height=50 --reverse"
+#
+# # Directly execute the command (Ctrl-X Ctrl-R)
+# # bind "$(bind -s | grep '^"\\C-r"' | sed 's/"/"\\C-x/;s/"$/\\C-m"/')"
 
 
 # Wayland stuff
