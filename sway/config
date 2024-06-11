@@ -2,6 +2,7 @@ set $mod Mod4
 
 font pango:Inconsolata NF 12
 
+
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -20,11 +21,18 @@ bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 10
 bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
 
 # Mouse
-input "2321:21128:PNP0C50:0b_0911:5288_Touchpad" {
-    # dwt enabled
+# input "2321:21128:PNP0C50:0b_0911:5288_Touchpad" {
+#     #dwt enabled
+#     tap enabled
+#     # middle_emulation enabled
+# }
+input "type:mouse" {
     tap enabled
+    # accel_profile flat
+    #dwt enabled
+    #tap enabled
     # middle_emulation enabled
-}
+}   
 
 input "1:1:AT_Translated_Set_2_keyboard" {
     xkb_options caps:escape
@@ -41,8 +49,14 @@ bindsym $mod+Shift+q kill
 
 # FZF Launcher
 exec_always --no-startup-id $USER_BIN/fzf-launcher-close-when-unfocussed.sh
-bindsym $mod+d exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec; /path/to/your_modified_script.sh &'
+bindsym $mod+d exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec;' 
 for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 90 ppt, move position center
+
+# FZF Profile Launcher
+exec_always --no-startup-id $USER_BIN/fzf-launcher-close-when-unfocussed.sh
+bindsym $mod+Shift+d exec alacritty --class 'launcher' --command bash -c '$HOME/dotfiles/sway/fzf-sway-profile-launcher.sh'
+for_window [app_id="^launcher$"] floating enable, border none, resize set width 50 ppt height 50 ppt, move position center
+
 
 # change focus
 bindsym $mod+h focus left
