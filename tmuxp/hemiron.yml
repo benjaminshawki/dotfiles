@@ -1,0 +1,28 @@
+session_name: hemiron
+start_directory: $HOME/workspace/IPSENH/
+
+windows:
+    - window_name: frontend
+      layout: tiled
+      panes:
+          - cd $HOME/workspace/IPSENH/frontend
+    - window_name: npm
+      layout: tiled
+      panes:
+          - cd $HOME/workspace/IPSENH/frontend && npm start
+    - window_name: keycloak
+      layout: tiled
+      panes:
+          - cd $HOME/workspace/IPSENH/auth && docker compose up
+    - window_name: auth backend
+      layout: tiled
+      panes:
+          - cd $HOME/workspace/IPSENH/auth && mvn spring-boot:run
+    - window_name: proxmox nvim
+      layout: tiled
+      panes:
+          - cd $HOME/workspace/IPSENH/proxmox && nvim
+    - window_name: proxmox backend
+      layout: tiled
+      panes:
+          - cd $HOME/workspace/IPSENH/proxmox && virt-manager & disown && mvn spring-boot:run
