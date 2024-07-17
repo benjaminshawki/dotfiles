@@ -18,6 +18,15 @@ windows:
       layout: tiled
       panes:
           - cd $HOME/workspace/IPSENH/auth && mvn spring-boot:run
+    - window_name: billing db
+      layout: tiled
+      panes:
+          - cd $HOME/workspace/IPSENH/billing && docker compose up
+    - window_name: billing be
+      layout: tiled
+      panes:
+          - cd $HOME/workspace/IPSENH/billing && mvn spring-boot:run
+
     - window_name: proxmox nvim
       layout: tiled
       panes:

@@ -47,7 +47,6 @@ bindkey -M vicmd v edit-command-line
 
 
 # FZF
-# FZF
 source ~/dotfiles/zsh/external/bd.zsh
 
 if [ $(command -v "fzf") ]; then
@@ -127,7 +126,7 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }--border --min-h
 
 # Wayland stuff
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-	exec sway --unsupported-gpu
+	exec sway
 fi
 
 if [[ -v TMUX ]]; then

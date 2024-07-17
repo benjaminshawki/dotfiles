@@ -5,9 +5,9 @@ windows:
   - window_name: nvim
     layout: tiled
     panes:
-      - nvim +FZF 
+      - nvim +FZF
   - window_name: terms
     layout: tiled
     panes:
-      - $BROWSER --new-window http://localhost:1337/admin
+      - $BROWSER --new-window http://localhost:1337/admin & disown && exit
       - npm run develop
