@@ -3,7 +3,7 @@ export npm_config_prefix="$HOME/.local"
 export PATH="$PATH:$HOME/.vim/bundle/vim-superman/bin"
 export JDTLS_JVM_ARGS="-javaagent:$HOME/java/libs/lombok.jar"
 
-export BROWSER="google-chrome-unstable"
+export BROWSER="firefox-developer-edition"
 
 # Dotnet
 export DOTNET_ROOT=/usr/share/dotnet
