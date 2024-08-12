@@ -9,5 +9,5 @@ windows:
   - window_name: terms
     layout: tiled
     panes:
-      - $BROWSER --new-window http://localhost:3000/en & disown && exit
+      - $BROWSER --new-window https://localhost:3000/en & disown && exit
       - cd $HOME/workspace/plnts-v2/projects/plnts-storefront/ && pn dev

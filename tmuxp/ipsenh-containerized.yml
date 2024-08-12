@@ -1,0 +1,16 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/ipsenh.yml"
+
+session_name: uitvoering-onderzoek
+start_directory: $HOME/workspace/pintandpillage-containerized/
+
+windows:
+  - window_name: nvim
+    layout: tiled
+    start_directory: ~/workspace/pintandpillage-containerized/
+    panes:
+      -
+  - window_name: other
+    layout: tiled
+    start_directory: ~/workspace/pintandpillage-containerized/
+    panes:
+      -
