@@ -236,7 +236,7 @@ bindsym Print exec $USER_BIN/screenshot.sh &
 bindsym Shift+Print exec $USER_BIN/screenshot-highlighted-window.sh &
 
 bindsym $mod+b exec $BROWSER &
-bindsym $mod+Shift+b exec $BROWSER_STABLE &
+bindsym $mod+Shift+b exec $BROWSER_SECONDARY &
 
 
 # Color picker
