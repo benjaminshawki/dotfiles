@@ -18,7 +18,7 @@ windows:
       - nvim $HOME/Notes/Studies/IN2/IWLST/oplevering/apa.csl
   - window_name: book and log
     panes:
-      - zathura "$HOME/Notes/Books/wat is onderzoek_nel verhoeven.epub" & disown && libreoffice "$HOME/Notes/Studies/IN2/IPSENH/oplevering/onderzoek/her/Logboek.ods" & disown && nvim $HOME/Notes/Studies/IN2/IPSENH/oplevering/onderzoek/her/log.md +MarkdownPreview
+      - zathura "$HOME/Notes/Books/wat is onderzoek_nel verhoeven.epub" & disown && nvim $HOME/Notes/Studies/IN2/IPSENH/oplevering/onderzoek/her/log.md +MarkdownPreview
   - window_name: Containerized
     layout: tiled
     start_directory: ~/workspace/pintandpillage-containerized/

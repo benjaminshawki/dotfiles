@@ -4,6 +4,10 @@ alias nixos-v='sudo nixos-rebuild switch --show-trace --print-build-logs --verbo
 alias remarkable='wine .wine/drive_c/Program\ Files/reMarkable/reMarkable.exe &'
 alias mvli='ls -t ~/Pictures | head -n 1 | xargs -I {} cp ~/Pictures/{} .'
 alias cpli='[ -e "$HOME/Pictures/$(ls -t $HOME/Pictures/ | head -n1)" ] && cp "$HOME/Pictures/$(ls -t $HOME/Pictures/ | head -n1)"'
+alias copyf=$USER_BIN/copy-files.sh
+
+alias n=nvim
+alias lg=lazygit
 
 # ----------------------
 # Git Aliases

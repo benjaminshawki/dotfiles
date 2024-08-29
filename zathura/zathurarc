@@ -1,5 +1,5 @@
 # zathurarc-dark
-set smooth_scroll "true"
+# set smooth-scroll "true"
 set scroll-page-aware "true"
 
 #set default-bg                  "#151515" #44
