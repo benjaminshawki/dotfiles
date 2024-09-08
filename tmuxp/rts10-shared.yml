@@ -1,0 +1,18 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/realtime-systems.yml"
+
+session_name: rts10-shared
+start_directory: $HOME/workspace/rts10_opdrachten
+
+windows:
+  - window_name: nvim
+    layout: tiled
+    panes:
+      -
+  - window_name: wiki
+    layout: tiled
+    panes:
+      - cd $HOME/workspace/rts10_opdrachten/docs/RTS10.wiki/
+  - window_name: lazygit
+    layout: tiled
+    panes:
+      - lazygit

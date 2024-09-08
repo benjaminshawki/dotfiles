@@ -30,3 +30,5 @@ export TERM="xterm-256color"
 . "$HOME/.cargo/env"
 
 export USER_BIN="$HOME/bin"
+
+export QT_QPA_PLATFORM=xcb

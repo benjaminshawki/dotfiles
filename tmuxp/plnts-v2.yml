@@ -6,8 +6,12 @@ windows:
     layout: tiled
     panes:
       - nvim +FZF
-  - window_name: terms
+  - window_name: dev-server
     layout: tiled
     panes:
       - $BROWSER --new-window https://localhost:3000/en & disown && exit
       - cd $HOME/workspace/plnts-v2/projects/plnts-storefront/ && pn dev
+  - window_name: lazygit
+    layout: tiled
+    panes:
+      - lazygit

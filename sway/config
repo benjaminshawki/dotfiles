@@ -49,6 +49,7 @@ bindsym $mod+Shift+q kill
 
 # FZF Launcher
 exec_always --no-startup-id $USER_BIN/fzf-launcher-close-when-unfocussed.sh
+
 bindsym $mod+d exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec;' 
 for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 90 ppt, move position center
 

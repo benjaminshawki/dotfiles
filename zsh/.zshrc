@@ -2,6 +2,8 @@ PATH="$HOME/.local/bin:$PATH"
 export npm_config_prefix="$HOME/.local"
 export PATH="$PATH:$HOME/.vim/bundle/vim-superman/bin"
 export JDTLS_JVM_ARGS="-javaagent:$HOME/java/libs/lombok.jar"
+export QUARTUS_HOME="/opt/intelFPGA_lite/23.1/quartus"
+export PATH="$QUARTUS_HOME/bin:$PATH"
 
 export BROWSER="firefox-developer-edition"
 
@@ -166,3 +168,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+export QSYS_ROOTDIR="/home/benjamin/.config/cache/yay/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/23.1/quartus/sopc_builder/bin"
