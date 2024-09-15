@@ -1,0 +1,18 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/realtime-systems.yml"
+
+session_name: Interactive Glasses
+start_directory: $HOME/workspace/Interactive-glasses
+
+windows:
+  - window_name: neovim
+    layout: tiled
+    panes:
+      -
+  - window_name: wiki
+    layout: tiled
+    panes:
+      - cd ./docs
+  - window_name: lazygit
+    layout: tiled
+    panes:
+      - lazygit

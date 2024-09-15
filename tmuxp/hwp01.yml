@@ -1,0 +1,18 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/realtime-systems.yml"
+
+session_name: hwp01
+start_directory: $HOME/workspace/hwp01/
+
+windows:
+  - window_name: nvim
+    layout: tiled
+    panes:
+      - nvim +FZF
+  - window_name: wiki
+    layout: tiled
+    panes:
+      - cd ./wiki
+  - window_name: lazygit
+    layout: tiled
+    panes:
+      - lazygit

@@ -29,6 +29,15 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export TERM="xterm-256color"
 . "$HOME/.cargo/env"
 
+export PATH=$PATH:$HOME/.cargo/bin
+
 export USER_BIN="$HOME/bin"
+export USERBIN="$USER_BIN"
 
 export QT_QPA_PLATFORM=xcb
+
+export PATH=$PATH:/path/to/compiledb
+
+export WORKSPACE="$HOME/workspace"
+
+export NODE_OPTIONS="--max-old-space-size=4096 --max-http-header-size=81920" 
