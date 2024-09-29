@@ -5,8 +5,6 @@ export JDTLS_JVM_ARGS="-javaagent:$HOME/java/libs/lombok.jar"
 export QUARTUS_HOME="/opt/intelFPGA_lite/23.1/quartus"
 export PATH="$QUARTUS_HOME/bin:$PATH"
 
-export BROWSER="firefox-developer-edition"
-
 # Dotnet
 export DOTNET_ROOT=/usr/share/dotnet
 export MSBuildSDKsPath=/usr/share/dotnet/sdk/8.0.105/Sdks
