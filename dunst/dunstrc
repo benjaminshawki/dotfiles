@@ -30,7 +30,7 @@
     startup_notification = false
 
     dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/firefox -new-tab
+    browser = /usr/bin/google-chrome-stable
  
 [frame]
     width = 1

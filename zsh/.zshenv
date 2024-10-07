@@ -44,3 +44,5 @@ export NODE_OPTIONS="--max-old-space-size=4096 --max-http-header-size=81920"
 
 # 1Password
 export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+
+export IDF_PATH="$HOME/workspace/esp/esp-idf"
