@@ -4,12 +4,12 @@ session_name: ab-test
 start_directory: $HOME/workspace/ab-test-statsig/
 
 windows:
-    - window_name: nvim ab-test
-      layout: tiled
-      panes:
-          - nvim +FZF
-    - window_name: terms
-      layout: tiled
-      panes:
-          - $BROWSER --new-window http://localhost:3000
-          - npm run dev
+  - window_name: nvim ab-test
+    layout: tiled
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"
+  - window_name: terms
+    layout: tiled
+    panes:
+      - $BROWSER --new-window http://localhost:3000
+      - npm run dev

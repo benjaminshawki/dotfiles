@@ -5,7 +5,7 @@ windows:
   - window_name: nvim
     layout: tiled
     panes:
-      - nvim +FZF
+      - nvim -c "lua require('telescope.builtin').find_files()"
   - window_name: make
     layout: tiled
     panes:

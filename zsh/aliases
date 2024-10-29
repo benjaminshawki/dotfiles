@@ -5,6 +5,8 @@ alias remarkable='wine .wine/drive_c/Program\ Files/reMarkable/reMarkable.exe &'
 alias mvli='ls -t ~/Pictures | head -n 1 | xargs -I {} cp ~/Pictures/{} .'
 alias cpli='[ -e "$HOME/Pictures/$(ls -t $HOME/Pictures/ | head -n1)" ] && cp "$HOME/Pictures/$(ls -t $HOME/Pictures/ | head -n1)"'
 alias copyf=$USER_BIN/copy-files.sh
+alias nvimsf='nvim -c "lua require(\"telescope.builtin\").find_files()"'
+alias nsf='nvim -c "lua require(\"telescope.builtin\").find_files()"'
 
 alias n=nvim
 alias lg=lazygit
