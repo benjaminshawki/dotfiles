@@ -7,6 +7,10 @@ alias cpli='[ -e "$HOME/Pictures/$(ls -t $HOME/Pictures/ | head -n1)" ] && cp "$
 alias copyf=$USER_BIN/copy-files.sh
 alias nvimsf='nvim -c "lua require(\"telescope.builtin\").find_files()"'
 alias nsf='nvim -c "lua require(\"telescope.builtin\").find_files()"'
+alias quartus='_JAVA_AWT_WM_NONREPARENTING=1 QT_QPA_PLATFORM=xcb quartus &'
+alias fpgamon='_JAVA_AWT_WM_NONREPARENTING=1 QT_QPA_PLATFORM=xcb "/home/benjamin/intelFPGA/University_Program/Monitor_Program/bin/intel-fpga-monitor-program"'
+
+
 
 alias n=nvim
 alias lg=lazygit

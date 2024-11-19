@@ -20,14 +20,32 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 10
 bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
 
+
+
 # Mouse
-input "2321:21128:PNP0C50:0b_0911:5288_Touchpad" {
-    #dwt enabled
-		# Temporary disabled since it was generating input commands that were not expected
-		# events disabled
+# input "*" {
+#     tap enabled     
+#     natural_scroll disabled
+#     dwt enabled
+#     accel_profile "flat"
+#     pointer_accel 0.5 
+# }
+input type:touchpad {
+    # note that DWT only works for internal touchpads (see libinput issue #524)
+    dwt enabled
     tap enabled
-    # middle_emulation enabled
+    natural_scroll disabled
+    middle_emulation enabled
+		accel_profile "flat"
+		pointer_accel 0.9
 }
+# input "2321:21128:PNP0C50:0b_0911:5288_Touchpad" {
+#     #dwt enabled
+# 		# Temporary disabled since it was generating input commands that were not expected
+# 		# events disabled
+#     tap enabled
+#     # middle_emulation enabled
+# }
 # input "type:mouse" {
 #     tap enabled
 #     # accel_profile flat
@@ -35,14 +53,47 @@ input "2321:21128:PNP0C50:0b_0911:5288_Touchpad" {
 #     #tap enabled
 #     # middle_emulation enabled
 # }   
-
-
+# input "1452:804:Apple_Inc._Magic_Trackpad_Mouse" {
+#     # Enable tap-to-click
+#     tap enabled
+#
+#     # Enable natural scrolling (like on macOS)
+#     natural_scroll enabled
+#
+#     # Adjust pointer acceleration
+#     pointer_accel 0.5  # Adjust to your preference (range: -1 to 1)
+#
+#     # Disable middle-click paste
+#     middle_emulation disabled
+#
+#     # Adjust scroll speed
+#     scroll_factor 1.0  # Scale scroll speed (default: 1.0)
+#
+#     # Enable palm detection (useful for accidental input)
+#     palm_detection enabled
+#
+#     # Set drag lock (helps with click-and-drag operations)
+#     drag_lock enabled
+#
+#     # Fine-tune gesture support (optional, for multi-finger gestures)
+#     dwt enabled   # Disable while typing
+# }
 input "1:1:AT_Translated_Set_2_keyboard" {
     xkb_options caps:escape
 }
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+bindgesture swipe:right workspace next
+bindgesture swipe:left workspace prev
+bindgesture swipe:4:right exec "$USER_BIN/move_container_to_next_workspace.sh"
+bindgesture swipe:4:left exec "$USER_BIN/move_container_to_prev_workspace.sh"
+
+# bindgesture --fingers 4 swipe:right move container to workspace next
+#
+# bindgesture --fingers 4 swipe:left move container to workspace prev
+# bindgesture pinch:inward+up move up
+# bindgesture pinch:inward+down move down
+# bindgesture pinch:inward+left move left
+# bindgesture pinch:inward+right move right
 
 # start a terminal
 bindsym $mod+Return exec alacritty
@@ -55,6 +106,10 @@ exec_always --no-startup-id $USER_BIN/fzf-launcher-close-when-unfocussed.sh
 
 bindsym $mod+d exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec;' 
 for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 90 ppt, move position center
+bindgesture pinch:inward+up move up
+bindgesture pinch:inward+down move down
+bindgesture pinch:inward+left move left
+bindgesture pinch:inward+right move right
 
 # FZF Profile Launcher
 exec_always --no-startup-id $USER_BIN/fzf-launcher-close-when-unfocussed.sh
@@ -101,7 +156,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+t floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle

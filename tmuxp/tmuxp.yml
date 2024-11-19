@@ -1,0 +1,14 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/realtime-systems.yml"
+
+session_name: tmuxp
+start_directory: $HOME/dotfiles/tmuxp/
+
+windows:
+  - window_name: o
+    layout: tiled
+    panes:
+      -
+  - window_name: a
+    layout: tiled
+    panes:
+      -

@@ -1,0 +1,22 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/realtime-systems.yml"
+
+session_name: csc10
+start_directory: $HOME/workspace/csc10/
+
+windows:
+  - window_name: nvim
+    layout: tiled
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"
+  - window_name: wiki
+    layout: tiled
+    panes:
+      - cd ./wiki
+  - window_name: term
+    layout: tiled
+    panes:
+      -
+  - window_name: lazygit
+    layout: tiled
+    panes:
+      - lazygit
