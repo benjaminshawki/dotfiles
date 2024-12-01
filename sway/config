@@ -87,13 +87,12 @@ bindgesture swipe:left workspace prev
 bindgesture swipe:4:right exec "$USER_BIN/move_container_to_next_workspace.sh"
 bindgesture swipe:4:left exec "$USER_BIN/move_container_to_prev_workspace.sh"
 
-# bindgesture --fingers 4 swipe:right move container to workspace next
-#
-# bindgesture --fingers 4 swipe:left move container to workspace prev
-# bindgesture pinch:inward+up move up
-# bindgesture pinch:inward+down move down
-# bindgesture pinch:inward+left move left
-# bindgesture pinch:inward+right move right
+# bindgesture pinch:4:inward kill
+
+bindgesture pinch:3:inward+up move up
+bindgesture pinch:3:inward+down move down
+bindgesture pinch:3:inward+left move left
+bindgesture pinch:3:inward+right move right
 
 # start a terminal
 bindsym $mod+Return exec alacritty
@@ -106,10 +105,6 @@ exec_always --no-startup-id $USER_BIN/fzf-launcher-close-when-unfocussed.sh
 
 bindsym $mod+d exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec;' 
 for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 90 ppt, move position center
-bindgesture pinch:inward+up move up
-bindgesture pinch:inward+down move down
-bindgesture pinch:inward+left move left
-bindgesture pinch:inward+right move right
 
 # FZF Profile Launcher
 exec_always --no-startup-id $USER_BIN/fzf-launcher-close-when-unfocussed.sh
