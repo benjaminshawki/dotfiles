@@ -1,0 +1,51 @@
+{
+    "created_time": "2022-09-09T15:37:26Z",
+    "files": [
+        {
+            "attachment_folder": "",
+            "created_time": "2022-09-09T15:38:13Z",
+            "id": "134",
+            "modified_time": "2022-09-09T15:49:29Z",
+            "name": "Weblecture 8 - Queryoptimalisatie inleiding.md",
+            "signature": "115802570972645",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2022-09-09T15:51:08Z",
+            "id": "132",
+            "modified_time": "2022-09-09T15:59:13Z",
+            "name": "Weblecture 9 - Queryoptimalisatie methode.md",
+            "signature": "658792734956",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2022-09-09T16:00:22Z",
+            "id": "136",
+            "modified_time": "2022-09-09T16:07:34Z",
+            "name": "Weblecture 10 Preformance tuning.md",
+            "signature": "93314122212118",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2022-09-13T07:47:55Z",
+            "id": "142",
+            "modified_time": "2022-09-13T08:34:17Z",
+            "name": "WC 13-09-22.md",
+            "signature": "79316824110507",
+            "tags": [
+            ]
+        }
+    ],
+    "folders": [
+    ],
+    "id": "130",
+    "modified_time": "2022-09-09T15:37:26Z",
+    "signature": "126093312613814",
+    "version": 3
+}

@@ -1,0 +1,12 @@
+- tandpasta
+- lamp
+- kapstok
+- schoenenrek
+- deurbel camera
+- prullenbak keuken
+- prullenbak badkamer
+- prullenbak bureau
+- prullenbak slaapkamer
+- badkamer kast
+- haar elastiekjes
+- 

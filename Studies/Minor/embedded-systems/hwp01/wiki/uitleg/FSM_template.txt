@@ -1,0 +1,62 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity fsm is
+	port (
+        clk, rst: in std_ulogic;
+        input1, input2, ...: in std_ulogic;
+        output1, output2, ...: out std_ulogic
+    );
+end fsm;
+
+architecture behavior of fsm is
+	type state_type is (idle, state1, state2, ...);
+	signal pr_state, nx_state: state_type;
+begin
+
+    process(clk, rst)
+    begin
+        if rst then
+            pr_state <= idle;
+        elsif rising_edge(clk) then
+            pr_state <= nx_state;
+        end if;
+    end process;
+
+    process(pr_state, input1, input2, ...)
+    begin
+        case pr_state is
+          when idle =>
+              if input1 then
+                nx_state <= state1;
+              else
+                nx_state <= state2;
+              end if;
+            when state1 =>
+                nx_state <= state2;
+            when state2 =>
+                ...;
+            when ... =>
+                ...;
+        end case;
+    end process;
+
+    process(pr_state)
+    begin
+        case pr_state is
+            when idle =>
+                output1 <= '0';
+                output2 <= '0';
+                ... 
+            when state1 =>
+                output1 <= '0';
+                output2 <= '1';
+                ... 
+            when state2 =>
+                ...;
+            when ... =>
+                ...;
+        end case;
+    end process;
+
+end architecture;

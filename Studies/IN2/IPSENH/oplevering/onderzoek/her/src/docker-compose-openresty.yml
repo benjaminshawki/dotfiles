@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  openresty:
+    image: openresty/openresty:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./default.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ./lua-scripts:/usr/local/openresty/lualib
+
+  app:
+    image: myapp:${SHA}
+    environment:
+      - SHA=${SHA}

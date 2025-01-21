@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+PRODID:-//github.com/rianjs/ical.net//NONSGML ical.net 4.0//EN
+VERSION:2.0
+BEGIN:VEVENT
+DESCRIPTION:Film: Guardians of the Galaxy Vol. 3\nBioscoop: Pathé Buitenho
+ f\nZaal: Zaal 5\nBarcode: WRN64PF
+DTEND:20230713T180500Z
+DTSTAMP:20230712T221956Z
+DTSTART:20230713T152000Z
+GEO:52.078575;4.310860
+LOCATION:Pathé Buitenhof\, Buitenhof 20\, 2513AG Den Haag
+SEQUENCE:0
+SUMMARY:Guardians of the Galaxy Vol. 3
+UID:b2bdb007-7e3e-43a9-8b3b-dc351f672043
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,90 @@
+# CI/CD Pipeline Configuration example for a containerized application with Docker, Traefik, and GitLab CI/CD.
+
+stages:
+  # - analyze
+  - build
+  - deploy
+
+# Default settings for Docker, applied globally unless specifically overridden.
+default:
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+
+# Global variables defining Docker configurations and image naming conventions.
+variables:
+  # Docker environment settings.
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: "/certs"
+
+  # Naming for Docker images, facilitating version control and latest builds.
+  IMAGE_FRONTEND: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME/frontend:$CI_COMMIT_SHORT_SHA
+  # IMAGE_BACKEND: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME/backend:$CI_COMMIT_SHORT_SHA
+  # IMAGE_E2E_TEST: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME/e2e-test:$CI_COMMIT_SHA
+
+  # Secure login to Docker registry.
+  DOCKER_LOGIN: echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+
+  # Todo: Replace with your root domain.
+  ROOT_DOMAIN: example.com
+
+# Depending on the pipleline, you might want an analyze stage to validate the code quality and syntax for both frontend and backend, and unit tests here.
+
+# Analyze stage:
+
+# Build stage: Creates Docker images for frontend, backend, and E2E testing.
+
+# Commands for building and pushing Docker images included.
+build-frontend:
+  stage: build
+  before_script:
+  - sh -c "$DOCKER_LOGIN"
+  script:
+    - docker compose -f docker-compose.prod.yml build frontend-placeholder
+    - docker push $IMAGE_FRONTEND
+  only:
+    - main
+
+# Example of building a backend with docker compose.
+# build-backend:
+#   stage: build
+#   before_script:
+#   - sh -c "$DOCKER_LOGIN"
+#   script:
+#     - docker compose -f docker-compose.prod.yml build backend
+#     - docker push $IMAGE_BACKEND
+#   only:
+#     - main
+
+deploy:
+  stage: deploy
+  image: alpine:3.14
+  before_script:
+    - apk add gettext openssh-client
+  script:
+    - export SERVICE_NAME="frontend-${CI_COMMIT_SHORT_SHA}"
+    - export TRAEFIK_ROUTER_RULE="Host(\`${CI_COMMIT_SHORT_SHA}.${ROOT_DOMAIN}\`) || Host(\`${ROOT_DOMAIN}\`)"
+
+    - sed -i "s|frontend-placeholder|${SERVICE_NAME}|g" docker-compose.prod.yml
+    - sed -i "s|\${CI_COMMIT_SHORT_SHA}|${CI_COMMIT_SHORT_SHA}|g" docker-compose.prod.yml
+    - sed -i "s|\${ROOT_DOMAIN}|${ROOT_DOMAIN}|g" docker-compose.prod.yml
+    - sed -i "s|\${CI_REGISTRY_IMAGE}|${CI_REGISTRY_IMAGE}|g" docker-compose.prod.yml
+
+    - envsubst < docker-compose.prod.yml > docker-compose.prod.subst.yml
+    - eval $(ssh-agent)
+    - echo "$ID_RSA" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - touch ~/.ssh/known_hosts
+    - chmod 600 ~/.ssh/known_hosts
+    - ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
+    - scp docker-compose.prod.subst.yml $SERVER_USER@$SERVER_IP:/home/deployer/${CI_COMMIT_SHORT_SHA}-docker-compose.prod.yml
+    - ssh $SERVER_USER@$SERVER_IP "
+        cd /home/$SERVER_USER;
+
+        docker compose -f ${CI_COMMIT_SHORT_SHA}-docker-compose.prod.yml up -d;
+
+        ./make-sha-root-domain.sh '${CI_COMMIT_SHORT_SHA}' '$ROOT_DOMAIN';
+      "
+
+# Todo: add end to end tests after the deployment and trigger a rollback to the previous sha if the tests fail

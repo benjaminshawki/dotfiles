@@ -1,0 +1,5 @@
+#Mon Mar 11 21:58:58 CET 2024
+configuration*?=71451641E211987EE68BAD34F516E018980106BF
+module-resource*?\:checkstyle-xpath-suppressions.xml=7036157B7699A3F970DF3D4B1C65E00271BB49C0
+/home/benjamin/dev/pintandpillage-containerized/PintAndPillageJavaBackend/src/main/resources/application.properties=1710108011107
+module-resource*?\:checkstyle-suppressions.xml=ADE39196B6E4AD9324DB9C5CF536E36C17C2169E

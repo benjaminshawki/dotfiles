@@ -1,0 +1,7 @@
+# Use Cypress base image
+FROM cypress/included:13.6.0
+WORKDIR /app
+COPY PintAndPillageFrontend/package*.json ./
+RUN npm install
+COPY PintAndPillageFrontend/ .
+CMD ["npx", "cypress", "run"]

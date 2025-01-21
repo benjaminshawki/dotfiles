@@ -1,0 +1,15 @@
+# Weblecture 8, Queryoptimalisatie inleiding
+![](vx_images/207073817245373.png)
+![](vx_images/245954017226614.png)
+
+![](vx_images/228964217249054.png)
+![](vx_images/311044217244190.png)
+![](vx_images/294064317237736.png)
+![](vx_images/1534417230870.png)
+![](vx_images/220784517221400.png)
+![](vx_images/190864617223904.png)
+![](vx_images/324874617232851.png)
+![](vx_images/505234617225736.png)
+![](vx_images/593644617226345.png)
+![](vx_images/456824717253300.png)
+![](vx_images/287464917235513.png)

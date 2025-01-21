@@ -1,0 +1,51 @@
+# docker-compose file for irdb
+# how to use psql from this:
+#
+# alias psql="docker exec -it $(docker ps | grep postgres | cut -d' ' -f1) psql -U postgres"
+#
+# or:
+#
+# alias psql="docker-compose exec postgres psql -U postgres
+#
+# This cannot be used with commandline redirection. In that case use different flags:
+# 
+# echo "CREATE DATABASE companydb" | docker-compose exec -T postgres psql -U postgres
+# docker-compose exec -T postgres psql -U postgres companydb < companydb.sql
+#
+
+version: "3.8"
+services:
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+    - postgres-data:/var/lib/postgresql/data
+    ports:
+    - "5432:5432"
+ 
+  pgadmin:
+    image: dpage/pgadmin4:6
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: arts.r@hsleiden.nl
+      PGADMIN_DEFAULT_PASSWORD: postgres
+      PGADMIN_LISTEN_PORT: 80
+    ports:
+    - "8000:80"
+    volumes:
+    - pgadmin-data:/var/lib/pgadmin
+    links:
+    - "postgres:postgres"
+
+volumes:
+  postgres-data:
+    driver: local-persist
+    driver_opts:
+      mountpoint: $HOME/data/postgres15
+  pgadmin-data:
+

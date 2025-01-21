@@ -1,0 +1,17 @@
+Voor symmetrische encryptie.
+
+100 man willen communiceren. Ieder wil prive kunnen communiceren met een ander.
+
+Dat Betekent dat ik Nx(N-1)/2 SLEUTELS nodig heb. Een sleutel is in dit geval gebruikt per 2 man!
+
+
+Voor Assymetrische encryptie is dit 2 x N KEYPAIRS!!
+
+Assymetrische encryptie is dus veel zuiniger met sleutels.
+
+
+
+Symmetrisch= N x ( N-1 ) / 2 SLEUTELS ->:2 omdat je per 2 personen 1 key nodig hebt.
+Asymmetrisch = 2 x N KEYPAIRS! x2 omdat je anders niet BIDIRECTIONEEL veilig kan communiceren ( Iedereen moet een eigen private key hebben ).
+
+Maak hier een screenshot van oid?

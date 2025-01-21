@@ -1,0 +1,21 @@
+package nl.duckstudios.pintandpillage.entity.buildings;
+
+class ResourceBuildingTest {
+
+    // Other test setup and methods as before
+
+    // Define a concrete subclass of ResourceBuilding for testing purposes
+    private static class ConcreteResourceBuilding extends ResourceBuilding {
+        @Override
+        protected void updateVillageState() {
+            // Implementation details for testing, if necessary
+        }
+
+        @Override
+        protected void updateBuilding() {
+            // Provide an implementation for this abstract method from Building
+            // This can be left empty if the method's behavior is not relevant to your test
+        }
+    }
+}
+

@@ -1,0 +1,41 @@
+{
+    "created_time": "2022-08-31T09:50:44Z",
+    "files": [
+        {
+            "attachment_folder": "",
+            "created_time": "2022-08-31T09:51:15Z",
+            "id": "109",
+            "modified_time": "2022-08-31T10:16:02Z",
+            "name": "Webcoleges.md",
+            "signature": "27205984792339",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2022-08-31T14:53:36Z",
+            "id": "111",
+            "modified_time": "2022-08-31T17:16:22Z",
+            "name": "Notes 1 3 ibuid Data warehousing basisbegrippen.md",
+            "signature": "72273076647408",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2022-09-01T07:04:53Z",
+            "id": "112",
+            "modified_time": "2022-09-01T12:51:34Z",
+            "name": "WC 1.md",
+            "signature": "79316823071125",
+            "tags": [
+            ]
+        }
+    ],
+    "folders": [
+    ],
+    "id": "108",
+    "modified_time": "2022-08-31T09:50:44Z",
+    "signature": "79316822994676",
+    "version": 3
+}

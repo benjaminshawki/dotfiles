@@ -1,0 +1,15 @@
+# Lecture 5 SQL
+![](vx_images/219244612239371.png)
+![](vx_images/319164712227238.png)
+![](vx_images/389964912247404.png)
+![](vx_images/490184912240073.png)
+![](vx_images/122755112236628.png)
+![](vx_images/426315312232382.png)
+![](vx_images/562725312250262.png)
+![](vx_images/415445412247866.png)
+![](vx_images/550575412245368.png)
+![](vx_images/135905512226609.png)
+![](vx_images/286795512249049.png)
+![](vx_images/370565512244185.png)
+![](vx_images/520325512237731.png)
+

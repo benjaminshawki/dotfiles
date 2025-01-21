@@ -1,0 +1,741 @@
+<p>PLNTS is een dynamische e-commerce onderneming gespecialiseerd in
+planten en verzorgingsproducten. Met een groeiende complexiteit van de
+website is er een behoefte aan een meer data-gestuurde aanpak om de
+gebruikerservaring en conversieratio’s te verbeteren. Er is momenteel
+geen geïntegreerd systeem voor A/B-testen om deze kansen te
+benutten.</p>
+<h1 id="inleiding">Inleiding</h1>
+<p>Beschrijf de achtergrond van uw stage, uw motivatie, en de doelen van
+de stage.</p>
+<h1 id="context-van-de-stageorganisatie">Context van de
+Stageorganisatie</h1>
+<p>Beschrijf de organisatie waar u stage loopt, inclusief hun doelen,
+structuur, en uw rol binnen de organisatie.</p>
+<h2 id="de-organisatie">De Organisatie</h2>
+<h2 id="belanghebbenden">Belanghebbenden</h2>
+<h2 id="probleemstelling">Probleemstelling</h2>
+<h1 id="opdrachtbeschrijving">Opdrachtbeschrijving</h1>
+<h2 id="doel">Doel</h2>
+<p>Het hoofddoel van uw stageopdracht.</p>
+<h2 id="deelopdrachten">Deelopdrachten</h2>
+<p>Specifieke taken of projecten die u heeft uitgevoerd.</p>
+<h2 id="aanpak">Aanpak</h2>
+<p>Uw methoden en benaderingen om de taken te volbrengen.</p>
+<h1 id="resultaten-en-discussie">Resultaten en Discussie</h1>
+<h2 id="scope">Scope</h2>
+<p>TODO: scope @ stageplan + toevoegingen betreft Algemeen A/B testen en
+Web A/B testen</p>
+<h2 id="onderzoek">Onderzoek</h2>
+<p>A/B-testen is een breed fenomeen met veel nuances. Om een goed beeld
+te krijgen van de mogelijkheden en beperkingen van A/B-testen, is een
+uitgebreid onderzoek nodig.</p>
+<p>De wat, hoe en waarom vragen dienen te worden beantwoord om een zo
+een beter beeld te schetsen over het proces van A/B-testen. Google met
+hun platform <em>Optimizely</em> heeft een artikel<span class="citation"
+data-cites="optimizley-glossary_ab-testing">[@optimizley-glossary_ab-testing]</span>
+geschreven waarbij een aantal van deze vragen worden beantwoord.
+Daarnaast moet er een overzicht worden gemaakt van de bestaande
+A/B-testsystemen en de metrics die worden gebruikt om de resultaten van
+de A/B-testen te meten.</p>
+<p>Het onderzoek kan worden onderverdeeld in de volgende onderdelen:</p>
+<ul>
+<li>Wat is A/B-testen?
+<!--- TODO:  Hetvolgende artikel is een goede bron voor het opstellen van de metrics voor de Wat Hoe Waarom en het proces: https://www.optimizely.com/optimization-glossary/ab-testing/) --></li>
+<li>Hoe werkt A/B-testen?</li>
+<li>Waarom A/B-testen?</li>
+<li>Het A/B-testproces</li>
+<li>Bestaande A/B-testsystemen</li>
+<li>Metrics</li>
+<li>Integratie met het huidige systeem
+<ul>
+<li>Impact Cookie beleid</li>
+<li>Impact SEO</li>
+<li>Cumulative Layout Shift (CLS)</li>
+</ul></li>
+</ul>
+<h3 id="wat-is-ab-testen">Wat is A/B-testen?</h3>
+<p>A/B Testen, ook wel split-testen of bucket-testen genoemd, is een
+methode om twee versies van een webpagina of app te vergelijken en om te
+bepalen welke versie beter presteert. De twee versies (A en B) worden
+willekeurig aan gebruikers getoond en de resultaten worden geanalyseerd
+om te bepalen welke versie beter presteert. A/B-testen wordt vaak
+gebruikt om de effectiviteit van veranderingen in de gebruikerservaring
+te testen, maar kan ook worden gebruikt om andere variabelen te testen,
+zoals prijs, inhoud en lay-out.</p>
+<p>Een A/B test, welke een variatie vergelijkt met een bestaande versie
+stelt in staat om vragen te stellen over de veranderingen binnen een
+platform. Bijvoorbeeld, welke versie van een productpagina leidt tot
+meer aankopen? Welke versie van een app leidt tot meer aanmeldingen?
+Welke versie van een e-mailcampagne leidt tot meer klikken? A/B-testen
+kan worden gebruikt om deze vragen te beantwoorden en om de
+effectiviteit van veranderingen te meten.</p>
+<h3 id="hoe-werkt-ab-testen">Hoe werkt A/B-testen?</h3>
+<p>A/B testen begint met het maken van verschillende versies van
+eenzelfde pagina of app, vervolgens worden deze versies aan
+verschillende groepen gebruikers getoond. Deze groepen woorden de vaak
+de <em>control</em> en <em>test</em> groep genoemd. De control groep is
+vaak de huidige situatie van een pagina of app, de test groep is de
+nieuwe versie van de pagina of app. Bij deze <em>experimenten</em>
+kunnen er verschillende soorten gebruikersinteracties worden gemeten,
+voor een E-Commerce platform is dit onder andere de conversie ratio, de
+gemiddelde orderwaarde en de gemiddelde tijd op de pagina. Een
+uitgebreid overzicht van de metrics is te vinden in het hoofdstuk <a
+href="#metrics"><em>Metrics</em></a>.</p>
+<h3 id="waarom-ab-testen">Waarom A/B-testen?</h3>
+<p>Het testen verandert giswerk in wetenschap. In plaats van te
+vertrouwen op giswerk om te bepalen welke versie van een pagina of app
+het beste presteert, kunnen A/B-testen en statistische analyse worden
+gebruikt om te bepalen welke versie beter presteert. Door A/B-testen te
+gebruiken om te experimenteren, kunnen bedrijven hun intuïtie vervangen
+door bewijs bij het nemen van beslissingen over hun producten, ook wel
+data-gedreven besluitvorming genoemd.</p>
+<h3 id="het-ab-testproces">Het A/B-testproces</h3>
+<p>Het A/B-testproces bestaat uit de volgende stappen: - Het
+identificeren van een kans - Het opstellen van een hypothese - Het
+ontwerpen van een experiment - Het uitvoeren van het experiment - Het
+analyseren van de resultaten - Het trekken van conclusies</p>
+<h3 id="e-commerce-ab-testen">E-commerce &amp; A/B-testen</h3>
+<p>E-commerce is een van de meest voorkomende toepassingen van
+A/B-testen.</p>
+<h3 id="bestaande-ab-testsystemen">Bestaande A/B-testsystemen</h3>
+<p>Natuurlijk is het mogelijk om zelf een A/B-testsysteem te bouwen voor
+het meten van events en voor de weergave van de resultaten. Dit zijn
+complexe systemen die veel tijd en geld kosten om te bouwen en te
+onderhouden. Daarom is het verstandig om gebruik te maken van een
+bestaand systeem, en deze te configureren zodat deze voldoet aan de
+wensen en eisen van de opdrachtgever. Er zijn veel verschillende
+A/B-testsystemen beschikbaar, onder anderen Optimizely, split.io en
+statsig. Deze systemen hebben allemaal hun eigen voor- en nadelen. TODO
+link naar onderzoek bestaande A/B-testsystemen.</p>
+<h3 id="metrics">Metrics</h3>
+<p>Om te bepalen of een experiment succesvol is, moeten er metrics
+worden gebruikt. Deze metrics zijn de meetbare waarden die worden
+gebruikt om de resultaten van een experiment te evalueren. Het is
+belangrijk om de juiste metrics te kiezen, omdat deze de basis vormen
+voor het nemen van beslissingen. Het is ook belangrijk om te onthouden
+dat het kiezen van de juiste metrics een iteratief proces is. Het is
+niet altijd mogelijk om de juiste metrics te kiezen bij het eerste
+experiment. Het is belangrijk om te experimenteren met verschillende
+metrics en om te leren welke metrics het beste werken voor een bepaald
+experiment. Om een beter beeld te krijgen van de specifieke metrics die
+relevant zijn voor PLNTS is er een enquête onderzoek gedaan naar de
+gewenste onderdelen die gemeten dienen te worden en welke soorten
+metrics relevant zijn voor een bepaald onderdeel van de website. In <a
+href="#Notion%20artikel">bijlage 1 (A/B Testing)</a> staan het artikel
+dat op de wiki van PLNTS geplaatst is, <em>de reacties van het IT en
+Marketing team</em>, en <em>de door mij getrokken conclusies</em>.</p>
+<h3 id="evaluatie-van-een-experiment">Evaluatie van een Experiment</h3>
+<p>Bij de evaluatie van een experiment zijn er een aantal zaken die van
+belang zijn. Deze zaken zijn de vraagstellingen en het stappenplan.</p>
+<h4 id="evaluatie-vraagstellingen">Evaluatie vraagstellingen</h4>
+<p>Devolgende vraagstellingen zijn van belang bij het evalueren van een
+experiment: - [ ] Wat is het doel van het experiment? - [ ] Wat is de
+hypothese? - [ ] Welke metrics worden gebruikt om het experiment te
+evalueren? - [ ] Wat is de verwachte uitkomst? - [ ] Wat is de minimale
+detecteerbare effectgrootte? - [ ] Wat is de minimale effectgrootte die
+nodig is om het experiment te laten slagen? - [ ] Wat is de minimale
+looptijd van het experiment? - [ ] Wat is de minimale steekproefgrootte?
+- [ ] Wat is de minimale steekproefgrootte per variant? - [ ] Wat is de
+minimale steekproefgrootte binnen een bepaalde tijdseenheid?</p>
+<p>Het beantwoorden van deze vragen helpt om een duidelijk beeld te
+schetsen over het experiment en zorgt voor een goede basis voor het
+evalueren van het experiment.</p>
+<h4 id="evaluatie-stappenplan">Evaluatie stappenplan</h4>
+<p>Voor het evalueren van een experiment is het belangrijk om een
+stappenplan te hebben.</p>
+<ol type="1">
+<li><p>Evaluatieobject De eerste stap is het bepalen van het
+evaluatieobject. Dit is het object dat wordt geëvalueerd. Dit kan een
+pagina, een app of een ander object zijn.</p></li>
+<li><p>Evaluatiecriteria De tweede stap is het bepalen van de
+evaluatiecriteria. Dit zijn de criteria die worden gebruikt om het
+evaluatieobject te evalueren. Dit kunnen bijvoorbeeld de conversieratio,
+de gemiddelde orderwaarde en de gemiddelde tijd op de pagina
+zijn.</p></li>
+<li><p>Evaluatiemethode De derde stap is het bepalen van de
+evaluatiemethode. Dit is de methode die wordt gebruikt om het
+evaluatieobject te evalueren. Dit kan op verschillende manieren gedaan
+worden en de mannier waarvoor plnts gekozen heeft is A/B
+testen.</p></li>
+<li><p>Evaluatieresultaat De vierde stap is het bepalen van het
+evaluatieresultaat. Dit is het resultaat van de evaluatie van het
+evaluatieobject. Dit kan bijvoorbeeld een conversieratio van 5%
+zijn.</p></li>
+<li><p>Evaluatieactie De vijfde stap is het bepalen van de
+evaluatieactie. Dit is de actie die wordt ondernomen op basis van het
+evaluatieresultaat. Dit kan bijvoorbeeld het aanpassen van de kleur van
+een knop zijn.</p></li>
+</ol>
+<h3 id="integratie-met-het-huidige-systeem">Integratie met het huidige
+systeem</h3>
+<p>Het A/B-testen heeft impact op het huidige systeem van PLNTS. Dit
+komt omdat er een systeem moet worden gebouwd om de A/B-testen te kunnen
+uitvoeren en dit systeem moet vervolgens binnen de huidige applicatie
+ingebouwd worden. In overleg met de andere developers van PLNTS zijn er
+een aantal punten die van extra belang zijn met betrekking tot de
+integratie met het huidige systeem.</p>
+<p>Ten eerste moet het A/B-test systeem een minimale impact hebben op de
+laad tijd van de pagina. Dit is belangrijk omdat de laad tijd van de
+pagina een grote impact heeft op de conversie ratio. Een vertraging van
+100 milliseconde kan al leiden tot een verlaging van de conversie ratio
+met 7%<span class="citation"
+data-cites="akamai-ecommerce-performance">[@akamai-ecommerce-performance]</span>
+en een vertraging van 2 seconden kan de bounce rate verhogen met
+103%<span class="citation"
+data-cites="akamai-ecommerce-performance">[@akamai-ecommerce-performance]</span>.
+Dit betekent dat het A/B-test systeem een minimale impact moet hebben op
+de laad tijd van de pagina.</p>
+<p>Ten tweede is het van belang dat er geen cumulatieve indeling
+verschuiving aanwezig is, ofwel de meer gangbare Engelse term “Zero
+Cumulative Layout Shift (CLS)”. Dit betekend grofweg dat de er geen
+verspringingen zijn bij het inladen van componenten, wat de gebruikers
+ervaring negatief beïnvloedt.</p>
+<p>Deze eerste twee punten worden in dit project opgelost door gebruik
+te maken van de technologieën die Vercel met Next.js biedt. Om de laad
+tijd en CLS te verbeteren, worden pagina’s van tevoren opgebouwd. Dit
+houdt in dat een enkele pagina meerdere keren wordt voorbereid en
+opgeslagen in de cache voor de verschillende combinaties van
+experimenten op de pagina. Dit proces wort in detail in hoofdstuk
+<code>TODO: ADD HOOFDSTUK</code> beschreven.</p>
+<p>Ten derde is het van belang dat het A/B-test systeem geen impact
+heeft op de SEO van de website. Wanneer de SEO negatief wordt beïnvloedt
+zorgt dit voor een verlaging van het totaal bezoekersaantal. Het
+A/B-test systeem mag dus geen negatieve impact hebben op de SEO van de
+website.</p>
+<p>Ten vierde is het van belang dat er onderzocht moet worden hoe het
+A/B-test systeem impact heeft op het cookie beleid van PLNTS. Er moet
+gekeken worden of het huidige cookie beleid onderdelen mist en hoe dit
+eventueel veranderd zou moeten worden.</p>
+<h4 id="het-tonen-van-de-verschillende-varianten-aan-de-gebruikers">Het
+tonen van de verschillende varianten aan de gebruikers</h4>
+<p>Het tonen van de verschillende varianten aan de gebruikers is één van
+de belangrijkste functionaliteiten van het A/B-test systeem. Er moet een
+variant van een experiment getoond worden aan de gebruikers. De variant
+wordt in het geval van PLNTS bepaald zodra de gebruiker de pagina
+bezoekt. De gebruiker wordt per experiment in een groep ingedeeld en
+deze indeling wordt lokaal bij de gebruiker opgeslagen in de cookie.</p>
+<p><strong>Impact op het huidige cookie beleid</strong> A/B-testen zal
+mogelijk een aanpassing of toevoeging nodig hebben op het huidige cookie
+beleid van PLNTS. Dit komt omdat er cookies worden gebruikt om de
+gebruikers te identificeren. Deze cookies worden gebruikt om de
+gebruikers in een variant te plaatsen.</p>
+<p><strong>Impact SEO</strong> Het A/B-testen heeft mogelijk impact op
+de SEO van PLNTS. Dit komt omdat er verschillende varianten van een
+pagina worden getoond aan de gebruikers. Dit kan echter voorkomen worden
+door rekening the houden met een aantal risico’s welke relevant zijn tot
+het A/B-testen. Er moet voornamelijk gekeken worden naar Cloaking,
+Redirection, Duplication en Performance<span class="citation"
+data-cites="impact-seo">[@impact-seo]</span>.</p>
+<p><strong>Cloaking</strong> Cloaking in SEO verwijst naar de praktijk
+waarbij verschillende inhoud of URL’s worden gepresenteerd aan
+gebruikers en zoekmachines. Deze techniek kan een negatieve invloed
+hebben op de SEO van de site, omdat het door zoekmachines zoals Google
+als misleidend wordt beschouwd. Om dit te voorkomen, moet ervoor gezorgd
+worden dat zowel gebruikers als zoekmachines dezelfde pagina zien.
+Cloaking wordt beschouwd als een overtreding van Google’s
+Richtlijnen<span class="citation"
+data-cites="dont-cloak-your-test-pages">[@dont-cloak-your-test-pages]</span>,
+en kan leiden tot het bestraffen of zelfs verwijderen van je site uit
+zoekresultaten. In dit project zal hier rekening mee gehouden worden
+expliciet geen gebruik te maken van cloaking.</p>
+<p><strong>Redirection</strong> Redirection in SEO verwijst naar het
+doorsturen van gebruikers van de ene URL naar een andere. Dit kan worden
+gedaan met behulp van een 301-redirect, die permanent is, of een
+302-redirect, die tijdelijk is. Het gebruik van een 302-redirect kan een
+negatieve invloed hebben op de SEO van de site, omdat het door
+zoekmachines zoals Google als misleidend wordt beschouwd. Om dit te
+voorkomen, moet ervoor gezorgd worden dat zowel gebruikers als
+zoekmachines dezelfde pagina zien. Permanente redirection wordt
+beschouwd als een overtreding van Google’s Richtlijnen<span
+class="citation" data-cites="use-302-not-301">[@use-302-not-301]</span>,
+en kan wederom leiden tot het bestraffen of zelfs verwijderen van je
+site uit zoekresultaten. De methode die voor dit project gebruikt wordt
+maakt geen gebruik van omleiding (redirect), maar herschrijft (rewrite)
+de URL op middleware niveau. Herschrijvingen (rewrites) geeft de
+mogelijkheid om een inkomend verzoekpad (request path) te koppelen aan
+een ander bestemmingspad (destination path). Herschrijvingen dienen als
+een URL-proxy en maskeren het bestemmingspad, waardoor het lijkt alsof
+de gebruiker zijn locatie op de site niet heeft veranderd. Dit in
+tegenstelling tot omleidingen (redirects), die doorverwijzen naar een
+nieuwe pagina en de URL-wijzigingen tonen<span class="citation"
+data-cites="next-rewrites">[@next-rewrites]</span>. aaaaabb</p>
+<h5 id="duplication">Duplication</h5>
+<p>Duplication in SEO verwijst naar het hebben van dezelfde inhoud op
+meerdere URL’s. In dit project zal hier rekening mee gehouden worden
+door de URL’s van de verschillende varianten van een pagina te
+herschrijven (rewrite) naar dezelfde URL.</p>
+<h5 id="performance">Performance</h5>
+<p>Zoals eerder in dit hoofdstuk beschreven is performance een
+belangrijk onderdeel van het A/B-testen. Dit komt omdat de laad tijd van
+de pagina een grote impact heeft op veel velden, zoals conversie ratio,
+page views, en ook op SEO.
+<code>TODO: verwijzing en een stukje tekst over Perfomance, iets van: Het gehele plaatje omtrend perfomance en het optimalisatie proces wordt beschreven in hoofdstuk x</code></p>
+<h4 id="cumulative-layout-shift-cls">Cumulative Layout Shift (CLS)</h4>
+<h2 id="beroepsproducten-taken">Beroepsproducten &amp; Taken</h2>
+
+<h2 id="oplossingen">Oplossingen</h2>
+
+<h2 id="gebruikscondities">Gebruikscondities</h2>
+
+<h2 id="overdracht">Overdracht</h2>
+
+<h1 id="reflectie">Reflectie</h1>
+<p>Reflecteer op uw leerproces, hoe de stage uw professionele
+vaardigheden heeft verbeterd, en hoe het bijdraagt aan uw
+carrièredoelen.</p>
+<h2 id="aanpak-planning-en-resultaat">Aanpak, planning en resultaat</h2>
+<h2 id="persoonlijke-leerdoelen">Persoonlijke Leerdoelen</h2>
+<p>Uw persoonlijke ontwikkeling en gerealiseerde doelen tijdens de
+stage.</p>
+<h2 id="zakelijke-doelstellingen">Zakelijke Doelstellingen</h2>
+<p>Hoe uw werk bijdroeg aan de doelstellingen van de organisatie.</p>
+<h2 id="risicos">Risico’s</h2>
+<p>Risico’s die u heeft genomen en hoe u deze heeft aangepakt.</p>
+<h2 id="de-opgedane-kennis-en-vaardigheden">De opgedane kennis en
+vaardigheden</h2>
+<p>Uw ervaringen en interacties binnen de organisatie.</p>
+<h2 id="uitgevoerde-beroepstaken">Uitgevoerde beroepstaken</h2>
+<h2 id="begeleiding-en-ondersteuning-van-de-organisatie">Begeleiding en
+ondersteuning van de organisatie</h2>
+<h2 id="begeleiding-en-ondersteuning-van-de-opleiding">Begeleiding en
+ondersteuning van de opleiding</h2>
+
+<h1 id="nabeschouwing">Nabeschouwing</h1>
+<p>Een overzicht van uw leerervaringen en de impact van de stage op uw
+professionele ontwikkeling.</p>
+<h1 id="bijlagen">Bijlagen</h1>
+<h2 id="notion-artikel">Notion artikel</h2>
+<blockquote>
+<p>A/B Testing<br />
+</p>
+<p>One of the most effective methods to obtain actionable insights from
+user behavior is A/B testing. This technique involves comparing two
+versions of a webpage or app against each other to determine which one
+performs better in terms of driving desired user actions. In the
+subsequent sections, we delve deep into categorized A/B testing ideas
+tailored for <a href="http://plnts.com/">plnts.com</a>, aiming to shed
+light on potential areas of optimization and the unique metrics that can
+help gauge their success.</p>
+<p>Categorized A/B Testing Ideas for <a
+href="http://plnts.com/">plnts.com</a><br />
+</p>
+<ol type="1">
+<li>Product Listings and Display:</li>
+</ol>
+<ul>
+<li>Test: Different layouts (grid view vs. list view) or product image
+sizes.</li>
+<li>Metrics:
+<ul>
+<li>Click-through rate</li>
+<li>Product views</li>
+<li>Time spent on product pages</li>
+<li>Add-to-cart rate</li>
+<li><em>Misschien hier AOV toevoegen?</em></li>
+</ul></li>
+</ul>
+<p><strong>Average orde value (AOV) -&gt; Helps understand purchasing
+behavior, because it gives a better understanding of how much a customer
+is willing to spend on a single purchase.</strong></p>
+<ul>
+<li><em>Misschien hier Aantal producten per bestelling
+toevoegen?</em></li>
+</ul>
+<p><strong>Number of products per order -&gt; Similar to AOV, this
+metric helps understand purchasing behavior.</strong></p>
+<ol start="2" type="1">
+<li>Product Descriptions:</li>
+</ol>
+<ul>
+<li>Test: Different description lengths, formats, or user reviews
+vs. professional descriptions.</li>
+<li>Metrics:
+<ul>
+<li>Time spent on product page</li>
+<li>Add-to-cart rate</li>
+<li>Conversion rate</li>
+<li><em>Misschien hier voor CS ook iets meetbaar maken? Aantal vragen
+over een specifiek product? Dan zou je echt een integratie moeten maken
+met Zendesk en dat is een andere fase denk ik</em></li>
+</ul></li>
+</ul>
+<p><strong>Customer satisfaction (CS) -&gt; Helps understand how
+satisfied customers are with the product.</strong></p>
+<ol start="3" type="1">
+<li>Call-to-Action (CTA) Buttons:</li>
+</ol>
+<ul>
+<li>Test: Different button colors, sizes, text (e.g., “Buy Now” vs. “Add
+to Cart”).</li>
+<li>Metrics:
+<ul>
+<li>Click-through rate of the CTA</li>
+<li>Conversion rate</li>
+<li><em>Misschien exit % toevoegen? Hoeveel mensen haken af door deze
+aanpassing (mogelijk te veel push)</em></li>
+</ul></li>
+</ul>
+<p><strong>Exit rate -&gt; Helps understand how many people leave the
+site after viewing a specific page.</strong></p>
+<ol start="4" type="1">
+<li>Pricing and Promotions:</li>
+</ol>
+<ul>
+<li>Test: Different pricing strategies or promotional offers (e.g., “20%
+off” vs. “Buy One Get One Free”).</li>
+<li>Metrics:
+<ul>
+<li>Conversion rate</li>
+<li>Average order value</li>
+<li>Total sales</li>
+<li><em>Misschien exit % toevoegen? Hoeveel mensen haken af door deze
+aanpassing (mogelijk te veel push)</em></li>
+</ul></li>
+</ul>
+<p><strong>Exit rate -&gt; see above</strong> - <em>Misschien
+add-to-cart % toevoegen</em></p>
+<p><strong>Add-to-cart rate -&gt; Helps understand how many people add a
+product to their cart after viewing it.</strong></p>
+<ol start="5" type="1">
+<li>Checkout Process:</li>
+</ol>
+<ul>
+<li>Test: Single-page vs. multi-step checkout or different checkout page
+designs.</li>
+<li>Metrics:
+<ul>
+<li>Cart abandonment rate</li>
+<li>Conversion rate</li>
+<li><em>Misschien exit % toevoegen? Hoeveel mensen haken af door deze
+aanpassing (mogelijk te veel push)</em></li>
+</ul></li>
+</ul>
+<p><strong>Exit rate -&gt; see above</strong> - <em>Mogelijk kan je de
+AOV nog omhoog krikken door in de check-out upsells toe te
+voegen?</em></p>
+<p><strong>Average order value (AOV) -&gt; see above</strong></p>
+<ol start="6" type="1">
+<li>Landing Pages</li>
+</ol>
+<ul>
+<li>Test: Different designs, images, headlines, or content
+structures.</li>
+<li>Metrics:
+<ul>
+<li>Bounce rate</li>
+<li>Time spent on page</li>
+<li>Conversion rate</li>
+</ul></li>
+</ul>
+<ol start="7" type="1">
+<li>Navigation and Menu:</li>
+</ol>
+<ul>
+<li>Test: Different menu structures or navigation layouts.</li>
+<li>Metrics:
+<ul>
+<li>Bounce rate</li>
+<li>Time spent on site</li>
+<li>Pages viewed per session</li>
+</ul></li>
+</ul>
+<ol start="8" type="1">
+<li>Search Functionality:</li>
+</ol>
+<ul>
+<li>Test: Search bar placement, predictive search suggestions, or filter
+options.</li>
+<li>Metrics:
+<ul>
+<li>Use of search functionality</li>
+<li>Conversion rate from search results</li>
+<li>User satisfaction with search results</li>
+</ul></li>
+</ul>
+<ol start="9" type="1">
+<li>Email Sign-Up Prompts:</li>
+</ol>
+<ul>
+<li>Test: Pop-up vs. embedded sign-up forms or different incentives for
+signing up (e.g., discount codes vs. care guides).</li>
+<li>Metrics:
+<ul>
+<li>Email sign-up rate</li>
+<li>Bounce rate</li>
+<li>Subsequent open and click rates of emails</li>
+</ul></li>
+</ul>
+<ol start="10" type="1">
+<li>Product Recommendations:</li>
+</ol>
+<ul>
+<li>Test: Algorithmic recommendations vs. curated ones.</li>
+<li>Metrics:
+<ul>
+<li>Click-through rate on recommended products</li>
+<li>Average order value</li>
+<li>Conversion rate</li>
+</ul></li>
+</ul>
+<ol start="11" type="1">
+<li>Mobile vs. Desktop Experience:</li>
+</ol>
+<ul>
+<li>Test: Different mobile layouts or features.</li>
+<li>Metrics:
+<ul>
+<li>Mobile conversion rate</li>
+<li>Bounce rate</li>
+<li>Average session duration</li>
+</ul></li>
+</ul>
+<ol start="12" type="1">
+<li>Testimonials and User Feedback: → <em>gebruiken we nu Hotjar
+voor</em></li>
+</ol>
+<p><strong>Hotjar -&gt; Helps understand how users interact with the
+site.</strong></p>
+<ul>
+<li>Test: Exploring various positions and formats for reviews, ratings,
+or user testimonials.</li>
+<li>Metrics:
+<ul>
+<li>Trust metrics</li>
+<li>Conversion rate</li>
+<li>Time spent on pages with testimonials</li>
+</ul></li>
+</ul>
+<ol start="13" type="1">
+<li>Content and Blog: → <em>deze zou ik er persoonlijk uit halen, op
+content zit bij ons niet veel volume</em></li>
+</ol>
+<p><strong>Falls out of scope for now</strong></p>
+<ul>
+<li>Test: Different content formats (e.g., videos, articles,
+infographics) or different topics.</li>
+<li>Metrics:
+<ul>
+<li>Engagement metrics like time spent on page</li>
+<li>Shares (For the future, currently not a feature)</li>
+<li>Comments (For the future, currently not a feature)</li>
+<li>Return visits</li>
+</ul></li>
+</ul>
+<p>Unique Metrics from A/B Testing Ideas for <a
+href="http://plnts.com/">plnts.com</a>:<br />
+</p>
+<ol type="1">
+<li>Click-through rate (CTR):</li>
+</ol>
+<ul>
+<li>Description: The percentage of people who clicked on an element
+(like an ad, link, or button) out of the total who viewed it. It’s a
+primary measure of user engagement and the effectiveness of
+calls-to-action.</li>
+</ul>
+<ol start="2" type="1">
+<li>Product page views:</li>
+</ol>
+<ul>
+<li>Description: The number of times a product page is viewed. It helps
+understand product interest.</li>
+</ul>
+<ol start="3" type="1">
+<li>Add-to-cart rate:</li>
+</ol>
+<ul>
+<li>Description: The percentage of visitors who add a product to the
+cart after viewing it. It’s an initial step towards conversion.</li>
+</ul>
+<ol start="4" type="1">
+<li>Conversion rate:</li>
+</ol>
+<ul>
+<li>Description: The percentage of visitors who take a desired action,
+typically making a purchase. It indicates the effectiveness of the site
+in persuading visitors to become customers.</li>
+</ul>
+<ol start="5" type="1">
+<li>Average order value (AOV):</li>
+</ol>
+<ul>
+<li>Description: The average amount of money each customer spends per
+transaction. It helps understand purchasing behavior.</li>
+</ul>
+<ol start="6" type="1">
+<li>Total sales:</li>
+</ol>
+<ul>
+<li>Description: The complete number of sales made within a specific
+time frame.</li>
+</ul>
+<ol start="7" type="1">
+<li>Bounce rate:</li>
+</ol>
+<ul>
+<li>Description: The percentage of visitors who navigate away from the
+site after viewing only one page. A high bounce rate can indicate
+irrelevant content or poor user experience.</li>
+</ul>
+<ol start="8" type="1">
+<li>Pages per session:</li>
+</ol>
+<ul>
+<li>Description: Average number of pages viewed during a single session.
+It helps measure user engagement.</li>
+</ul>
+<ol start="9" type="1">
+<li>Search usage rate:</li>
+</ol>
+<ul>
+<li>Description: The percentage of visitors who use the site’s search
+function. A higher rate can indicate navigation problems or users
+looking for specific products.</li>
+</ul>
+<ol start="10" type="1">
+<li>Cart abandonment rate:</li>
+</ol>
+<ul>
+<li>Description: The percentage of shoppers who add items to their cart
+but do not complete the purchase. It helps identify potential issues in
+the checkout process.</li>
+</ul>
+<ol start="11" type="1">
+<li>Email sign-up rate:</li>
+</ol>
+<ul>
+<li>Description: The percentage of visitors who subscribe to the email
+list. Higher rates can indicate effective incentives or interest in
+staying connected.</li>
+</ul>
+<ol start="12" type="1">
+<li>Email open and click rates:</li>
+</ol>
+<ul>
+<li>Description: Respectively, the percentage of recipients who open an
+email and the percentage of those who click on a link within it. These
+rates measure the effectiveness of email campaigns.</li>
+</ul>
+<ol start="13" type="1">
+<li>Time on testimonial pages:</li>
+</ol>
+<ul>
+<li>Description: Average duration users spend on pages containing
+testimonials or reviews. It can indicate the influence of social proof
+on buying decisions.</li>
+</ul>
+<ol start="14" type="1">
+<li>Page engagement (duration, return visits):</li>
+</ol>
+<ul>
+<li>Description: Measures like time spent on a page and the frequency of
+return visits. They help gauge the effectiveness and relevance of
+content to users.</li>
+</ul>
+<p>Combining Click Path with Other Metrics:<br />
+</p>
+<ol type="1">
+<li>Click Path + Time Spent:</li>
+</ol>
+<ul>
+<li>Analyze the duration users spend on each page in their click path to
+see which content keeps them engaged and which doesn’t.</li>
+</ul>
+<ol start="2" type="1">
+<li>Click Path + Conversion Rate:</li>
+</ol>
+<ul>
+<li>Understand which navigation paths are most likely to lead to
+conversions. This can help in streamlining the user journey for higher
+conversions.</li>
+</ul>
+<ol start="3" type="1">
+<li>Click Path + Bounce Rate:</li>
+</ol>
+<ul>
+<li>If specific click paths have a high bounce rate, investigate those
+paths or pages for possible issues.</li>
+</ul>
+<ol start="4" type="1">
+<li>Click Path + Exit Rate:</li>
+</ol>
+<ul>
+<li>Identify pages where users frequently exit. This might show pages
+that are not meeting user expectations.</li>
+</ul>
+<ol start="5" type="1">
+<li>Click Path + Cart Abandonment Rate:</li>
+</ol>
+<ul>
+<li>Understand at which step users are abandoning their carts. This can
+help refine the checkout process.</li>
+</ul>
+<ol start="6" type="1">
+<li>Click Path + CTR:</li>
+</ol>
+<ul>
+<li>For paths that include promotional or CTA elements, checking the
+click-through rates can help evaluate the effectiveness of those
+elements in the user journey.</li>
+</ul>
+<ol start="7" type="1">
+<li>Click Path + Search Usage Rate:</li>
+</ol>
+<ul>
+<li>If users are frequently using search in their paths, it may indicate
+they’re having trouble finding what they need through regular
+navigation.</li>
+</ul>
+<ol start="8" type="1">
+<li>Click Path + Product Page Views/Add-to-Cart Rate:</li>
+</ol>
+<ul>
+<li>Understand the sequence of products viewed and how often they lead
+to a product being added to the cart. This can provide insights into
+cross-selling or upselling opportunities.</li>
+</ul>
+<p>Things to Note<br />
+</p>
+<ul>
+<li>Not all metrics are equally easy to measure. While metrics like
+click-through rate or bounce rate can be directly captured through most
+analytics tools, metrics like “trust” or “user satisfaction” may require
+more indirect methods, such as surveys or user feedback sessions.</li>
+<li>To measure specific metrics, integration with our other utilized
+platforms is essential. For example, to gauge the effectiveness of email
+campaigns, we need to integrate our analytics tool with our email
+marketing platform. Additionally, integration with Magento and Tweakwise
+might be necessary to gain deeper insights into e-commerce behavior and
+search functionalities.</li>
+<li>When combining metrics, such as Click Path with others, it’s vital
+to consider the user’s journey’s broader context. For instance, a longer
+time spent on a page could indicate interest, but it could also suggest
+confusion.</li>
+</ul>
+<p>Conclusion<br />
+</p>
+<p>A/B testing is a powerful method to optimize the user experience and
+improve conversion rates. By systematically experimenting with various
+elements of the website, from product displays to CTA buttons, we can
+make data-driven decisions about the most effective design and content
+strategies.</p>
+<p>Furthermore, by coupling traditional metrics like conversion rates
+and bounce rates with more detailed analytics, such as click paths, we
+can gain a comprehensive understanding of user behavior. This, in turn,
+allows us to tailor the user experience more closely to our audience’s
+preferences and needs.</p>
+<p>However, as with all data-driven approaches, the key to success lies
+in meticulous execution and interpretation. Integration with other
+platforms, careful choice of metrics, and an understanding of the
+broader user journey are essential to ensure that our tests yield
+actionable insights. Only then can we truly harness the full potential
+of A/B testing to refine and elevate the user experience on <a
+href="http://plnts.com/">plnts.com</a>.</p>
+</blockquote>
+<h1 id="appendix">Appendix</h1>
+<pre><code>- Evaluatieobject 
+- Evaluatiecriteria 
+- Evaluatiemethode 
+- Evaluatieresultaat 
+- Evaluatieactie</code></pre>
+<h1 id="referenties">Referenties</h1>

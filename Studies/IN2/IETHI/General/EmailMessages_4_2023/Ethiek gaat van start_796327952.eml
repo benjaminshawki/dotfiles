@@ -1,0 +1,300 @@
+ARC-Seal: i=3; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=U2Yyt+cmDMT1q9c9R/dbA8445oHuj+H5FToOQ7sa/wOgDiYofrR6GawnXi+w0BFEz5cYpBqw3miGd0s5CcIIsgRAM4mHtSturRdaruCgAOS1bQUjLfscAflMLdnI7hU5kllThLgIL0HP6keH20p/tz0yJa27qdAwx4lv7Lgus5yD3wG7+7CtfYdywSxYC2mkuVllzwYlInU+e8nWitnXVGYxLdbB9KOBfyNOMi3bKa0Peubr9BGptUGuZDluvllr9KKweR9YcKRXdvasgftOP3xktK8uHQZil39PTlKqv5b1OYXeDGT5oI+kxjjoz+ckEulP8es3Am1DF/HROImT8A==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xIkCwXiJNl0cCAtxueqfKTCKLvIAiTvIPlWAUTghgtg=;
+ b=H5zApuFpmERcJNhWuOLlTRDGtbFHhgSMb0mNBh3nsCM8Y9Xq1dBi/pkDbCQjdMqZdJ3QVR6qLBbBf8J8HdADw3N6kzlp6ERPVtfXjuqB17DYFBpBqv7LT4BbJz1NNsVaZwQ8icfg/jjB9A9yz8uNpZvw/Dn/3QxIHSfLKbolxqGL+ge6NaAXwBfU9tnIE1FohjbajZA3725hoRQJMhBOLRsqzWCglozf56tCQPlQcqvjAOm17nwA82GTJvPDOEkOt+Cg6gBwDpsfgRDM6aOLO3IW5VavbYW2Cp7NzEl5H2jUKGiXkdSiD+NYYYYhgaCT7lQh3lLigQTMKvJC72or1A==
+ARC-Authentication-Results: i=3; mx.microsoft.com 1; spf=pass (sender ip is
+ 40.107.247.111) smtp.rcpttodomain=emea.teams.ms smtp.mailfrom=hsleiden.nl;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=hsleiden.nl; dkim=pass (signature was verified)
+ header.d=hsleiden.nl; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=hsleiden.nl] dkim=[1,1,header.d=hsleiden.nl]
+ dmarc=[1,1,header.from=hsleiden.nl])
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=LQyD8mP4gqKmlDGPb3hEEhLR/vUwYa6OgEzKyVW0hvYy6us4UsagYEaXejJSnyx49evNTfWoDJPiVrCiV6/JKrxPorNim9P111mkkuY3nMMXHLX/tIvO2Jc8EWBK9mSN4sz/K8zCadUPnP69uYnZCqeLQgRvI+GRN3Dq/xYC0KM/i66rzXOhbW5RJSzkcF9ryLB3WPGl0IHKjx+fwNBWUfsKWeqdC3tF+95vWPERJQYQQlTApKtkQMZ2KCz63yPrUPPdnrphrO/4NxdOnUGXZbknK4/S8vTBoF9x6kjDzxcY82m5Sntb3x4zIMFZHtk47HNKJB5DnvVvFGKrmHYwKA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xIkCwXiJNl0cCAtxueqfKTCKLvIAiTvIPlWAUTghgtg=;
+ b=fXcdIllMqIucBPXhnglkLqSNytsCwd65stcuH2PCRnLhlTTpkAxkkN0A3z4ju+ekBWV8ggKLfGphzmYZv+91w7D+/eatp87N6hb8awt831OzP3D2X7PwOZMlZBuYO/8XykmprxDWH8kzeyb8yOnqgXeY/o52TrhE8mHtieolLkcFFSCggREq50/W3J8v6yNGvY2o0vnHj4U/pQ4t004jXI0BleAwmm+TPhIeHe4kwjXTK2hpv5acrZzgiqiER23KR8WOAM6PjQujfIHzw4jqnhyy5MlngfMyq6fgSoMrCN7XvHbmYixSDzR84DgIpEnbJT3HU9miu1N7/HlINSYA/Q==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 40.107.247.111) smtp.rcpttodomain=emea.teams.ms smtp.mailfrom=hsleiden.nl;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=hsleiden.nl; dkim=pass (signature was verified)
+ header.d=hsleiden.nl; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=hsleiden.nl] dkim=[1,1,header.d=hsleiden.nl]
+ dmarc=[1,1,header.from=hsleiden.nl])
+Received: from FR0P281CA0124.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d10:97::13)
+ by GV1P193MB2418.EURP193.PROD.OUTLOOK.COM (2603:10a6:150:2a::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6319.22; Fri, 21 Apr
+ 2023 08:34:42 +0000
+Received: from VI1EUR06FT013.eop-eur06.prod.protection.outlook.com
+ (2603:10a6:d10:97:cafe::fc) by FR0P281CA0124.outlook.office365.com
+ (2603:10a6:d10:97::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6340.10 via Frontend
+ Transport; Fri, 21 Apr 2023 08:34:41 +0000
+Authentication-Results: spf=pass (sender IP is 40.107.247.111)
+ smtp.mailfrom=hsleiden.nl; dkim=pass (signature was verified)
+ header.d=hsleiden.nl;dmarc=pass action=none
+ header.from=hsleiden.nl;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of hsleiden.nl designates
+ 40.107.247.111 as permitted sender) receiver=protection.outlook.com;
+ client-ip=40.107.247.111; helo=EUR02-AM0-obe.outbound.protection.outlook.com;
+ pr=C
+Received: from EUR02-AM0-obe.outbound.protection.outlook.com (40.107.247.111)
+ by VI1EUR06FT013.mail.protection.outlook.com (10.13.6.116) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6319.23 via Frontend Transport; Fri, 21 Apr 2023 08:34:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=SoaB+wuluilBdauopSjmsy+B3QKqE6NhqlDKm2vBmPoEqjkLmC01ki/AKAH7Wr2dxzYpKkP+FZj6VjZzCU5cVJbCwXwPYvjHMogi4x3MHxx90thGq2Bg+RkBvIDuR7J0q5zmWpDR16Egik7l6HXOMDl0voXV5klP+Gl/vu834fk5jiqCs4G2CX5vtLoAvJDpFmTkWOerMHfEGjCgQnbHBs2jJWsJTpWG+2gYGO1hq2T4U+2wZsgQZmhnPuHzufivNcx/wK85MNvKCXRs5w/yobYK8zLGNIGXx79gop7SllBRyp8/X2qK69Tq9m/BjhFhb7GjhNR8/gSXoi3KTXaLvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xIkCwXiJNl0cCAtxueqfKTCKLvIAiTvIPlWAUTghgtg=;
+ b=D16WxpXLyDKXJJfEcti+ykdH6yTkEDvbFQG7AagyvwwUWjkyWaPX6LD7/GG8RKG0S2yecnNXNAMReTnsuY02k27Yjwh6EeR5BhkBnpqoxof/aBFYUMEuSyhc/QIeqAES3UU0rEdV9/reYMD7c5OwC7FPKeP9CoJvCRFPIrZY3bleC3h/Zij46h4+z5FnCraWv4/9VAKgASTeYA1qDAUYRMPrEimkg+ythFi5gUx2J+TK4wBJ23SVTthUyL6yH1F9TiZ1PvEiI4BdH0CSe600tBLdRNBODD9enlOPfGtIIwkvRPO/opTeBs6kBbpS+nci36ljr4jL1W/hz0idRjRUOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=hsleiden.nl; dmarc=pass action=none header.from=hsleiden.nl;
+ dkim=pass header.d=hsleiden.nl; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hsleiden.nl;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xIkCwXiJNl0cCAtxueqfKTCKLvIAiTvIPlWAUTghgtg=;
+ b=wrb6Icy4BGCuR9NDXQ7FfKLlyNWFxghEEEC9jCjIoOgnWap6rS9OTz17bS1q4SXq6ZFEEqfnbRSSZP82bzEP5+RdDRX4i6lGJ0KBN6wRHs9Kft39fweZBWbPSR1qLXJqXlWF/BthuwVCST6zyMCC892AQy3mP9xSZ/A5vCh7LuM9VVrBNnyWse/7JjadE+p5l96vCXyDWkLtnaFYsyBjMwMvj/FRK8POak73gD5RCREyUev7i3270TFA9SGpByJ48+COaMu7AIhMIA8IHYF6F831iddvsZuS2wrCEugzHUVe1K6iRBP/LPeul5CwwQjZinqfO9dKVx0IWYXp4O458A==
+Received: from AM0PR05MB5780.eurprd05.prod.outlook.com (2603:10a6:208:111::13)
+ by VI1PR05MB6672.eurprd05.prod.outlook.com (2603:10a6:800:13b::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6319.22; Fri, 21 Apr
+ 2023 08:34:38 +0000
+Received: from AM0PR05MB5780.eurprd05.prod.outlook.com
+ ([fe80::232e:8146:6ba1:dabc]) by AM0PR05MB5780.eurprd05.prod.outlook.com
+ ([fe80::232e:8146:6ba1:dabc%6]) with mapi id 15.20.6319.022; Fri, 21 Apr 2023
+ 08:34:37 +0000
+From: "Wessel, Eric van" <wessel.van.e@hsleiden.nl>
+To: Algemeen - OG2223.IETHI Ethiek <0db8e37a.groups.hsleiden.nl@emea.teams.ms>
+CC: "Veen, Bas van der" <veen.vd.b@hsleiden.nl>
+Subject: Ethiek gaat van start
+Thread-Topic: Ethiek gaat van start
+Thread-Index: AQHZdCtXKnzMDPwCc06ZQNQjZaKCOg==
+Date: Fri, 21 Apr 2023 08:34:06 +0000
+Message-ID:
+ <AM0PR05MB5780431B7566F3DA125629FFC5609@AM0PR05MB5780.eurprd05.prod.outlook.com>
+Accept-Language: nl-NL, en-US
+Content-Language: nl-NL
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=hsleiden.nl;
+x-ms-traffictypediagnostic:
+ AM0PR05MB5780:EE_|VI1PR05MB6672:EE_|VI1EUR06FT013:EE_|GV1P193MB2418:EE_
+X-MS-Office365-Filtering-Correlation-Id: b5300722-f01b-43eb-8e87-08db4243402b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;
+X-Microsoft-Antispam-Message-Info-Original:
+ Q4ICjbdXyX7rMvg8PHRa1skko49RL2r6us8izuMd2i1AZMVPuMEf5z3LR0fZnUmXlIskH2/3LtWdxVsQhMX2ETLsdySmDmgls91Ho1sITVcUWL3ogoHKjSeSrLaAj7LQhP8Pb8zypHMFmtUTxyRjLHMcz9A4UBijibA9I0wdbYIDx18PP5i/a0kJcwr3nb69JEvUoyFLAvGMTJX9HkIFL4WIkSTO41veR3oNi5H0GwrLBn14/W2vLKxJuCT8n9icvn9uZYAXK18IbqYIr+fC+AwvkGRo/byZnDWgPf+KVnJscATaD10owGZ50cKavSc9XLtgGy4YvuZGjHQI0ETKAYBND6vrf5cqSmBRKFgbXYq9Uqo2SzYry428eG9oKtZeVMD/kL9lYgbVCizG9ws3EMHzYhMGS2W2wioNaAOrcWjfM6x1z2Vt9woD0mVdO4gyEJShzlltuhw8jEl3dqvgzUcCDWuT45uUTZeNsnGqkoyehv1NanG6DH2ZpK7wJZBdZLDJOuu3M+398zTl/YajPK4J1nNit7UUp2DDaCArHoSfQdkxxPEpzfGukOzu8M76adZqzRXcPTkncPL57pZuztJxo6wR8uuXLqiCI3d9JU4N3coabo8H3FRgBigL2Y6C
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:255.255.255.255;CTRY:;LANG:nl;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR05MB5780.eurprd05.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(4636009)(366004)(396003)(39850400004)(136003)(376002)(346002)(451199021)(107886003)(41300700001)(26005)(186003)(71200400001)(6506007)(5660300002)(478600001)(76116006)(66556008)(66476007)(2906002)(66446008)(4744005)(316002)(786003)(4326008)(64756008)(6916009)(66946007)(52536014)(966005)(6666004)(7696005)(9686003)(122000001)(38070700005)(8676002)(55016003)(8936002)(166002)(41320700001)(33656002)(3480700007)(86362001)(38100700002);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-Original-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-Original-0:
+ =?Windows-1252?Q?Dxs8D9n5toc1cvu7WUXOGfaB7U5GyyON8IuzSqlzngLuvqE+VW2sZE97?=
+ =?Windows-1252?Q?vMYJarC6WhfXlnGpd3PzvC0rFXv00snjWgw6e+jlGwczV2NX/dtt+zxF?=
+ =?Windows-1252?Q?5WnZU/k3+eUYDTMF1r7qFa+KjFc3rmKpzJMM5QCOelX0XdYbth9nH/q0?=
+ =?Windows-1252?Q?fT6MYySyCkxHPIx35pNnKzzPKxDio4z4JTqPT4ZJ2IDk0pPeSPA6FPnL?=
+ =?Windows-1252?Q?+8kteFv3Bx3NngPF42xNcRMlwv2ktMJIMxwpNmvqYgCGNHOdmLNbjawB?=
+ =?Windows-1252?Q?EHJXSVPLUblhQsXFP2H5ngulszQ7K+lX3PH9ivuCwhFXsVRUyr+Ry4Ca?=
+ =?Windows-1252?Q?ujjG+0uJSaVJ9D1FdQf/MPsiUR5FsmmjoIZt7WARgLXNXh9UZ79amlWX?=
+ =?Windows-1252?Q?FNxwG5rK9/QHfOnFe0BNqDhvs22onvlQvS7dRLrV6Fd+swY0BN5ogs/R?=
+ =?Windows-1252?Q?LeZRhGLGvXYytqMwlhdtJmHysWvdpwnf2f0Grmat2u8phaFRJO9k2Jjx?=
+ =?Windows-1252?Q?dYlzu7KUpifn6RFo2F0VrbcFcTYaQolKWbLqxNrRQ2V1S3tbq3v/FT4X?=
+ =?Windows-1252?Q?nql2dXwEYp95eGsarMqFDFbkACGEna2GvuYZlDkoWHq6BymH8VG4ljkJ?=
+ =?Windows-1252?Q?10YBofy4scrbS/J+G5Bp99diG9MlPSdaEb/OuhLz0ERTaGLohni23V22?=
+ =?Windows-1252?Q?fbK3WUrYhZmyfB9+4XTcjq+d41QONla9lwGX6uKKBwGFSEOqrgrIDH60?=
+ =?Windows-1252?Q?b3odWY6t+1NCuGhbyhpihbOyvmrA/OV+PlJ9Afp2K970zH8kSNuoyogP?=
+ =?Windows-1252?Q?SgV+gKSHicAZBXne/2PK25yCrlTExMYpni7EkuYdxwdSoc81mttKJUsN?=
+ =?Windows-1252?Q?1sXecKLyK9cs2kMuea5Hmr0utidffN+xhl2fe3pcRnM3g2aP9IT6VBd7?=
+ =?Windows-1252?Q?eDPW+vGRvhxw0/FOG6uvN6OZCTbQipuS1jAu5pHnmtjL6Fo6gcFj1Iqt?=
+ =?Windows-1252?Q?aasp/ZDfng/1jyDHUB8b/5vqL0IRYXxNiD3455yFzjxvNTPLqe5HJ6I2?=
+ =?Windows-1252?Q?aWbNrZvlpIfeQOtOFMEJ0G8RFOaglDmNShIb9ER9fd4WLsrNjl+Wwrfy?=
+ =?Windows-1252?Q?hwgSxNuOh1wj1y6vMaTwHWs0wFa+PWjF6E+b9iHY3uXz0Qpk0zkqf+9I?=
+ =?Windows-1252?Q?nG3ed4Uvfpx2olrL2tNGynkFRGhKselWWfELGYj/CHa+mRAKs8/usuF8?=
+ =?Windows-1252?Q?URns1ZnohA3s2pIcPzcXI3HP8JZyzlk9G8t7fU+w3zj195Sy3tSl5Clo?=
+ =?Windows-1252?Q?96BVVMtIcKVm+eowg0ZxaBa9ojDkBL7uuvIA47wxb4wLt+/vaqk+QOfJ?=
+ =?Windows-1252?Q?7+v1h6x+CBrvwoZenJ6QGraQ4SSJSiF85EQxp0sq9xv9oQMX2ISaSlrl?=
+ =?Windows-1252?Q?6R/MAYtlENBjDLn9xEcItYsw3VLsr38GmJQ2O4/UIeRzG9VHe6CjLCVL?=
+ =?Windows-1252?Q?xdpLiCfj2n8S0zDod2UEI0hbV9aF23eqHP3aMRLFqpZ5nKTgxEzTOCSL?=
+ =?Windows-1252?Q?e2nUXopkJLUZ/Z5fgSbksGFdttYSfbu3mhaYStVONmB/EZApV2DVxZRo?=
+ =?Windows-1252?Q?hFOa6s0yWd3SI1Ct8hFs2+0e4j91OXgHwjKUJuNw/GJLNHaykPIj8Pil?=
+ =?Windows-1252?Q?Jg6VFm3SbsJ3XLG3nv8sc002GC9q2zJb?=
+Content-Type: multipart/alternative;
+	boundary="_000_AM0PR05MB5780431B7566F3DA125629FFC5609AM0PR05MB5780eurp_"
+MIME-Version: 1.0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR05MB6672
+Return-Path: wessel.van.e@hsleiden.nl
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: bd41d3d8-c6dd-4735-b0cc-d6b15c0f9aad:0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ VI1EUR06FT013.eop-eur06.prod.protection.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersPromoted:
+ VI1EUR06FT013.eop-eur06.prod.protection.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Forest-ArrivalHubServer: GV1P193MB2418.EURP193.PROD.OUTLOOK.COM
+X-MS-Exchange-Forest-MessageScope: 6dc77ba0-7649-4e1f-ba19-6ba8a6ac5aa3
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+ 57d85627-d397-478c-b808-08db42433e44
+X-MS-Exchange-Forest-Language: nl
+X-MS-Exchange-Forest-IndexAgent-0:
+ AQ0CbmwAARkCAAAPAAADH4sIAAAAAAAEAEVQS27bMBClEkuyFOgO01
+ VbwJYLt6ssCwT9LbopmjVtTWXaFCmQdIRmlYOk+54rJ+mjpDSAQIxm
+ 3m/m76IqP7IPTD6cGzZhVZVfmawJd9K0gRq+Z+qk0mS7RgY6MmnV0A
+ 5IAgJzap3lnp4eHm/CQfGJtu+22zWe908Pf+qq/GY7Nk0UkaaR7Yq2
+ H0j2TukVVFplogcZxecB0ux7dsqi0yjH+0Adj/PONmfNNDnU9MXEIM
+ 5aBHdILpHsAGRQx8YH1ROPybTdy6C4ps+YKQ8/jaWcOp5o3iWSdhah
+ 38zhwdpJr/wKlYsx3Pn0FinYMHehplvsi0UIYPeSkUmOt6hKr2WLpT
+ 85KVsKNjyv/aoqb5zajze7Ze9Z4+7Szzd09BMOVfm9nw7O6/Hk9+o4
+ 7nFnrRukRB4zEgIOLr1XpiWpocGuY92Q7a+r8seB6ZfV2g5xvLemUU
+ FZ43HzXv8GlbConx2AP4TQX282wzDUB69ZwaM2etMov9dSdezWHJFV
+ KS5SkeWivBCXS1EsRIoPHfxeigVqvKhTkWdJvhBikYgiSWMhljm+pL
+ gQYgaIHAXeUlzhnYhZ7C9R4AMeyujD6LlTzLBElCL7bzdaZ5MglNM4
+ ypZjyCnhpD+CgcwnWWwxKcBxmk46EwsUvLFOxFUERwyijkQkjMRClO
+ ikL5QC4Nej15Q5Tv8B8zhPb1wDAAA=
+X-MS-Exchange-Forest-IndexAgent: 1 548
+X-MS-Exchange-Forest-EmailMessageHash: 36F7780F
+X-MS-Exchange-Forest-RulesExecuted: GV1P193MB2418
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+ =?Windows-1252?Q?14/7160bNgmmXnmZqWeZA4x63BNUeFDv4gagv/api40w+VxS+2Xgpt2H?=
+ =?Windows-1252?Q?ODcqrV4+29Zr7EgXLCVJsNtUcL04QtPtn9E8xLpqI5IAhCfLI9ucysnS?=
+ =?Windows-1252?Q?t3x1cHc8IPy0TFj80fYqwR7QJq6jUVBONPxKuBPE5xtA1qCtK9QpPCFW?=
+ =?Windows-1252?Q?OtTZIrdyEA9tW7w3+Q91wQ0B7P7tGBERbLsxheeffeCAKvE7Lqnuf1k1?=
+ =?Windows-1252?Q?V9ntALBZZTypxF5YW9DL2RSgkljWZ4dVqQVJBxCpXFnRnoVxodIn4yvN?=
+ =?Windows-1252?Q?Sj/XJ5CC0ArXfIqwpJChJ7kjB0eUA5QgDBW22buBgl3QrXHqGN6BcQO6?=
+ =?Windows-1252?Q?0tNQjybRshfeS8ZjhITh4zvjiDOoys3XUhMTiYQftypU4A0jU6L2cznF?=
+ =?Windows-1252?Q?LtIlTzqDovkScK0Yjgqnrq9JQrAAhqS+I2SWA/g7GUaVy91xfyefQ274?=
+ =?Windows-1252?Q?SGmeNkCr9HyXgjYOgKUoPSoIvo1boIwnTAzizk7iQeZaaJEtdSdsvdd7?=
+ =?Windows-1252?Q?hzb4fp2wVbdkvr4gHVljwRZFxflefkIOVLtdWyYJ1CNTcjO1UpyEg6TV?=
+ =?Windows-1252?Q?DmnLJq+Y4ESBpcMsgOBgC3d7OxzrhS9JZIK15xb6eKYfV620tUMoUbS5?=
+ =?Windows-1252?Q?8uq0mrSbtkZYJbpdAaCowdDFtHjJPzXo9RuYVFaTHRqa8kLGxMMaSiMe?=
+ =?Windows-1252?Q?wLGDRt+6AV69HOHqekkT+DYrj/tlGma8CZVVYKikWtBupEtSQ6GjLqsP?=
+ =?Windows-1252?Q?nBIoP4LJuuKkQowxYnfEhTnWnC9lnyOSixTqAlhXculJnXcbyEDXMLvW?=
+ =?Windows-1252?Q?z6M9ldGmsuKZrXv82wzPL5HFqXiTzJ4CA2eFJznGLDwllarCg/eSS+nV?=
+ =?Windows-1252?Q?lXsDP2qtx5L2qHUKPvMogYz0jeCxXeEQQvXP4cqBd2qriCbEeR7Y0rDR?=
+ =?Windows-1252?Q?bgjU9nhR3L58OQ55MOhEerlqhj4UvDmaZX6Hi3wwpPjEv/8O2vY5OySo?=
+ =?Windows-1252?Q?7ftOqu59S/2ci6wS+pqSPSO83Yf69Q+rLT/SbMlkvYskoGDk8eHyUZlh?=
+ =?Windows-1252?Q?v1csdDkcPmXRm6gAV9OlmZEymfFTI6hfch18lYPp75h/OFJnGEzgYtLh?=
+ =?Windows-1252?Q?XCUrrbtiOgnYTo2vb441S/AAu3BNHl7CU7T0PGaEpKsQgLl6t9xDKk4L?=
+ =?Windows-1252?Q?uBrnNCKKxqy71LwXwaohDs8HCKZaSmK/J7Jy2ATlwUqmSeOO7GTx/kit?=
+ =?Windows-1252?Q?QjjAp2Ihn+EbCc3FTYFFg3l4f5mdhMWwfp6uDIWbP2WaV2QHxBLLDPJp?=
+ =?Windows-1252?Q?opAc95ZnAgOa3su5GPJV97PwPSt9w/JU4mRo573adbzyqKW49fOdhgyR?=
+ =?Windows-1252?Q?FStOmegThXQixdgYd0mWVknoAmECjtVXc/HjBMKNSl0vIZpDm0K9l5CY?=
+ =?Windows-1252?Q?JFCY9RngrfXe0rDYe9HoF/TrcZi/L+iTffaxqY78hMAZXQQtwkViw+9u?=
+ =?Windows-1252?Q?KtyVRFIebYA6KTpUsGNWxyRJqKS9U3k36yPIlLNr3rZoqVhePgU=3D?=
+X-Forefront-Antispam-Report:
+ CIP:40.107.247.111;CTRY:NL;LANG:nl;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:EUR02-AM0-obe.outbound.protection.outlook.com;PTR:mail-am0eur02on2111.outbound.protection.outlook.com;CAT:NONE;SFS:(13230028)(451199021)(33656002)(86362001)(55016003)(7696005)(9686003)(83300400002)(83280400002)(83290400002)(6666004)(83310400002)(336012)(83320400002)(26005)(6506007)(107886003)(8636004)(966005)(3480700007)(4326008)(6916009)(52536014)(7636003)(356005)(166002)(8676002)(5660300002)(1096003);DIR:INB;
+X-OriginatorOrg: emea.teams.ms
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2023 08:34:40.8801
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b5300722-f01b-43eb-8e87-08db4243402b
+X-MS-Exchange-CrossTenant-Id: bd41d3d8-c6dd-4735-b0cc-d6b15c0f9aad
+X-MS-Exchange-CrossTenant-AuthSource:
+ VI1EUR06FT013.eop-eur06.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1P193MB2418
+
+--_000_AM0PR05MB5780431B7566F3DA125629FFC5609AM0PR05MB5780eurp_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Beste student,
+
+Je ontvangt deze mail omdat je lid bent van de groep =93Ethiek 2022-2023=94=
+.
+Komende maandag, 24 april, begint de nieuwe lesperiode direct met de module=
+ Ethiek. In je rooster staat het tijdstip en de locatie. Het is belangrijk =
+dat je het boek (Ethiek de basis, derde druk) meeneemt. We gaan hier direct=
+ mee aan de slag.
+
+
+Graag tot maandag!
+Eric van Wessel
+Bas van der Veen
+
+
+
+Op deze e-mail zijn de voorwaarden van toepassing als vermeld op:
+The following conditions apply to this e-mail:
+http://www.hsleiden.nl/disclaimer-email
+
+--_000_AM0PR05MB5780431B7566F3DA125629FFC5609AM0PR05MB5780eurp_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:w=3D"urn:sc=
+hemas-microsoft-com:office:word" xmlns:m=3D"http://schemas.microsoft.com/of=
+fice/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ligatures:standardcontextual;
+	mso-fareast-language:EN-US;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style>
+</head>
+<body lang=3D"NL" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:bre=
+ak-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">Beste student,<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Je ontvangt deze mail omdat je lid bent van de groep=
+ =93Ethiek 2022-2023=94.<o:p></o:p></p>
+<p class=3D"MsoNormal">Komende maandag, 24 april, begint de nieuwe lesperio=
+de direct met de module Ethiek. In je rooster staat het tijdstip en de loca=
+tie. Het is belangrijk dat je het boek (Ethiek de basis, derde druk) meenee=
+mt. We gaan hier direct mee aan de
+ slag.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Graag tot maandag!<o:p></o:p></p>
+<p class=3D"MsoNormal">Eric van Wessel<o:p></o:p></p>
+<p class=3D"MsoNormal">Bas van der Veen<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<br>
+<br>
+<span lang=3D"NL" style=3D"font-family:&quot;Verdana&quot;,&quot;sans-serif=
+&quot;;font-size:10.0pt">Op deze e-mail zijn de voorwaarden van toepassing =
+als vermeld op:<br>
+The following conditions apply to this e-mail:<br>
+</span><a href=3D"http://www.hsleiden.nl/disclaimer-email"><span lang=3D"NL=
+" style=3D"font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;color:blu=
+e;font-size:10.0pt">http://www.hsleiden.nl/disclaimer-email</span></a>
+<p></p>
+</body>
+</html>
+
+--_000_AM0PR05MB5780431B7566F3DA125629FFC5609AM0PR05MB5780eurp_--

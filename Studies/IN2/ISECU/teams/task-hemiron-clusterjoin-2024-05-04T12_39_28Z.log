@@ -1,0 +1,3 @@
+detected the following error(s):
+* this host already contains virtual guests
+TASK ERROR: Check if node may join a cluster failed!

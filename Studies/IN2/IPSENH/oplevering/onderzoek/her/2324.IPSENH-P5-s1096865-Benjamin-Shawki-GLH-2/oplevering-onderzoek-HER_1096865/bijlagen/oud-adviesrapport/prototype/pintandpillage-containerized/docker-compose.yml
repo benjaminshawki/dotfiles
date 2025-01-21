@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5433:5432"
+
+  backend:
+    image: ${IMAGE_BACKEND}
+    build:
+      context: ./PintAndPillageJavaBackend/
+      dockerfile: Dockerfile
+    volumes:
+      - ./PintAndPillageJavaBackend:/app
+      - /app/target
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+      JWT_SECRET: ${JWT_SECRET}
+      LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB: DEBUG
+      LOGGING_LEVEL_ORG_HIBERNATE_SQL: INFO
+    depends_on:
+      - db
+
+  frontend:
+    image: ${IMAGE_FRONTEND}
+    build:
+      context: .
+      dockerfile: PintAndPillageFrontend/Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      VUE_APP_BACKEND_URL: ${BACKEND_URL}
+      VUE_APP_FRONTEND_URL: ${FRONTEND_URL}
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

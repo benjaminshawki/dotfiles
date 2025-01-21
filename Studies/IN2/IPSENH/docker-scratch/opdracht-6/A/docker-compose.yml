@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  flask-app:
+    build: .
+    volumes:
+      - ./app:/app
+    environment:
+      - FLASK_ENV=development
+    deploy:
+      replicas: 3 
+      endpoint_mode: dnsrr
+      resources:
+        limits:
+          cpus: "0.1" ## 0.01 will work, however it takes a long time to build and if the incomming request is high the app can't keep up. 0.05 is the bare minimum imo, but I would suggest 0.1.
+          memory: 23M ## Under 22M will not work, it will crash on build.
+
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "1234:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./app:/app
+    depends_on:
+      - flask-app
+  

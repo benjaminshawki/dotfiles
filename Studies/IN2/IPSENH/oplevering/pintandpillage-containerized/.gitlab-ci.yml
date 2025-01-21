@@ -1,0 +1,153 @@
+# CI/CD Pipeline Configuration
+
+stages:
+  - pre-flight
+  - build
+  - test
+  - publish
+  - deploy
+
+# Default settings for Docker, applied globally unless specifically overridden.
+default:
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+
+# Global variables defining Docker configurations and image naming conventions.
+variables:
+  # Docker environment settings.
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: "/certs"
+  COMPOSE_PROJECT_NAME: "pintandpillage"
+
+  # Naming for Docker images, facilitating version control and latest builds.
+  IMAGE_FRONTEND: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME/frontend:$CI_COMMIT_SHORT_SHA
+  IMAGE_FRONTEND_LATEST: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME/frontend:latest
+  IMAGE_BACKEND: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME/backend:$CI_COMMIT_SHORT_SHA
+  IMAGE_BACKEND_LATEST: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME/backend:latest
+  IMAGE_E2E_TEST: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME/e2e-test:$CI_COMMIT_SHA
+
+  # Secure login to Docker registry.
+  DOCKER_LOGIN: echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+
+# Pre-flight stage: Validates code quality and syntax for both frontend and backen, and unit tests.
+lint-frontend:
+  stage: pre-flight
+  image: node:18.19.1-slim
+  script:
+    - cd PintAndPillageFrontend
+    - npm install
+    - npm run lint
+  only:
+    - main
+
+lint-backend:
+  stage: pre-flight
+  image: maven:3.8.4-openjdk-17
+  script:
+    - cd PintAndPillageJavaBackend
+    - mvn spotless:check
+  only:
+    - main
+
+unit-test:
+  stage: pre-flight
+  image: maven:3.8.4-openjdk-17
+  script:
+    - cd PintAndPillageJavaBackend
+    - mvn test
+  only:
+    - main
+
+# Build stage: Creates Docker images for frontend, backend, and E2E testing.
+# Commands for building and pushing Docker images included.
+build-frontend:
+  stage: build
+  before_script:
+  - sh -c "$DOCKER_LOGIN"
+  script:
+    - docker compose -f docker-compose.yml -f docker-compose.ci.yml build frontend
+    - docker push $IMAGE_FRONTEND
+  only:
+    - main
+
+build-backend:
+  stage: build
+  before_script:
+  - sh -c "$DOCKER_LOGIN"
+  script:
+    - docker compose -f docker-compose.yml -f docker-compose.ci.yml build backend
+    - docker push $IMAGE_BACKEND
+  only:
+    - main
+
+build-e2e-test:
+  stage: build
+  before_script:
+  - sh -c "$DOCKER_LOGIN"
+  script:
+    - docker compose -f docker-compose.yml -f docker-compose.ci.yml build e2e-test
+    - docker push $IMAGE_E2E_TEST
+  only:
+    - main
+
+# Test stage: Executes E2E tests to ensure application integrity.
+e2e-test:
+  stage: test
+  before_script:
+  - sh -c "$DOCKER_LOGIN"
+  script:
+    - docker compose -f docker-compose.yml -f docker-compose.ci.yml up frontend backend e2e-test --abort-on-container-exit
+
+# Publish stage: Updates Docker images in the registry with the latest builds.
+# Commands for pulling, tagging, and pushing Docker images included.
+publish-frontend:
+  stage: publish
+  before_script:
+  - sh -c "$DOCKER_LOGIN"
+  script:
+    - docker pull $IMAGE_FRONTEND
+    - docker tag $IMAGE_FRONTEND $IMAGE_FRONTEND_LATEST
+    - docker push $IMAGE_FRONTEND_LATEST
+  only:
+    - main
+
+publish-backend:
+  stage: publish
+  before_script:
+  - sh -c "$DOCKER_LOGIN"
+  script:
+    - docker pull $IMAGE_BACKEND
+    - docker tag $IMAGE_BACKEND $IMAGE_BACKEND_LATEST
+    - docker push $IMAGE_BACKEND_LATEST
+  only:
+    - main
+
+# Deploy stage: Deploys the application to production using Docker Compose.
+deploy:
+  stage: deploy
+  image: alpine:3.14
+  before_script:
+    - apk add gettext openssh-client
+  script:
+    # Deployment workflow includes creating docker-compose file, setting up SSH,
+    # and executing deployment commands on the server.
+
+    # Create the new docker-compose.yml from a template
+    - envsubst < docker-compose.prod.yml > docker-compose.prod.subst.yml
+    # Start ssh-agent and import ssh private key
+    - eval $(ssh-agent)
+    - echo "$ID_RSA" | tr -d '\r' | ssh-add -
+    # Prepare SSH folder and known_hosts file
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - touch ~/.ssh/known_hosts
+    - chmod 600 ~/.ssh/known_hosts
+    # Add server to list of known hosts
+    - ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
+    # Upload docker-compose to the server
+    - scp docker-compose.prod.subst.yml $SERVER_USER@$SERVER_IP:/home/deployer/docker-compose.prod.yml
+    # Docker login and restart services
+    - ssh $SERVER_USER@$SERVER_IP "cd /home/deployer;
+        $DOCKER_LOGIN;
+        docker compose -f docker-compose.prod.yml up -d"

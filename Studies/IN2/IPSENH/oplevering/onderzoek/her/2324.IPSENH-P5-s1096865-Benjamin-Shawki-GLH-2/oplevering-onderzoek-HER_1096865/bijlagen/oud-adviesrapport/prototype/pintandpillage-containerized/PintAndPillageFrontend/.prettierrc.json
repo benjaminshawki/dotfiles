@@ -1,0 +1,14 @@
+{
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "proseWrap": "always",
+  "overrides": [
+    {
+      "files": ["**/*.css", "**/*.pcss"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}

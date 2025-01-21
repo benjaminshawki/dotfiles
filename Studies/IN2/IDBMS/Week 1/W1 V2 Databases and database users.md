@@ -1,0 +1,18 @@
+# Vid 2
+![](vx_images/229225016232304.png)
+![](vx_images/446765116250184.png)
+
+![](vx_images/589305316247788.png)
+![](vx_images/590225416245290.png)
+![](vx_images/425485516226531.png)
+![](vx_images/538805616248971.png)
+![](vx_images/344355716244107.png)
+![](vx_images/200625916230787.png)
+![](vx_images/344600017223821.png)
+![](vx_images/507880017232768.png)
+![](vx_images/79840117225653.png)
+![](vx_images/318450117226262.png)
+![](vx_images/497430117253217.png)
+![](vx_images/255400217235430.png)
+![](vx_images/489900217224728.png)
+![](vx_images/73470317220979.png)

@@ -1,0 +1,1 @@
+. Elke politici elk fragment vinden downloaden en uploaden naar YT. Dit automatiseren en dan voor elke nederlander doen

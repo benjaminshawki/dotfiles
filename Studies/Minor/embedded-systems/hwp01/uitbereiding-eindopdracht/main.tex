@@ -1,0 +1,178 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dutch]{babel}
+
+\title{Uitbreiding van de HWP eindopdracht}
+\author{Benjamin Shawki}
+\date{oktober 2024}
+
+
+\begin{titlepage}
+
+  \centering
+  \vspace{.5cm}
+  {\huge\bfseries Uitbreiding van de HWP eindopdracht\par}
+		\vspace {.5cm}
+		{\large Versie 1.1\par}
+    \vspace{1.5cm}
+    {\Large Benjamin Shawki (1101579) \par}
+    \vspace{3cm}
+
+
+    \vfill    
+ \end{titlepage}
+
+\begin{document}
+
+\section*{Uitbreiding van de HWP eindopdracht}
+
+Dit document beschrijft de uitbreiding van de eindopdracht voor het vak Hardware Programmeren (HWP). Hierin zal ik de extra functionaliteit beschrijven die wordt toegevoegd aan de standaardopdracht van de LSM9DS1-sensor op de DE1-SoC. In plaats van alleen de Z-as acceleratie weer te geven, wil ik met behulp van de X en Z as een nibble laten doen bewegen tussen de 7-segmentdisplays. Om dit te bereiken, zal ik gebruik maken van SPI-communicatie om de sensorgegevens te lezen en om de positie van de nibble te kunnen verplaatsen. Wanneer een bepaalde acceleratie threshold is bereikt, zal de nibble van positie veranderen in de richting van de acceleratie.
+
+\subsection*{Verwachte Componenten}
+
+De implementatie zal bestaan uit minstens drie componenten:
+
+\begin{enumerate}
+    \item \textbf{Sensorinterface}:
+    \begin{itemize}
+        \item Communiceert met de LSM9DS1-sensor via SPI om acceleratiegegevens van de X- en Z-as uit te lezen.
+    \end{itemize}
+
+    \item \textbf{Bewegingsmodule}:
+    \begin{itemize}
+        \item Verwerkt de acceleratiegegevens om te bepalen of een drempelwaarde is overschreden.
+        \item Bepaalt de richting van de nibble-beweging op basis van de gemeten acceleraties.
+    \end{itemize}
+
+    \item \textbf{Displaycontroller}:
+    \begin{itemize}
+        \item Beheert de weergave van de nibble op de 7-segmentdisplays.
+        \item Verplaatst de nibble naar links of rechts afhankelijk van de output van de bewegingsmodule.
+    \end{itemize}
+
+\end{enumerate}
+
+\subsection*{Implementatie van de State Machine}
+
+In zowel de \textbf{Bewegingsmodule} als de \textbf{Displaycontroller} zal ik state machines implementeren om de beweging van de nibble en de weergave op de 7-segmentdisplays efficiënt te beheren:
+
+\textbf{State Machine van de Bewegingsmodule}:
+
+\begin{itemize}
+    \item \textbf{Wachten op Data}:
+    \begin{itemize}
+        \item Wacht op nieuwe acceleratiegegevens van de sensorinterface.
+    \end{itemize}
+    \item \textbf{Drempelcontrole}:
+    \begin{itemize}
+        \item Controleert of de acceleratiewaarden de vooraf ingestelde drempel overschrijden.
+        \item Bepaalt de richting van de nibble-beweging (links of rechts).
+    \end{itemize}
+    \item \textbf{Beweging Berekenen}:
+    \begin{itemize}
+        \item Berekent de nieuwe positie van de nibble op basis van de bepaalde richting.
+    \end{itemize}
+    \item \textbf{Positie Doorsturen}:
+    \begin{itemize}
+        \item Stuurt de nieuwe positie-informatie door naar de displaycontroller.
+        \item Keert terug naar de \textit{Wachten op Data} staat voor continue monitoring.
+    \end{itemize}
+\end{itemize}
+
+\textbf{State Machine van de Displaycontroller}:
+
+\begin{itemize}
+    \item \textbf{Initialisatie}:
+    \begin{itemize}
+        \item Initialiseert de 7-segmentdisplays en stelt de beginpositie van de nibble in.
+    \end{itemize}
+    \item \textbf{Wachten op Positie}:
+    \begin{itemize}
+        \item Wacht op positie-updates van de bewegingsmodule.
+    \end{itemize}
+    \item \textbf{Weergave Bijwerken}:
+    \begin{itemize}
+        \item Verplaatst de nibble naar de nieuwe positie op de 7-segmentdisplays.
+    \end{itemize}
+    \item \textbf{Terug naar Wachten}:
+    \begin{itemize}
+        \item Keert terug naar de \textit{Wachten op Positie} staat voor verdere updates.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Testbenches}
+
+De testbench zal bevatten:
+
+\begin{itemize}
+    \item Het simuleren van verschillende acceleratiepatronen om te verifiëren dat de nibble correct beweegt op de 7-segmentdisplays.
+    \item Het testen van de drempelwaarden in de bewegingsmodule om ervoor te zorgen dat beweging alleen plaatsvindt wanneer de juiste acceleratie wordt gedetecteerd.
+    \item Het verifiëren van de correcte werking van de state machines in zowel de bewegingsmodule als de displaycontroller bij het verwerken van positie-updates en het aansturen van de displays.
+\end{itemize}
+
+
+% wil ik een systeem ontwikkelen dat tussen de X-, Y- en Z-as kan schakelen met behulp van drukknoppen. OOk wil ik dat de positie in real-time berekent en weergeeft op basis van de gemeten acceleratiegegevens. Dit zal worden gerealiseerd door de acceleratiegegevens te integreren om snelheid en vervolgens positie te verkrijgen
+
+% \subsection*{Verwachte Componenten}
+%
+% De implementatie zal bestaan uit minstens drie componenten, waarvan ten minste één zelfgeschreven:
+%
+% \begin{enumerate}
+%     \item \textbf{Druk-knop-interface}:
+%     \begin{itemize}
+%         \item Verwerkt de invoer van de drukknoppen om tussen de X-, Y- en Z-as te schakelen.
+%     \end{itemize}
+%
+%     \item \textbf{Positieberekeningsmodule}:
+%     \begin{itemize}
+%         \item Communiceert met de LSM9DS1-sensor en leest de gegevens van de geselecteerde as uit.
+%         \item Integreert de acceleratiegegevens om snelheid en vervolgens positie over de tijd te berekenen.
+%         \item Bevat een state machine om de lees- en schrijfoperaties te beheren.
+%     \end{itemize}
+%
+%     \item \textbf{Displaycontroller}:
+%     \begin{itemize}
+%         \item Converteert de ruwe sensorwaarden naar een formaat geschikt voor de 7-segmentdisplays.
+%         \item Ondersteunt meerdere weergavemodi afhankelijk van de geselecteerde as.
+%     \end{itemize}
+%
+% \end{enumerate}
+%
+% \subsection*{Implementatie van de State Machine}
+%
+% In de \textbf{Positieberekeningsmodule} zal ik een state machine met minimaal vier staten implementeren om de integratie van acceleratie naar positie efficiënt te beheren:
+%
+% \begin{itemize}
+%     \item \textbf{Initialisatie}:
+%     \begin{itemize}
+%         \item Configureert de sensorinstellingen en initialiseert alle variabelen voor snelheid en positie.
+%         \item Stelt de benodigde registers in om de gewenste assen te activeren.
+%     \end{itemize}
+%     \item \textbf{Data Uitlezen}:
+%     \begin{itemize}
+%         \item Leest de acceleratiegegevens van de geselecteerde as uit.
+%         \item Registreert de huidige timestamp
+%     \end{itemize}
+%     \item \textbf{Integratie}:
+%     \begin{itemize}
+%         \item Berekent de nieuwe snelheid door de acceleratie te integreren over de tijd (\( v_{\text{nieuw}} = v_{\text{oud}} + a \times \Delta t \)).
+%         \item Berekent de nieuwe positie door de snelheid te integreren over de tijd (\( x_{\text{nieuw}} = x_{\text{oud}} + v_{\text{nieuw}} \times \Delta t \)).
+%     \end{itemize}
+%     \item \textbf{Data Verwerken en Weergeven}:
+%     \begin{itemize}
+%         \item Converteert de berekende positie naar een geschikt formaat voor de 7-segmentdisplays.
+%         \item Stuurt de verwerkte data door naar de displaycontroller voor weergave.
+%         \item Keert terug naar de \textit{Data Uitlezen} staat voor continue positiebepaling.
+%     \end{itemize}
+% \end{itemize}
+%
+% \subsection*{Testbenches}
+%
+% De testbench bevat: 
+% \begin{itemize}
+%     \item Het simuleren van de integratie van acceleratie naar positie, inclusief verschillende scenario's van beweging om de nauwkeurigheid van de berekeningen te verifiëren.
+%     \item Het testen van de tijdsberekening en integratiestappen om ervoor te zorgen dat \( \Delta t \) correct wordt toegepast.
+%     \item Het verifiëren van de correcte werking van de state machine bij continue positiebepaling.
+% \end{itemize}
+
+\end{document}

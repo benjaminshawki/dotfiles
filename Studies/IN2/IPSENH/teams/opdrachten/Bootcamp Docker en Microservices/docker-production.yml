@@ -1,0 +1,43 @@
+version: "3.7"
+services:
+  database:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret
+    secrets:
+      - db-pass
+    networks:
+      - backend
+    volumes:
+      - mydb:/var/lib/mysql
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+      placement:
+        constraints:
+          [node.role == manager]
+
+  webserver:
+    image: nginx:latest
+    networks:
+      - frontend
+      - backend
+    ports:
+      - 8080:80
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+        delay: 2s
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  mydb:
+
+secrets:
+  db-pass:
+    external: true

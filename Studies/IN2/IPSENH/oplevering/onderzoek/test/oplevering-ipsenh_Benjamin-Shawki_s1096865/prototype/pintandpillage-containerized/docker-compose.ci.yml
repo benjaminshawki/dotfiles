@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  e2e-test:
+    image: ${IMAGE_E2E_TEST}
+    build:
+      context: .
+      dockerfile: PintAndPillageFrontend/Dockerfile.test

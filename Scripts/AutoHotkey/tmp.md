@@ -1,0 +1,1 @@
+Error: Parameter list too small. Specifically: -16 ▶ 009: DllCall(mouse_event, UInt, 0x2) The current thread will exit. Call stack: *#1 (9) : [DllCall] DllCall(mouse_event, UInt, 0x2) *#1 (9) : [<Hotkey>] DllCall(mouse_event, UInt, 0x2) > XButton2

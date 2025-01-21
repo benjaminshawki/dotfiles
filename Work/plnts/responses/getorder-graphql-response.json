@@ -1,0 +1,188 @@
+{
+	"data": {
+		"customer": {
+			"email": "benjamin.s@plnts.com",
+			"firstname": "Benjamin",
+			"lastname": "Shawki",
+			"date_of_birth": "1998-01-08",
+			"customer_number": 144680,
+			"is_subscribed": false,
+			"default_billing": "562704",
+			"default_shipping": "562704",
+			"marked_for_deletion": 0,
+			"wishlists": [
+				{
+					"id": "135442",
+					"items_count": 0,
+					"items_v2": {
+						"items": [],
+						"__typename": "WishlistItems"
+					},
+					"__typename": "Wishlist"
+				}
+			],
+			"reviews": {
+				"items": [],
+				"__typename": "ProductReviews"
+			},
+			"__typename": "Customer",
+			"orders": {
+				"items": [
+					{
+						"id": "MzI2NjAx",
+						"order_date": "2024-08-22 08:44:33",
+						"number": "000063355",
+						"status": "Canceled",
+						"total": {
+							"subtotal": {
+								"currency": "EUR",
+								"value": 56.15,
+								"__typename": "Money"
+							},
+							"discounts": [],
+							"total_shipping": {
+								"currency": "EUR",
+								"value": 4.95,
+								"__typename": "Money"
+							},
+							"grand_total": {
+								"value": 66.85,
+								"currency": "EUR",
+								"__typename": "Money"
+							},
+							"taxes": [
+								{
+									"amount": {
+										"currency": "EUR",
+										"value": 4.54,
+										"__typename": "Money"
+									},
+									"rate": 9,
+									"title": "VAT Reduced",
+									"__typename": "TaxItem"
+								},
+								{
+									"amount": {
+										"currency": "EUR",
+										"value": 1.21,
+										"__typename": "Money"
+									},
+									"rate": 21,
+									"title": "VAT Standard",
+									"__typename": "TaxItem"
+								}
+							],
+							"total_tax": {
+								"currency": "EUR",
+								"value": 5.75,
+								"__typename": "Money"
+							},
+							"__typename": "OrderTotal"
+						},
+						"items": [
+							{
+								"id": "MTQ1NTA3Ng==",
+								"product_sku": "PL.M.151",
+								"product_name": "Warocqueanum",
+								"product_url_key": "anthurium-warocqueanum-m",
+								"__typename": "OrderItem"
+							},
+							{
+								"id": "MTQ1NTA3Nw==",
+								"product_sku": "CR.M.ORA15",
+								"product_name": "Orange Terracotta Pot",
+								"product_url_key": "terracotta-pot-m-orange",
+								"__typename": "OrderItem"
+							}
+						],
+						"__typename": "CustomerOrder"
+					},
+					{
+						"id": "MzM3MDAz",
+						"order_date": "2024-09-23 09:50:47",
+						"number": "000064373",
+						"status": "Canceled",
+						"total": {
+							"subtotal": {
+								"currency": "EUR",
+								"value": 116.5,
+								"__typename": "Money"
+							},
+							"discounts": [],
+							"total_shipping": {
+								"currency": "EUR",
+								"value": 0,
+								"__typename": "Money"
+							},
+							"grand_total": {
+								"value": 139.8,
+								"currency": "EUR",
+								"__typename": "Money"
+							},
+							"taxes": [
+								{
+									"amount": {
+										"currency": "EUR",
+										"value": 22.14,
+										"__typename": "Money"
+									},
+									"rate": 20,
+									"title": "VAT Reduced",
+									"__typename": "TaxItem"
+								},
+								{
+									"amount": {
+										"currency": "EUR",
+										"value": 1.16,
+										"__typename": "Money"
+									},
+									"rate": 20,
+									"title": "VAT Standard",
+									"__typename": "TaxItem"
+								}
+							],
+							"total_tax": {
+								"currency": "EUR",
+								"value": 23.3,
+								"__typename": "Money"
+							},
+							"__typename": "OrderTotal"
+						},
+						"items": [
+							{
+								"id": "MTQ5ODc0NA==",
+								"product_sku": "PL.M.151",
+								"product_name": "Warocqueanum",
+								"product_url_key": "anthurium-warocqueanum-m",
+								"__typename": "OrderItem"
+							},
+							{
+								"id": "MTQ5ODc0NQ==",
+								"product_sku": "CR.M.ORA15",
+								"product_name": "Orange Terracotta Pot",
+								"product_url_key": "terracotta-pot-m-orange",
+								"__typename": "OrderItem"
+							},
+							{
+								"id": "MTQ5ODc0Ng==",
+								"product_sku": "KB.002",
+								"product_name": "Sustainability box Medium",
+								"product_url_key": "sustainabillity-box-m",
+								"__typename": "OrderItem"
+							},
+							{
+								"id": "MTQ5ODc0Nw==",
+								"product_sku": "PL.S.M.162",
+								"product_name": "Burle Marx Flame",
+								"product_url_key": "monstera-burle-marx-flame-s",
+								"__typename": "OrderItem"
+							}
+						],
+						"__typename": "CustomerOrder"
+					}
+				],
+				"__typename": "CustomerOrders"
+			}
+		}
+	}
+}

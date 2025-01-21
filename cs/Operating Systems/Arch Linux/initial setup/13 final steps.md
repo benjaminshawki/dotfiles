@@ -1,0 +1,3 @@
+`exit`
+
+`umount -R /mnt`

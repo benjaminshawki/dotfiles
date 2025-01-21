@@ -1,0 +1,3 @@
+Spiegel
+Prullenbak
+Schoenen

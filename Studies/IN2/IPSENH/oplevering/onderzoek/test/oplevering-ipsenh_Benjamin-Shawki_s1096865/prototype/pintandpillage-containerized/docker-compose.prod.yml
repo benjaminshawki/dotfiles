@@ -1,0 +1,93 @@
+version: '3.9'
+
+services:
+  traefik:
+    image: traefik:v3.0
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./letsencrypt:/letsencrypt
+    command:
+      - --api.insecure=true
+      - --api.dashboard=true
+      - --providers.docker=true
+      - --providers.docker.exposedByDefault=false
+      - --entrypoints.web.address=:80
+      - --entrypoints.web.http.redirections.entrypoint.to=websecure
+      - --entryPoints.web.http.redirections.entrypoint.scheme=https
+      - --entrypoints.websecure.address=:443
+      - --entrypoints.websecure.asDefault=true
+      - --certificatesresolvers.letsencrypt.acme.tlschallenge=true
+      - --certificatesresolvers.letsencrypt.acme.email=benjaminshawki@gmail.com
+      - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
+
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.traefik.rule=Host(`traefik.${ROOT_DOMAIN}`)
+      - traefik.http.routers.traefik.service=api@internal
+      - traefik.http.routers.traefik.entrypoints=websecure
+      - traefik.http.routers.traefik.tls.certresolver=letsencrypt
+      - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+      - traefik.http.routers.http-catchall.rule=HostRegexp(`{host:.+}`)
+      - traefik.http.routers.http-catchall.entrypoints=web
+      - traefik.http.routers.http-catchall.middlewares=redirect-to-https
+    restart: unless-stopped
+
+  db:
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - 5433:5432
+
+  backend:
+    image: ${IMAGE_BACKEND}
+    build:
+      context: ./PintAndPillageJavaBackend/
+      dockerfile: Dockerfile
+    volumes:
+      - ./PintAndPillageJavaBackend:/app
+      - /app/target
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+      JWT_SECRET: ${JWT_SECRET}
+      LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB: DEBUG
+      LOGGING_LEVEL_ORG_HIBERNATE_SQL: INFO
+    depends_on:
+      - db
+
+  frontend-placeholder:
+    image: ${CI_REGISTRY_IMAGE}/$CI_COMMIT_REF_NAME/frontend:${CI_COMMIT_SHORT_SHA}
+    build:
+      context: .
+      dockerfile: PintAndPillageFrontend/Dockerfile
+    labels:
+    - traefik.enable=true
+    - traefik.http.routers.frontend-${CI_COMMIT_SHORT_SHA}.rule=${TRAEFIK_ROUTER_RULE}
+    - traefik.http.routers.frontend-${CI_COMMIT_SHORT_SHA}.entrypoints=websecure
+    - traefik.http.routers.frontend-${CI_COMMIT_SHORT_SHA}.tls.certresolver=letsencrypt
+    - traefik.http.services.frontend-${CI_COMMIT_SHORT_SHA}.loadbalancer.server.port=80
+    - traefik.http.middlewares.strip-www.redirectregex.regex=^https://www\.(.+)
+    - traefik.http.middlewares.strip-www.redirectregex.replacement=https://$${1}
+    - traefik.http.routers.frontend-${CI_COMMIT_SHORT_SHA}.middlewares=strip-www
+    environment:
+      VUE_APP_BACKEND_URL: ${BACKEND_URL}
+      VUE_APP_FRONTEND_URL: http://${CI_COMMIT_SHORT_SHA}.${ROOT_DOMAIN}
+    depends_on:
+      - traefik
+
+volumes:
+  letsencrypt:
+    name: letsencrypt
+  postgres_data:

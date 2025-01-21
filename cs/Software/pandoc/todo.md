@@ -1,0 +1,3 @@
+- make a global pandoc config file
+- make a global pandoc template file
+- citations numbering

@@ -1,0 +1,4 @@
+- Add to cart button on or off
+- pdp accordeon of tabjes
+- paginering state vergeten bij dichtklappen accordeon of vergeten (reviews)
+- Doorgaan naar afrekenen stick of niet

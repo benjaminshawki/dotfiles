@@ -1,0 +1,1 @@
+Misconfiguratie (aan de kant van de developer en van de marketeer) kan ervoor zorgen dat bepaalde elementen binnen een test-case niet getoond worden.

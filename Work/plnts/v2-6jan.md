@@ -1,0 +1,4 @@
+- Afgekapte letters boven en onderkant Op apple
+- .com PLNTS moet groen
+- Backorder producten in MAGENTO
+- 

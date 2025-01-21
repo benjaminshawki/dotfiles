@@ -1,0 +1,1 @@
+Overspanning current protection

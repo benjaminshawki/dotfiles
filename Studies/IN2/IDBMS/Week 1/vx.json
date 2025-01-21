@@ -1,0 +1,81 @@
+{
+    "created_time": "2022-08-26T14:58:01Z",
+    "files": [
+        {
+            "attachment_folder": "",
+            "created_time": "2022-08-26T14:41:15Z",
+            "id": "97",
+            "modified_time": "2022-08-26T14:49:10Z",
+            "name": "Week 1 vid 1.md",
+            "signature": "27205984377739",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2022-08-26T14:49:33Z",
+            "id": "99",
+            "modified_time": "2022-08-26T15:03:09Z",
+            "name": "W1 V2 Databases and database users.md",
+            "signature": "67535727287677",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2022-08-26T15:05:30Z",
+            "id": "101",
+            "modified_time": "2022-08-26T15:16:36Z",
+            "name": "Lecture 3 Three schema architecture .md",
+            "signature": "1255791976762",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2022-08-26T15:17:22Z",
+            "id": "103",
+            "modified_time": "2022-08-26T15:31:02Z",
+            "name": "Lecture 4 The database system environment.md",
+            "signature": "23396348388354",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2022-09-04T10:44:51Z",
+            "id": "119",
+            "modified_time": "2022-09-04T10:55:53Z",
+            "name": "Lecture 5 SQL.md",
+            "signature": "177755947427",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2022-09-04T10:56:36Z",
+            "id": "120",
+            "modified_time": "2022-09-04T11:03:58Z",
+            "name": "Lecture 6 Views.md",
+            "signature": "42783831524452",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2022-09-04T12:17:23Z",
+            "id": "121",
+            "modified_time": "2022-09-04T12:30:26Z",
+            "name": "Lecture 7.md",
+            "signature": "62725364684627",
+            "tags": [
+            ]
+        }
+    ],
+    "folders": [
+    ],
+    "id": "100",
+    "modified_time": "2022-08-26T14:58:01Z",
+    "signature": "72273076215673",
+    "version": 3
+}
