@@ -14,8 +14,8 @@ fpath=($ZDOTDIR/external $fpath)
 
 source "$XDG_CONFIG_HOME/zsh/aliases"
 
-export XDG_CURRENT_DESKTOP=sway
-export QT_QPA_PLATFORM=wayland
+# export XDG_CURRENT_DESKTOP=sway
+# export QT_QPA_PLATFORM=wayland
 
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
@@ -50,8 +50,8 @@ bindkey -M vicmd v edit-command-line
 source ~/dotfiles/zsh/external/bd.zsh
 
 if [ $(command -v "fzf") ]; then
-    source /usr/share/fzf/completion.zsh
-    source /usr/share/fzf/key-bindings.zsh
+    source "$USR_SHARE/fzf/completion.zsh"
+    source "$USR_SHARE/fzf/key-bindings.zsh"
 fi
 
 # Exclude .wine directory
@@ -142,7 +142,7 @@ export MOZ_ENABLE_WAYLAND=1
 source $DOTFILES/zsh/scripts.sh
 ftmuxp
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$USR_SHARE/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 bindkey -r '^l'
 bindkey -r '^g'

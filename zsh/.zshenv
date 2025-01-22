@@ -5,6 +5,8 @@ export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
 # For user cached files
 export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 
+export USR_SHARE="/usr/share"
+
 export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER="google-chrome-stable"
