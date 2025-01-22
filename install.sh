@@ -1,16 +1,5 @@
 #!/usr/bin/env bash
 
-#nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
-#nix-channel --update
-
-# Home manager
-rm -rf "$XDG_CONFIG_HOME/home-manager"
-ln -s "$DOTFILES/home-manager" "$XDG_CONFIG_HOME"
-
-# Kanshi
-rm -rf "$XDG_CONFIG_HOME/kanshi"
-ln -s "$DOTFILES/kanshi" "$XDG_CONFIG_HOME"
-
 ########    
 # nvim # 
 ########
@@ -20,31 +9,6 @@ ln -sf "$DOTFILES/nvim/init.lua" "$XDG_CONFIG_HOME/nvim"
 ln -sf "$DOTFILES/nvim/lua" "$XDG_CONFIG_HOME/nvim"
 ln -sf "$DOTFILES/nvim/ftplugin/" "$XDG_CONFIG_HOME/nvim"
 ln -sf "$DOTFILES/nvim/queries/" "$XDG_CONFIG_HOME/nvim"
-
-# #######
-# # X11 #
-# #######
-# rm -rf "$XDG_CONFIG_HOME/X11"
-# ln -s "$DOTFILES/X11" "$XDG_CONFIG_HOME"
-# xrdb -merge "$XDG_CONFIG_HOME/X11/.Xresources"
-
-###########
-# zathura #
-###########
-rm -rf "$XDG_CONFIG_HOME/zathura"
-ln -s "$DOTFILES/zathura" "$XDG_CONFIG_HOME"
-
-###########
-# waybar #
-###########
-rm -rf "$XDG_CONFIG_HOME/waybar"
-ln -s "$DOTFILES/waybar" "$XDG_CONFIG_HOME"
-
-######
-# sway #
-######
-rm -rf "$XDG_CONFIG_HOME/sway"
-ln -s "$DOTFILES/sway" "$XDG_CONFIG_HOME"
 
 #######
 # zsh #
@@ -62,18 +26,6 @@ ln -sf "$DOTFILES/zsh/external" "$XDG_CONFIG_HOME/zsh"
 mkdir -p "$XDG_DATA_HOME"
 cp -rf "$DOTFILES/fonts" "$XDG_DATA_HOME"
 
-#############
-# alacritty #
-#############
-rm -rf "$XDG_CONFIG_HOME/alacritty"
-ln -s "$DOTFILES/alacritty" "$XDG_CONFIG_HOME"
-
-#########
-# dunst #
-#########
-mkdir -p "$XDG_CONFIG_HOME/dunst"
-ln -sf "$DOTFILES/dunst/dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"
-
 ########
 # tmux #
 ########
@@ -86,9 +38,3 @@ ln -sf "$DOTFILES/tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
 
 rm -rf "$XDG_CONFIG_HOME/tmuxp"
 ln -sf "$DOTFILES/tmuxp" "$XDG_CONFIG_HOME"
-
-##########
-# ranger #
-##########
-mkdir -p "$XDG_CONFIG_HOME/ranger"
-ln -sf "$DOTFILES/ranger/rc.conf" "$XDG_CONFIG_HOME/ranger/rc.conf"
