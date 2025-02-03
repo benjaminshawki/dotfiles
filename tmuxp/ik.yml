@@ -1,0 +1,8 @@
+session_name: ik
+start_directory: $HOME/workspace/ik
+
+windows:
+  - window_name: nvim
+    layout: tiled
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"

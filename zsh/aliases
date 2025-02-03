@@ -1,3 +1,4 @@
+alias fixaudio='systemctl --user restart pipewire-pulse.service'
 alias ll='ls -lah --color=auto'
 alias tree='tree -C'
 alias nixos-v='sudo nixos-rebuild switch --show-trace --print-build-logs --verbose'
@@ -7,6 +8,7 @@ alias cpli='[ -e "$HOME/Pictures/$(ls -t $HOME/Pictures/ | head -n1)" ] && cp "$
 alias copyf=$USER_BIN/copy-files.sh
 alias nvimsf='nvim -c "lua require(\"telescope.builtin\").find_files()"'
 alias nsf='nvim -c "lua require(\"telescope.builtin\").find_files()"'
+alias nsG='nvim -c "LiveGrepGitRoot"'
 alias quartus='_JAVA_AWT_WM_NONREPARENTING=1 QT_QPA_PLATFORM=xcb quartus &'
 alias fpgamon='_JAVA_AWT_WM_NONREPARENTING=1 QT_QPA_PLATFORM=xcb "/home/benjamin/intelFPGA/University_Program/Monitor_Program/bin/intel-fpga-monitor-program"'
 alias intel_embedded_sh='~/intelFPGA/20.1/embedded/embedded_command_shell.sh'

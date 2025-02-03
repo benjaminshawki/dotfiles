@@ -1,0 +1,13 @@
+session_name: afstuderen
+
+windows:
+  - window_name: Notes
+    start_directory: $HOME/Notes/Studies/Afstuderen/
+    layout: tiled
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"
+  - window_name: workspace
+    start_directory: $HOME/workspace/afstuderen/
+    layout: tiled
+    panes:
+      - cd ./wiki
