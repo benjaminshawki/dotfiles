@@ -1,0 +1,23 @@
+session_name: opserve-portal
+
+windows:
+  - window_name: term
+    start_directory: $HOME/workspace/opserve-portal
+    layout:
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"
+  - window_name: FE
+    start_directory: $HOME/workspace/opserve-portal/opserve-frontend/
+    layout:
+    panes:
+      - npm run serve
+  - window_name: BE
+    start_directory: $HOME/workspace/opserve-portal/opserve-api/
+    layout:
+    panes:
+      - mvn spring-boot:run
+  - window_name: DB
+    start_directory: $HOME/workspace/opserve-portal/
+    layout:
+    panes:
+      - docker compose up 
