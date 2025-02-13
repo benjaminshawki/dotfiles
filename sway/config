@@ -82,6 +82,8 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     xkb_options caps:escape
 }
 
+input type:keyboard xkb_options "compose:ralt"
+
 bindgesture swipe:right workspace next
 bindgesture swipe:left workspace prev
 bindgesture swipe:4:right exec "$USER_BIN/move_container_to_next_workspace.sh"
