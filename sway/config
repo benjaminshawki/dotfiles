@@ -272,8 +272,8 @@ set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) re
 mode "$mode_system" {
 	bindsym l exec --no-startup-id swaylock --color 000000, mode "default"
 	bindsym e exec --no-startup-id swaymsg exit, mode "default"
-	bindsym s exec --no-startup-id swaylock --color 000000 && systemctl suspend, mode "default"
-	bindsym h exec --no-startup-id swaylock --color 000000 && systemctl hibernate, mode "default"
+	bindsym s exec --no-startup-id systemctl suspend && swaylock --color 000000, mode "default"
+	bindsym h exec --no-startup-id systemctl hibernate && swaylock --color 000000, mode "default"
 	bindsym r exec --no-startup-id systemctl reboot, mode "default"
 	bindsym CTRL+s exec --no-startup-id systemctl poweroff -i, mode "default"
 	bindsym Return mode "default"
