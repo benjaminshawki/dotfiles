@@ -11,7 +11,3 @@ windows:
     panes:
       - $BROWSER --new-window https://localhost:3000/en & disown && exit
       - cd $HOME/workspace/plnts-v2/projects/plnts-storefront/ && pn dev
-  - window_name: lazygit
-    layout: tiled
-    panes:
-      - lazygit

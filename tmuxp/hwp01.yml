@@ -12,7 +12,3 @@ windows:
     layout: tiled
     panes:
       - cd ./wiki
-  - window_name: lazygit
-    layout: tiled
-    panes:
-      - lazygit

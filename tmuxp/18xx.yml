@@ -10,7 +10,3 @@ windows:
     layout: tiled
     panes:
       - google-chrome-stable http://localhost:9292/ & disown && make dev_up_b
-  - window_name: git
-    layout: tiled
-    panes:
-      - lazygit

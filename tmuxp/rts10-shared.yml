@@ -12,7 +12,3 @@ windows:
     layout: tiled
     panes:
       - cd $HOME/workspace/rts10_opdrachten/docs/RTS10.wiki/
-  - window_name: lazygit
-    layout: tiled
-    panes:
-      - lazygit

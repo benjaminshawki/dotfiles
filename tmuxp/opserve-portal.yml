@@ -15,9 +15,9 @@ windows:
     start_directory: $HOME/workspace/opserve-portal/opserve-api/
     layout:
     panes:
-      - mvn spring-boot:run
+      - mvn spring-boot:run -Dspring-boot.run.arguments="--spring.profiles.active=dev"
   - window_name: DB
     start_directory: $HOME/workspace/opserve-portal/
     layout:
     panes:
-      - docker compose up 
+      - docker compose up

@@ -19,7 +19,3 @@ windows:
     layout: tiled
     panes:
       - cd ./docs
-  - window_name: lazygit
-    layout: tiled
-    panes:
-      - lazygit

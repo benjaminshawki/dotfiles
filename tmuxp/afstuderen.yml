@@ -6,6 +6,11 @@ windows:
     layout: tiled
     panes:
       - nvim -c "lua require('telescope.builtin').find_files()"
+  - window_name: latex
+    start_directory: $HOME/workspace/overleaf/afstuderen/
+    layout: tiled
+    panes:
+      - nsf
   - window_name: workspace
     start_directory: $HOME/workspace/afstuderen/
     layout: tiled
