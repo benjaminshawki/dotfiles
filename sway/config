@@ -82,7 +82,7 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     xkb_options caps:escape
 }
 
-input type:keyboard xkb_options "compose:ralt"
+input type:keyboard xkb_options "compose:ralt,caps:escape"
 
 bindgesture swipe:right workspace next
 bindgesture swipe:left workspace prev
@@ -113,6 +113,9 @@ exec_always --no-startup-id $USER_BIN/fzf-launcher-close-when-unfocussed.sh
 bindsym $mod+Shift+d exec alacritty --class 'launcher' --command bash -c '$HOME/dotfiles/sway/fzf-sway-profile-launcher.sh'
 for_window [app_id="^launcher$"] floating enable, border none, resize set width 50 ppt height 50 ppt, move position center
 
+# Emoji picker with FZF
+bindsym $mod+semicolon exec $USER_BIN/emoji-picker/emoji-picker.sh
+for_window [app_id="^emoji-picker$"] floating enable, border none, resize set width 65 ppt height 60 ppt, move position center
 
 # change focus
 bindsym $mod+h focus left
