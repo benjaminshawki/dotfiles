@@ -45,6 +45,14 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# Clipboard integration for vi mode
+function vi-yank-wl-copy() {
+  zle vi-yank
+  echo "$CUTBUFFER" | wl-copy
+}
+zle -N vi-yank-wl-copy
+bindkey -M vicmd 'y' vi-yank-wl-copy
+
 
 # FZF
 source ~/dotfiles/zsh/external/bd.zsh
