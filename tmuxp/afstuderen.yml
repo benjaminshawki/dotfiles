@@ -7,12 +7,12 @@ windows:
     panes:
       - nvim -c "lua require('telescope.builtin').find_files()"
   - window_name: latex
-    start_directory: $HOME/workspace/overleaf/afstuderen/
+    start_directory: $HOME/Notes/Studies/Afstuderen/latex/
     layout: tiled
     panes:
       - nsf
-  - window_name: workspace
-    start_directory: $HOME/workspace/afstuderen/
+  - window_name: wiki
+    start_directory: $HOME/Notes/Studies/Afstuderen/General/1. Moduledocumentatie/
     layout: tiled
     panes:
-      - cd ./wiki
+      -
