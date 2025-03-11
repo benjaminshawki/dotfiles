@@ -369,6 +369,9 @@ include /etc/sway/config.d/*
 # Autostart
 exec 1password
 
+# Battery monitor
+exec_always --no-startup-id $HOME/dotfiles/scripts/battery-monitor.sh
+
 # scratchpad
 #for_window [class="Alacritty" instance="scratchpad_terminal"] move to scratchpad, border none
 #bindsym $mod+Shift+t [instance="scratchpad_terminal"] scratchpad show
