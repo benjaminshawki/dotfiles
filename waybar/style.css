@@ -47,8 +47,8 @@
 	/* Pure white background for focused */
 	color: #000000;
 	/* Black text for contrast */
-	border-bottom: 3px solid #ffffff;
-	/* Solid white bottom border */
+	box-shadow: inset 0 -3px 0 #ffffff;
+	/* Inset bottom border equivalent */
 	font-weight: bold;
 }
 
