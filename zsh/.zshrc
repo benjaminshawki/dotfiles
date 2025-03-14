@@ -58,17 +58,55 @@ bindkey -M vicmd 'y' vi-yank-wl-copy
 source ~/dotfiles/zsh/external/bd.zsh
 
 if [ $(command -v "fzf") ]; then
+    # Custom path generator to exclude certain directories
+    _fzf_compgen_path() {
+        echo "$1"
+        find -L "$1" \
+          -name .git -prune -o \
+          -name node_modules -prune -o \
+          -name .wine -prune -o \
+          -name Steam -prune -o \
+          -path "*/.config/local/share/Steam" -prune -o \
+          \( -type d -o -type f -o -type l \) \
+          -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
+    }
+
+    # Custom directory generator to exclude certain directories
+    _fzf_compgen_dir() {
+        find -L "$1" \
+          -name .git -prune -o \
+          -name node_modules -prune -o \
+          -name .wine -prune -o \
+          -name Steam -prune -o \
+          -path "*/.config/local/share/Steam" -prune -o \
+          -type d \
+          -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
+    }
+    
     source /usr/share/fzf/completion.zsh
     source /usr/share/fzf/key-bindings.zsh
 fi
 
-# Exclude .wine directory
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!.wine/*" 2>/dev/null'
+# ============================================================
+# FZF FILE EXCLUSIONS 
+# These settings control which directories are excluded from fzf searches
+# ============================================================
+# Define exclude pattern first (so we can reuse it)
+export FZF_EXCLUDE_PATTERN="--glob '!.git/*' --glob '!node_modules/*' --glob '!.wine/*' --glob '!Steam/*' --glob '!.config/local/share/Steam/*'"
+
+# Set main fzf command with exclusions
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow $FZF_EXCLUDE_PATTERN 2>/dev/null"
+
+# Set explicit command for Ctrl+T to ensure it uses the same exclusions
+export FZF_CTRL_T_COMMAND="rg --files --hidden --follow $FZF_EXCLUDE_PATTERN 2>/dev/null"
 
 # Preview file content using bat (https://github.com/sharkdp/bat)
 export FZF_CTRL_T_OPTS="
   --preview 'bat -n --color=always {}' --preview-window down:20:hidden:wrap
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# Configure Alt+C command to ignore the same directories
+export FZF_ALT_C_COMMAND="find . -path '*/.git' -prune -o -path '*/node_modules' -prune -o -path '*/.wine' -prune -o -path '*/Steam' -prune -o -path '*/.config/local/share/Steam' -prune -o -type d -print 2> /dev/null | cut -b3-"
 
 # Print tree structure in the preview window
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
