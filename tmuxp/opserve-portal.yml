@@ -21,3 +21,8 @@ windows:
     layout:
     panes:
       - docker compose up
+  - window_name: sonar_qube
+    start_directory: $HOME/workspace/opserve-portal/opserve-api/
+    layout:
+    panes:
+      - docker start sonarqube && mvn verify sonar:sonar -Dsonar.token=$SONAR_TOKEN
