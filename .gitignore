@@ -1,3 +1,7 @@
 .Xdpi
 
 X11/default.sh
+
+wayvnc/
+
+zsh/.zshenv_hidden
