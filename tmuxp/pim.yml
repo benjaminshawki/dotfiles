@@ -1,8 +1,8 @@
-session_name: dotfiles
-start_directory: $HOME/dotfiles
+session_name: pim
+start_directory: $HOME/workspace/pim/
 
 windows:
-  - window_name: nvim dotfiles
+  - window_name: nvim
     layout: tiled
     panes:
       - nvim -c "lua require('telescope.builtin').find_files()"

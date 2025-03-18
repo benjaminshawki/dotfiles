@@ -11,8 +11,8 @@ ln -s "$DOTFILES/home-manager" "$XDG_CONFIG_HOME"
 rm -rf "$XDG_CONFIG_HOME/kanshi"
 ln -s "$DOTFILES/kanshi" "$XDG_CONFIG_HOME"
 
-########    
-# nvim # 
+########
+# nvim #
 ########
 mkdir -p "$XDG_CONFIG_HOME/nvim"
 mkdir -p "$XDG_CONFIG_HOME/undo"
@@ -51,6 +51,7 @@ ln -s "$DOTFILES/sway" "$XDG_CONFIG_HOME"
 #######
 mkdir -p "$XDG_CONFIG_HOME/zsh"
 ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
+ln -sf "$DOTFILES/zsh/.zshenv_hidden" "$HOME"
 ln -sf "$DOTFILES/zsh/.zshrc" "$XDG_CONFIG_HOME/zsh"
 ln -sf "$DOTFILES/zsh/aliases" "$XDG_CONFIG_HOME/zsh/aliases"
 rm -rf "$XDG_CONFIG_HOME/zsh/external"
@@ -80,9 +81,9 @@ ln -sf "$DOTFILES/dunst/dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"
 mkdir -p "$XDG_CONFIG_HOME/tmux"
 ln -sf "$DOTFILES/tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
 
-[ ! -d "$XDG_CONFIG_HOME/tmux/plugins" ] \
-&& git clone https://github.com/tmux-plugins/tpm \
-"$XDG_CONFIG_HOME/tmux/plugins/tpm"
+[ ! -d "$XDG_CONFIG_HOME/tmux/plugins" ] &&
+	git clone https://github.com/tmux-plugins/tpm \
+		"$XDG_CONFIG_HOME/tmux/plugins/tpm"
 
 rm -rf "$XDG_CONFIG_HOME/tmuxp"
 ln -sf "$DOTFILES/tmuxp" "$XDG_CONFIG_HOME"
@@ -92,3 +93,9 @@ ln -sf "$DOTFILES/tmuxp" "$XDG_CONFIG_HOME"
 ##########
 mkdir -p "$XDG_CONFIG_HOME/ranger"
 ln -sf "$DOTFILES/ranger/rc.conf" "$XDG_CONFIG_HOME/ranger/rc.conf"
+
+##########
+# wayvnc #
+##########
+mkdir -p "$XDG_CONFIG_HOME/wayvnc"
+ln -sf "$DOTFILES/wayvnc/config" "$XDG_CONFIG_HOME/wayvnc/config"

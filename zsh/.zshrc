@@ -172,7 +172,9 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }--border --min-h
 
 # Wayland stuff
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-	exec sway
+  # export WLR_BACKENDS=headless
+  # export WLR_LIBINPUT_NO_DEVICES=1
+  exec sway
 fi
 
 if [[ -v TMUX ]]; then
@@ -224,3 +226,5 @@ PERL5LIB="/home/benjamin/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5
 PERL_LOCAL_LIB_ROOT="/home/benjamin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/benjamin/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/benjamin/perl5"; export PERL_MM_OPT;
+
+source ~/.zshenv_hidden

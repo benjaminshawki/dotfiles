@@ -250,10 +250,6 @@ exec --no-startup-id dunst
 bindsym $mod+x exec dunstctl close-all
 bindsym Ctrl+BackSpace exec dunstctl history-pop
 
-# Autostart
-# A tmuxp script for watching my dev dir and auto creating a tmuxp yml file
-exec_always ~/create_tmuxp_on_dir.sh
-
 focus_follows_mouse no
 
 # default window workspace behavior, to find class and instance `xprop | grep WM_CLASS`

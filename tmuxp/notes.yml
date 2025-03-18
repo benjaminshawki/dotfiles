@@ -8,14 +8,3 @@ windows:
       layout: tiled
       panes:
           - FZF_DIR=$(find . -type d | fzf) && [ -n "$FZF_DIR" ] && cd "$FZF_DIR"
-
-    - window_name: terms
-      layout: tiled
-      panes:
-          - 
-          -
-
-    - window_name: TODO
-      layout: tiled
-      panes:
-          - nvim TODO/`date +%Y-%m-%d`.md
