@@ -131,15 +131,4 @@
 		},
 		"on-click": "pavucontrol"
 	},
-	"custom/media": {
-		"format": "{icon} {}",
-		"return-type": "json",
-		"max-length": 40,
-		"format-icons": {
-			"spotify": "",
-			"default": "🎜"
-		},
-		"escape": true,
-		"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
-	}
 }
