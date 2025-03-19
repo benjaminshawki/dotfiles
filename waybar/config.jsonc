@@ -26,7 +26,9 @@
 			"10": []
 		}
 	},
-	"modules-center": ["sway/window"],
+	"modules-center": [
+		"sway/window"
+	],
 	"modules-right": [
 		"idle_inhibitor",
 		"pulseaudio",
@@ -54,7 +56,10 @@
 	"sway/scratchpad": {
 		"format": "{icon} {count}",
 		"show-empty": false,
-		"format-icons": ["", ""],
+		"format-icons": [
+			"",
+			""
+		],
 		"tooltip": true,
 		"tooltip-format": "{app}: {title}"
 	},
@@ -83,11 +88,25 @@
 	"temperature": {
 		"critical-threshold": 80,
 		"format": "{temperatureC}°C {icon}",
-		"format-icons": ["", "", ""]
+		"format-icons": [
+			"",
+			"",
+			""
+		]
 	},
 	"backlight": {
 		"format": "{percent}% {icon}",
-		"format-icons": ["", "", "", "", "", "", "", "", ""]
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		]
 	},
 	"battery": {
 		"adapter": "AC",
@@ -102,7 +121,13 @@
 		"format-charging": "{capacity}% ",
 		"format-plugged": "{capacity}% ",
 		"format-alt": "{time} {icon}",
-		"format-icons": ["", "", "", "", ""]
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
 	},
 	"network": {
 		"format-wifi": "{essid} ({signalStrength}%) ",
@@ -127,8 +152,12 @@
 			"phone": "",
 			"portable": "",
 			"car": "",
-			"default": ["", "", ""]
+			"default": [
+				"",
+				"",
+				""
+			]
 		},
 		"on-click": "pavucontrol"
-	},
+	}
 }
