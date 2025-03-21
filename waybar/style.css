@@ -1,4 +1,4 @@
-/* High-contrast light theme for Waybar */
+/* Dark theme for Waybar */
 
 /* General Waybar styling */
 #waybar {
@@ -24,44 +24,38 @@
 #language,
 #tray,
 #media {
-  background-color: rgba(246, 248, 250, 0.95);
-  color: #24292e;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #c0caf5;
   padding: 0 10px;
   border-radius: 4px;
-  border: 1px solid #e1e4e8;
-  margin: 2px;
-  font-weight: 500;
 }
 
 /* Workspace styling */
 #workspaces button {
-  background-color: rgba(246, 248, 250, 0.95);
-  color: #24292e;
-  padding: 0 6px;
-  border-radius: 4px;
-  margin: 2px;
-  border: 1px solid #e1e4e8;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #c0caf5;
 }
 
 #workspaces button:hover {
-  background-color: rgba(225, 228, 232, 0.95);
-  color: #24292e;
-  border-color: #d1d5da;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #000000;
 }
 
-/* Active workspace (focused) */
+/* Active workspace (focused) - pure white background */
 #workspaces button.focused {
-  background-color: #0366d6;  /* GitHub blue */
-  color: #ffffff;
-  border-color: #0366d6;
+  background-color: #ffffff;
+  /* Pure white background for focused */
+  color: #000000;
+  /* Black text for contrast */
+  box-shadow: inset 0 -3px 0 #ffffff;
+  /* Inset bottom border equivalent */
   font-weight: bold;
 }
 
 /* Visible workspace (on a different monitor) */
 #workspaces button.visible {
-  background-color: rgba(3, 102, 214, 0.2);
-  color: #24292e;
-  border-color: #0366d6;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
 }
 
 #workspaces button.urgent {
@@ -70,68 +64,37 @@
 }
 
 /* CPU, Memory, and Temperature */
-#cpu {
-  color: #24292e;
-  background-color: rgba(246, 248, 250, 0.95);
-}
-
-#memory {
-  color: #24292e;
-  background-color: rgba(246, 248, 250, 0.95);
-}
-
+#cpu,
+#memory,
 #temperature {
-  color: #24292e;
-  background-color: rgba(246, 248, 250, 0.95);
-}
-
-#temperature.critical {
-  background-color: #d73a49;
-  color: #ffffff;
+  color: #e0af68;
 }
 
 /* Network Module Styling */
 #network {
-  color: #0366d6;
-  background-color: rgba(246, 248, 250, 0.95);
-}
-
-#network.disconnected {
-  color: #d73a49;
+  color: #7aa2f7;
 }
 
 /* Pulseaudio Volume */
 #pulseaudio {
-  color: #24292e;
-  background-color: rgba(246, 248, 250, 0.95);
+  color: #73daca;
 }
 
-#pulseaudio.muted {
-  color: #959da5;
+.battery-good {
+  color: #9ece6a;
 }
 
-/* Battery styling */
-#battery {
-  background-color: rgba(246, 248, 250, 0.95);
+.battery-warning {
+  color: #e0af68;
 }
 
-#battery.good {
-  color: #28a745;  /* GitHub green */
-}
-
-#battery.warning {
-  color: #f66a0a;  /* GitHub orange */
-}
-
-#battery.critical {
-  color: #d73a49;  /* GitHub red */
+.battery-critical {
+  color: #f7768e;
 }
 
 /* Clock Styling */
 #clock {
-  color: #24292e;
-  font-weight: bold;
-  background-color: rgba(246, 248, 250, 0.95);
+  color: #c0caf5;
 }
 
 /* Customizing icons based on the module */
