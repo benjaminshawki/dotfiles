@@ -166,12 +166,27 @@ function M.setup()
 			},
 		},
 
-		-- Color scheme
+		-- Color schemes
 		{
 			"folke/tokyonight.nvim",
 			lazy = false,
 			priority = 1000,
 			opts = {}
+		},
+		{
+			"catppuccin/nvim",
+			name = "catppuccin",
+			lazy = false,
+			priority = 1000,
+			opts = {}
+		},
+		{
+			"projekt0n/github-nvim-theme",
+			lazy = false,
+			priority = 1000,
+			config = function()
+				require("github-theme").setup({})
+			end
 		},
 
 		-- Status line
@@ -242,7 +257,10 @@ function M.setup()
 		'simeji/winresizer',
 
 		-- Fuzzy finding
-		{ "junegunn/fzf",                       build = "./install --bin" },
+		{
+			"junegunn/fzf",
+			build = "./install --bin"
+		},
 
 		-- Text manipulation
 		'machakann/vim-sandwich',
@@ -479,6 +497,7 @@ function M.setup()
 		xml = true,
 		yaml = true,
 		nix = true,
+		vue = true,
 	}
 	vim.g.copilot_debug = true
 	vim.keymap.del('i', '<Tab>')
@@ -569,4 +588,3 @@ function M.setup()
 end
 
 return M
-

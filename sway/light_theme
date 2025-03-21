@@ -1,0 +1,51 @@
+# Colors for Sway Light Theme - GitHub inspired
+set $foreground #24292e
+set $background #f6f8fa
+set $cursorColor #24292e
+
+# black
+set $black1 #24292e
+set $black2 #586069
+set $trueblack #000000
+
+# red
+set $red1 #d73a49
+set $red2 #cb2431
+
+# green
+set $green1 #28a745
+set $green2 #22863a
+
+# yellow
+set $yellow1 #f66a0a
+set $yellow2 #e36209
+
+# blue
+set $blue1 #0366d6
+set $blue2 #005cc5
+
+# magenta
+set $magenta1 #6f42c1
+set $magenta2 #5a32a3
+
+# cyan
+set $cyan1 #1b7c83
+set $cyan2 #3192aa
+
+# white
+set $white1 #e1e4e8
+set $white2 #f6f8fa
+
+# Window colors
+client.focused          $blue1     $blue1     $white2    $blue2      $blue1
+client.focused_inactive #959da5    $white1    $black1    #d1d5da     #959da5
+client.unfocused        #e1e4e8    $white2    $black2    #e1e4e8     #e1e4e8
+client.urgent           $red1      $red1      $white2    $red2       $red1
+client.placeholder      $white2    $white1    $black2    $white2     $white1
+
+# Default border style
+default_border pixel 2
+default_floating_border pixel 2
+
+# Wallpaper - soft light background color
+output * bg #f6f8fa solid_color

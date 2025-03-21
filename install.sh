@@ -59,3 +59,29 @@ ln -sf "$DOTFILES/ranger/rc.conf" "$XDG_CONFIG_HOME/ranger/rc.conf"
 # wayvnc
 mkdir -p "$XDG_CONFIG_HOME/wayvnc"
 ln -sf "$DOTFILES/wayvnc/config" "$XDG_CONFIG_HOME/wayvnc/config"
+
+# Set up theme switching
+echo "Setting up theme switching system..."
+
+# Create initial theme state file (default to dark)
+echo "dark" > "$HOME/.theme_state"
+echo "tokyonight-night" > "$DOTFILES/nvim/.nvim_theme"
+
+# Set up Sway theme symlink
+ln -sf "$DOTFILES/sway/dark_theme" "$DOTFILES/sway/current_theme"
+
+# Make theme switcher script executable
+chmod +x "$DOTFILES/scripts/theme-switcher.sh"
+chmod +x "$DOTFILES/scripts/nvim-theme-status.sh"
+
+# Create aliases for theme switching
+echo "Adding theme switching aliases..."
+if ! grep -q "theme-light" "$XDG_CONFIG_HOME/zsh/aliases"; then
+  echo "# Theme switching" >> "$XDG_CONFIG_HOME/zsh/aliases"
+  echo "alias theme-light='$DOTFILES/scripts/theme-switcher.sh light'" >> "$XDG_CONFIG_HOME/zsh/aliases"
+  echo "alias theme-dark='$DOTFILES/scripts/theme-switcher.sh dark'" >> "$XDG_CONFIG_HOME/zsh/aliases"
+  echo "alias theme-toggle='$DOTFILES/scripts/theme-switcher.sh'" >> "$XDG_CONFIG_HOME/zsh/aliases"
+  echo "alias theme-status='$DOTFILES/scripts/nvim-theme-status.sh'" >> "$XDG_CONFIG_HOME/zsh/aliases"
+fi
+
+echo "Theme system setup complete!"

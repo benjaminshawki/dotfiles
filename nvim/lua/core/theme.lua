@@ -69,10 +69,68 @@ function M.setup()
     print("Tokyo Night theme not found. Please install it to use this configuration.")
   end
 
-  -- On Neovim startup, load the theme
-  local theme = ThemeManager.loadThemeFromFile()
-  if theme then
-    ThemeManager.applyTheme(theme)
+  -- Function to load theme from global theme file
+  function ThemeManager.loadGlobalThemeFile()
+    local globalFilePath = vim.fn.stdpath('config') .. '/.nvim_theme'
+    local file = io.open(globalFilePath, 'r')
+    if not file then
+      -- Try the home directory location
+      globalFilePath = vim.fn.expand('~/.theme_state')
+      file = io.open(globalFilePath, 'r')
+      if not file then
+        return nil -- Global theme file not found
+      end
+      
+      -- Read theme state (light/dark) instead of theme name
+      local state = file:read("*a"):gsub("%s+", "")
+      file:close()
+      
+      -- Convert state to theme name
+      if state == "light" then
+        return "github_light"
+      else
+        return "tokyonight-night"
+      end
+    end
+    
+    local theme = file:read("*a"):gsub("%s+", "") -- Remove whitespace
+    file:close()
+    return theme
+  end
+  
+  -- Function to detect system theme preference
+  function ThemeManager.detectSystemPreference()
+    -- Try to use the theme state file
+    local state_file = io.open(vim.fn.expand('~/.theme_state'), 'r')
+    if state_file then
+      local state = state_file:read("*a"):gsub("%s+", "")
+      state_file:close()
+      
+      if state == "light" then
+        return "github_light"
+      else
+        return "tokyonight-night"
+      end
+    end
+    
+    -- Default to dark theme
+    return "tokyonight-night"
+  end
+  
+  -- On Neovim startup, load the theme (prioritize global theme file)
+  local global_theme = ThemeManager.loadGlobalThemeFile()
+  local local_theme = ThemeManager.loadThemeFromFile()
+  local system_theme = ThemeManager.detectSystemPreference()
+  
+  if global_theme then
+    -- Global theme file has priority
+    ThemeManager.applyTheme(global_theme)
+  elseif local_theme then
+    -- Fall back to local theme file
+    ThemeManager.applyTheme(local_theme)
+  elseif system_theme then
+    -- Fall back to system preference
+    ThemeManager.applyTheme(system_theme)
   end
 
   -- Key mappings for theme switching
@@ -84,6 +142,68 @@ function M.setup()
     { desc = 'Switch to Tokyo Night Day Theme' })
   vim.keymap.set('n', '<leader>ttm', function() ThemeManager.switchTheme('tokyonight-moon') end,
     { desc = 'Switch to Tokyo Night Moon Theme' })
+  
+  -- Catppuccin theme mappings
+  vim.keymap.set('n', '<leader>ttcl', function() ThemeManager.switchTheme('catppuccin-latte') end,
+    { desc = 'Switch to Catppuccin Latte (Light) Theme' })
+  vim.keymap.set('n', '<leader>ttcf', function() ThemeManager.switchTheme('catppuccin-frappe') end,
+    { desc = 'Switch to Catppuccin Frappe Theme' })
+  vim.keymap.set('n', '<leader>ttcm', function() ThemeManager.switchTheme('catppuccin-macchiato') end,
+    { desc = 'Switch to Catppuccin Macchiato Theme' })
+  vim.keymap.set('n', '<leader>ttco', function() ThemeManager.switchTheme('catppuccin-mocha') end,
+    { desc = 'Switch to Catppuccin Mocha Theme' })
+  
+  -- GitHub theme mappings
+  vim.keymap.set('n', '<leader>ttgd', function() ThemeManager.switchTheme('github_dark') end,
+    { desc = 'Switch to GitHub Dark Theme' })
+  vim.keymap.set('n', '<leader>ttgl', function() ThemeManager.switchTheme('github_light') end,
+    { desc = 'Switch to GitHub Light Theme' })
+  vim.keymap.set('n', '<leader>ttgdh', function() ThemeManager.switchTheme('github_dark_high_contrast') end,
+    { desc = 'Switch to GitHub Dark High Contrast Theme' })
+  vim.keymap.set('n', '<leader>ttgdd', function() ThemeManager.switchTheme('github_dark_dimmed') end,
+    { desc = 'Switch to GitHub Dark Dimmed Theme' })
+    
+  -- System theme mappings
+  vim.keymap.set('n', '<leader>tts1', function()
+    -- Switch to system light theme 
+    vim.fn.system("$HOME/dotfiles/scripts/theme-switcher.sh light")
+    ThemeManager.switchTheme('github_light')
+  end, { desc = 'Switch to System Light Theme' })
+  
+  vim.keymap.set('n', '<leader>tts0', function()
+    -- Switch to system dark theme
+    vim.fn.system("$HOME/dotfiles/scripts/theme-switcher.sh dark")
+    ThemeManager.switchTheme('tokyonight-night')
+  end, { desc = 'Switch to System Dark Theme' })
+  
+  -- Setup autocommand to detect theme changes
+  vim.api.nvim_create_autocmd({"FocusGained", "BufEnter"}, {
+    callback = function()
+      -- Only check occasionally to avoid excessive disk reads
+      local now = os.time()
+      if not ThemeManager.last_check or now - ThemeManager.last_check > 5 then
+        ThemeManager.last_check = now
+        
+        -- Check for system theme state
+        local state_file = io.open(vim.fn.expand('~/.theme_state'), 'r')
+        if state_file then
+          local state = state_file:read("*a"):gsub("%s+", "")
+          state_file:close()
+          
+          -- Get current colorscheme
+          local current = vim.g.colors_name or ""
+          
+          -- Apply theme if it doesn't match system preference
+          if state == "light" and not current:match("light") and not current:match("latte") then
+            ThemeManager.switchTheme('github_light')
+          elseif state == "dark" and (current:match("light") or current:match("latte")) then
+            ThemeManager.switchTheme('tokyonight-night')
+          end
+        end
+      end
+    end,
+    desc = "Check for system theme changes"
+  })
 
   -- Set up ThemeManager in the module for access
   M.ThemeManager = ThemeManager

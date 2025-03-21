@@ -101,6 +101,7 @@ function M.setup()
 		docker_compose_language_service = {},
 		awk_ls = {},
 		phpactor = {},
+		volar = {},
 		-- omnisharp = {},
 
 		-- grammarly = {

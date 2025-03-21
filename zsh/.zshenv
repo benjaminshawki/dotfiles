@@ -50,3 +50,13 @@ export IDF_PATH="$HOME/workspace/esp/esp-idf"
 export STEAM_RUNTIME=0
 
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
+# Theme system
+export THEME_STATE_FILE="$HOME/.theme_state"
+export THEME_SCRIPT="$DOTFILES/scripts/theme-switcher.sh"
+export THEME_STATUS_SCRIPT="$DOTFILES/scripts/nvim-theme-status.sh"
+
+# Set default theme if not already set
+if [ ! -f "$THEME_STATE_FILE" ]; then
+  echo "dark" > "$THEME_STATE_FILE"
+fi
