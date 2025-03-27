@@ -307,21 +307,28 @@ function M.setup()
 		"editorconfig/editorconfig-vim",
 
 		-- ChatGPT integration
-		{
-			"benjaminshawki/ChatGPT.nvim",
-			event = "VeryLazy",
-			dependencies = {
-				"MunifTanjim/nui.nvim",
-				"nvim-lua/plenary.nvim",
-				"folke/trouble.nvim",
-				"nvim-telescope/telescope.nvim"
-			},
-		},
+		-- {
+		-- 	"benjaminshawki/ChatGPT.nvim",
+		-- 	event = "VeryLazy",
+		-- 	dependencies = {
+		-- 		"MunifTanjim/nui.nvim",
+		-- 		"nvim-lua/plenary.nvim",
+		-- 		"folke/trouble.nvim",
+		-- 		"nvim-telescope/telescope.nvim"
+		-- 	},
+		-- },
 
 		-- Diagnostics, references, etc
 		{
 			"folke/trouble.nvim",
-			opts = {}, -- for default options, refer to the configuration section for custom setup.
+			opts = {
+				auto_preview = true,
+				auto_refresh = true,
+				use_diagnostic_signs = true,
+				action_keys = {
+					refresh = "r", -- manually refresh
+				}
+			},
 			cmd = "Trouble",
 			keys = {
 				{
@@ -333,6 +340,16 @@ function M.setup()
 					"<leader>xX",
 					"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
 					desc = "Buffer Diagnostics (Trouble)",
+				},
+				{
+					"<leader>xw",
+					function()
+						for _, client in ipairs(vim.lsp.get_clients()) do
+							require("workspace-diagnostics").populate_workspace_diagnostics(client, 0)
+						end
+						vim.cmd("Trouble diagnostics toggle")
+					end,
+					desc = "Workspace Diagnostics (Trouble)",
 				},
 				{
 					"<leader>ty",
@@ -403,12 +420,12 @@ function M.setup()
 			end
 		},
 
-		-- TypeScript tools
-		{
-			"pmizio/typescript-tools.nvim",
-			dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-			opts = {},
-		},
+		-- -- TypeScript tools
+		-- {
+		-- 	"pmizio/typescript-tools.nvim",
+		-- 	dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		-- 	opts = {},
+		-- },
 
 		-- Laravel support
 		{ "adalessa/laravel.nvim" },
@@ -455,17 +472,17 @@ function M.setup()
 		pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
 	}
 
-	-- Configure ChatGPT.nvim
-	local home = vim.fn.expand("$HOME")
-	require("chatgpt").setup({
-		api_key_cmd = "gpg --decrypt " .. home .. "/secret.txt.gpg",
-		open_ai_params = {
-			model = "gpt-4-turbo-preview",
-		},
-		openai_edit_params = {
-			model = "gpt-4-turbo-preview",
-		},
-	})
+	-- -- Configure ChatGPT.nvim
+	-- local home = vim.fn.expand("$HOME")
+	-- require("chatgpt").setup({
+	-- 	api_key_cmd = "gpg --decrypt " .. home .. "/secret.txt.gpg",
+	-- 	open_ai_params = {
+	-- 		model = "gpt-4-turbo-preview",
+	-- 	},
+	-- 	openai_edit_params = {
+	-- 		model = "gpt-4-turbo-preview",
+	-- 	},
+	-- })
 
 	-- Configure Copilot
 	vim.g.copilot_filetypes = {

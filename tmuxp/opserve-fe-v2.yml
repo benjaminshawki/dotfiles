@@ -1,0 +1,18 @@
+session_name: opserve-v2
+start_directory: $HOME/workspace/opserve-frontend-v2/
+
+windows:
+  - window_name: v2
+    layout:
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"
+  - window_name: v1
+    start_directory: $HOME/workspace/opserve-portal/opserve-frontend/
+    layout:
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"
+  - window_name: run
+    layout:
+    panes:
+      - $BROWSER --new-window http://localhost:5173/ & disown && exit
+      - npm run dev
