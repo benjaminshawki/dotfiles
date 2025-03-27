@@ -205,48 +205,57 @@ function M.setup_latex()
   vim.api.nvim_create_user_command("StopLatexPreview", StopLatexPreview, {})
 end
 
--- Setup Prettier autoformatting
-function M.setup_prettier()
-  -- vim.g["prettier#autoformat"] = 0
-  vim.g["prettier#autoformat_require_pragma"] = 0
-
-  local prettier_config_path = vim.fn.stdpath('config') .. '/.prettier_autoformat'
+-- Setup global autoformatting toggle
+function M.setup_formatting()
+  -- Initialize the global toggle (default to enabled)
+  vim.g["autoformat_enabled"] = 1
+  
+  local config_path = vim.fn.stdpath('config') .. '/.autoformat_enabled'
 
   -- Function to save the value to a file
-  local function save_prettier_autoformat()
-    local file = io.open(prettier_config_path, 'w')
+  local function save_autoformat_enabled()
+    local file = io.open(config_path, 'w')
     if file then
-      file:write(vim.g["prettier#autoformat"])
+      file:write(vim.g["autoformat_enabled"])
       file:close()
     else
-      print("Error: Unable to save Prettier autoformat setting!")
+      print("Error: Unable to save autoformat setting!")
     end
   end
 
   -- Function to load the value from a file
-  local function load_prettier_autoformat()
-    local file = io.open(prettier_config_path, 'r')
+  local function load_autoformat_enabled()
+    local file = io.open(config_path, 'r')
     if file then
       local value = file:read('*a')
       file:close()
-      vim.g["prettier#autoformat"] = tonumber(value) or 0
+      vim.g["autoformat_enabled"] = tonumber(value) or 1
     else
-      vim.g["prettier#autoformat"] = 0 -- Default to 0 if file doesn't exist
+      vim.g["autoformat_enabled"] = 1 -- Default to enabled if file doesn't exist
     end
   end
 
-  -- Toggle function
-  function TogglePrettierAutoformat()
-    vim.g["prettier#autoformat"] = vim.g["prettier#autoformat"] == 0 and 1 or 0
-    print("Prettier Autoformat: " .. vim.g["prettier#autoformat"])
-    save_prettier_autoformat() -- Save after toggling
+  -- Toggle function for the global autoformat setting
+  function _G.ToggleAutoformat()
+    vim.g["autoformat_enabled"] = vim.g["autoformat_enabled"] == 0 and 1 or 0
+    local status = vim.g["autoformat_enabled"] == 1 and "enabled" or "disabled"
+    print("Autoformatting: " .. status)
+    save_autoformat_enabled() -- Save after toggling
+    
+    -- Update prettier to match the global setting
+    vim.g["prettier#autoformat"] = vim.g["autoformat_enabled"] 
   end
 
   -- Load the setting when Neovim starts
-  load_prettier_autoformat()
+  load_autoformat_enabled()
 
-  -- Keybinding to toggle
-  vim.api.nvim_set_keymap('n', '<leader>tp', ':lua TogglePrettierAutoformat()<CR>', { noremap = true, silent = true })
+  -- Prettier specific settings
+  vim.g["prettier#autoformat_require_pragma"] = 0
+  vim.g["prettier#autoformat"] = vim.g["autoformat_enabled"]
+
+  -- Keybinding to toggle global formatting
+  vim.api.nvim_set_keymap('n', '<leader>tf', ':lua ToggleAutoformat()<CR>', 
+    { noremap = true, silent = true, desc = 'Toggle Autoformatting' })
 end
 
 return M

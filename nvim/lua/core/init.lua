@@ -27,7 +27,7 @@ function M.setup()
   require('core.autocmds').setup()
   require('core.autocmds').setup_markdown()
   require('core.autocmds').setup_latex()
-  require('core.autocmds').setup_prettier()
+  require('core.autocmds').setup_formatting()
   
   -- Load custom modules
   require('custom.unsaved_buffers')

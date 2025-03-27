@@ -22,7 +22,10 @@ function M.setup()
 				group = vim.api.nvim_create_augroup("Format", { clear = true }),
 				buffer = bufnr,
 				callback = function()
-					vim.lsp.buf.format({ bufnr = bufnr })
+					-- Only format if global autoformatting is enabled
+					if vim.g["autoformat_enabled"] == 1 then
+						vim.lsp.buf.format({ bufnr = bufnr })
+					end
 				end
 			})
 		end
@@ -251,4 +254,3 @@ function M.setup_completion()
 end
 
 return M
-
