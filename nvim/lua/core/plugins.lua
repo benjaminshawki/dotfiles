@@ -428,7 +428,19 @@ function M.setup()
 		-- },
 
 		-- Laravel support
-		{ "adalessa/laravel.nvim" },
+		{
+			"adalessa/laravel.nvim",
+			dependencies = {
+				"nvim-telescope/telescope.nvim",
+				"MunifTanjim/nui.nvim",
+				"nvim-lua/plenary.nvim",
+				"kevinhwang91/promise-async",
+				"hrsh7th/nvim-cmp",
+			},
+			config = function()
+				require("laravel").setup()
+			end,
+		},
 
 		-- Import custom plugins
 		{ import = 'custom.plugins' },

@@ -222,7 +222,7 @@ function M.setup_formatting()
 	local function save_prettier_autoformat()
 		local file = io.open(prettier_config_path, 'w')
 		if file then
-			file:write(vim.g["prettier#autoformat"])
+			file:write(vim.g["prettier#Autoformat"])
 			file:close()
 		else
 			print("Error: Unable to save Prettier autoformat setting!")
@@ -247,9 +247,9 @@ function M.setup_formatting()
 		if file then
 			local value = file:read('*a')
 			file:close()
-			vim.g["prettier#autoformat"] = tonumber(value) or 0
+			vim.g["prettier#Autoformat"] = tonumber(value) or 0
 		else
-			vim.g["prettier#autoformat"] = 0 -- Default to disabled if file doesn't exist
+			vim.g["prettier#Autoformat"] = 0 -- Default to disabled if file doesn't exist
 		end
 	end
 
@@ -263,8 +263,8 @@ function M.setup_formatting()
 
 	-- Toggle function for Prettier-specific autoformat
 	function _G.TogglePrettierAutoformat()
-		vim.g["prettier#autoformat"] = vim.g["prettier#autoformat"] == 0 and 1 or 0
-		local status = vim.g["prettier#autoformat"] == 1 and "enabled" or "disabled"
+		vim.g["prettier#Autoformat"] = vim.g["prettier#Autoformat"] == 0 and 1 or 0
+		local status = vim.g["prettier#Autoformat"] == 1 and "enabled" or "disabled"
 		print("Prettier Autoformat: " .. status)
 		save_prettier_autoformat() -- Save after toggling
 	end
@@ -274,29 +274,29 @@ function M.setup_formatting()
 	load_prettier_autoformat()
 
 	-- Prettier specific settings
-	vim.g["prettier#autoformat_require_pragma"] = 0
-	
+	vim.g["prettier#Autoformat_require_pragma"] = 0
+
 	-- Fix the errors in the original autoformat mechanism
-	vim.cmd[[
+	vim.cmd [[
 		" Define a fixed version of Prettier's autoformat function to prevent errors
 		function! PrettierFix()
 			return 0
 		endfunction
 
 		" Store the original value for use in our custom function
-		let g:prettier#autoformat_orig = g:prettier#autoformat
+		let g:prettier#Autoformat_orig = g:prettier#Autoformat
 	]]
 
 	-- Schedule our formatting setup to run after the plugin has loaded
 	vim.defer_fn(function()
-		vim.cmd[[
+		vim.cmd [[
 			" Create our custom formatting functions
 			function! ShouldFormat()
 				return g:autoformat_enabled
 			endfunction
 
 			function! ShouldPrettierFormat()
-				return g:autoformat_enabled && g:prettier#autoformat_orig
+				return g:autoformat_enabled && g:prettier#Autoformat_orig
 			endfunction
 
 			function! FormatBuffer()
@@ -312,7 +312,7 @@ function M.setup_formatting()
 			endfunction
 
 			" Replace the problematic function
-			let g:prettier#autoformat = function('PrettierFix')
+			let g:prettier#Autoformat = function('PrettierFix')
 
 			" Set up autoformat autocmd for every buffer write
 			augroup AutoFormatGroup
@@ -332,3 +332,4 @@ function M.setup_formatting()
 end
 
 return M
+
