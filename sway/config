@@ -92,6 +92,8 @@ bindgesture pinch:3:inward+right move right
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+# open tmux session chooser
+bindsym $mod+Shift+Return exec alacritty -e $HOME/dotfiles/scripts/tmux-session-chooser.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
