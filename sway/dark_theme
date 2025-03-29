@@ -36,7 +36,7 @@ set $cyan2 #7DCFFF
 set $white1 #2E2E2E
 set $white2 #FFFFFF
 
-# client.focused #414868 $white2 $trueblack #7AA2F7
+# client.focused $black1 $background $foreground #7AA2F7
 client.focused_inactive #3B4261 $background $foreground #565F89
 client.unfocused #333333 #222222 #888888 #292d2e #222222
 client.urgent $red1 $red1 $white2 $red1 $red1

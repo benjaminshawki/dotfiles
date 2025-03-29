@@ -59,8 +59,8 @@
 }
 
 #workspaces button.urgent {
-	background-color: rgba(255, 84, 84, 0.5);
-	color: #ffffff;
+  background-color: rgba(255, 84, 84, 0.5);
+  color: #ffffff;
 }
 
 /* CPU, Memory, and Temperature */

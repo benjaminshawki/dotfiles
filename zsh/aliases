@@ -85,7 +85,8 @@ alias vpn-hsleiden='sudo openconnect --protocol=fortinet -C "$(openfortivpn-webv
 # use prime renderer oflload
 alias prime='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
 
-# Theme switching for Alacritty and Neovim
+# Theme switching for system-wide themes
 alias theme-light='$HOME/dotfiles/scripts/theme-switcher.sh light'
 alias theme-dark='$HOME/dotfiles/scripts/theme-switcher.sh dark'
 alias theme-toggle='$HOME/dotfiles/scripts/theme-switcher.sh'
+alias theme='$HOME/dotfiles/scripts/theme-picker.sh'

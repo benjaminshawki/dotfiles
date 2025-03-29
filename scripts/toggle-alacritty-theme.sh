@@ -8,7 +8,7 @@ ALACRITTY_CONFIG_DIR="$HOME/dotfiles/alacritty"
 ALACRITTY_CONFIG="$ALACRITTY_CONFIG_DIR/alacritty.toml"
 LIGHT_THEME="$ALACRITTY_CONFIG_DIR/light_theme.toml"
 DARK_THEME="$ALACRITTY_CONFIG_DIR/dark_theme.toml"
-THEME_STATE_FILE="$ALACRITTY_CONFIG_DIR/.current_theme"
+THEME_STATE_FILE="${THEME_STATE_FILE:-$HOME/.theme_state}"
 
 # Create state file if it doesn't exist (default to dark)
 if [ ! -f "$THEME_STATE_FILE" ]; then

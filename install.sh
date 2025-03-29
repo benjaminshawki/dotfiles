@@ -70,18 +70,38 @@ echo "tokyonight-night" > "$DOTFILES/nvim/.nvim_theme"
 # Set up Sway theme symlink
 ln -sf "$DOTFILES/sway/dark_theme" "$DOTFILES/sway/current_theme"
 
-# Make theme switcher script executable
+# Make theme switcher scripts executable
 chmod +x "$DOTFILES/scripts/theme-switcher.sh"
 chmod +x "$DOTFILES/scripts/nvim-theme-status.sh"
+chmod +x "$DOTFILES/scripts/theme-picker.sh"
+
+# Create symlink to theme picker in path
+mkdir -p "$HOME/.local/bin"
+ln -sf "$DOTFILES/scripts/theme-picker.sh" "$HOME/.local/bin/theme"
+
+# Create desktop entry for theme picker
+mkdir -p "$HOME/.local/share/applications"
+cat > "$HOME/.local/share/applications/theme-picker.desktop" << EOF
+[Desktop Entry]
+Name=Theme Picker
+Comment=Toggle between light and dark themes
+Exec=$DOTFILES/scripts/theme-picker.sh
+Icon=preferences-desktop-theme
+Terminal=true
+Type=Application
+Categories=Utility;
+Keywords=theme;dark;light;toggle;
+EOF
 
 # Create aliases for theme switching
 echo "Adding theme switching aliases..."
 if ! grep -q "theme-light" "$XDG_CONFIG_HOME/zsh/aliases"; then
-  echo "# Theme switching" >> "$XDG_CONFIG_HOME/zsh/aliases"
+  echo "# Theme switching for system-wide themes" >> "$XDG_CONFIG_HOME/zsh/aliases"
   echo "alias theme-light='$DOTFILES/scripts/theme-switcher.sh light'" >> "$XDG_CONFIG_HOME/zsh/aliases"
   echo "alias theme-dark='$DOTFILES/scripts/theme-switcher.sh dark'" >> "$XDG_CONFIG_HOME/zsh/aliases"
   echo "alias theme-toggle='$DOTFILES/scripts/theme-switcher.sh'" >> "$XDG_CONFIG_HOME/zsh/aliases"
   echo "alias theme-status='$DOTFILES/scripts/nvim-theme-status.sh'" >> "$XDG_CONFIG_HOME/zsh/aliases"
+  echo "alias theme='$DOTFILES/scripts/theme-picker.sh'" >> "$XDG_CONFIG_HOME/zsh/aliases"
 fi
 
 echo "Theme system setup complete!"

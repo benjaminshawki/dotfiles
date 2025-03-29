@@ -295,7 +295,6 @@ bindsym CTRL+Print exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pi
 
 
 # Colors
-# Default theme settings - These will be overridden by the included theme file
 set $foreground #C0CAF5
 set $background #000000
 set $cursorColor #C0CAF5
@@ -333,14 +332,13 @@ set $cyan2 #7DCFFF
 set $white1 #2E2E2E
 set $white2 #FFFFFF
 
-# Design adjustments
+# Design adjustments for Tokyo Night theme feel
 # hide borders
 hide_edge_borders both
 
-# Include theme file (will be managed by theme-switcher.sh)
-include $HOME/dotfiles/sway/current_theme
 
-# Display background is defined in the theme file
+# Display
+output * bg #000000 solid_color
 
 
 # Run monitor setup script at startup
@@ -365,11 +363,6 @@ exec 1password
 
 # Battery monitor
 exec_always --no-startup-id $HOME/dotfiles/scripts/battery-monitor.sh
-
-# Theme switching keybindings
-bindsym $mod+F7 exec $HOME/dotfiles/scripts/theme-switcher.sh dark
-bindsym $mod+F8 exec $HOME/dotfiles/scripts/theme-switcher.sh light
-bindsym $mod+F9 exec $HOME/dotfiles/scripts/theme-switcher.sh
 
 # scratchpad
 #for_window [class="Alacritty" instance="scratchpad_terminal"] move to scratchpad, border none
