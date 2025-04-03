@@ -93,7 +93,7 @@ bindgesture pinch:3:inward+right move right
 # start a terminal
 bindsym $mod+Return exec alacritty
 # open tmux session chooser
-bindsym $mod+Shift+Return exec alacritty -e $HOME/dotfiles/scripts/tmux-session-chooser.sh
+bindsym $mod+Shift+Return exec alacritty -e "$HOME/dotfiles/scripts/tmux-session-chooser.sh"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -102,11 +102,6 @@ bindsym $mod+Shift+q kill
 exec_always --no-startup-id $USER_BIN/fzf-launcher-close-when-unfocussed.sh
 
 bindsym $mod+d exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec;' 
-for_window [app_id="^launcher$"] floating enable, border none, resize set width 25 ppt height 90 ppt, move position center
-
-# FZF Profile Launcher
-exec_always --no-startup-id $USER_BIN/fzf-launcher-close-when-unfocussed.sh
-bindsym $mod+Shift+d exec alacritty --class 'launcher' --command bash -c '$HOME/dotfiles/sway/fzf-sway-profile-launcher.sh'
 for_window [app_id="^launcher$"] floating enable, border none, resize set width 50 ppt height 50 ppt, move position center
 
 # Emoji picker with FZF
@@ -256,6 +251,9 @@ focus_follows_mouse no
 
 # default window workspace behavior, to find class and instance `xprop | grep WM_CLASS`
 # assign [class="Google-chrome" instance="google-chrome"] $ws2
+assign [class="Slack"] $ws5
+assign [class="slack"] $ws5
+assign [app_id="Slack"] $ws5
 
 bindsym XF86MonBrightnessUp exec brightnessctl s 2%+
 bindsym XF86MonBrightnessDown exec brightnessctl s 2%-
@@ -346,7 +344,8 @@ exec_always --no-startup-id $USER_BIN/setup_monitors.sh
 
 # Optional: Bind a key to manually run the monitor setup script
 # Replace Mod4 with your mod key (e.g., the Windows key)
-bindsym $mod+a exec $USER_BIN/setup_monitors.sh
+# bindsym $mod+a exec $USER_BIN/setup_monitors.sh
+bindsym $mod+a exec pavucontrol &
 
 # class border backgr. text indicator child_border
 client.focused #414868 $white2 $trueblack #7AA2F7
