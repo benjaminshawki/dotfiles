@@ -1,0 +1,8 @@
+session_name: template
+
+windows:
+  - window_name: home
+    start_directory: $HOME/
+    layout: tiled
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"

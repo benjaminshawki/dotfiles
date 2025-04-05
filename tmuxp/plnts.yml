@@ -1,13 +1,13 @@
 session_name: plnts
-start_directory: $HOME/dev/plnts.com/
+start_directory: $HOME/workspace/plnts.com/
 
 windows:
   - window_name: nvim
     layout: tiled
     panes:
-      - nvim +FZF 
+      - nvim -c "lua require('telescope.builtin').find_files()"
   - window_name: terms
     layout: tiled
     panes:
-      - google-chrome-stable --new-window http://localhost:3333/en 
+      - $BROWSER --new-window http://localhost:3333/en & && exit
       - npm run dev

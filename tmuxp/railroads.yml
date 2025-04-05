@@ -1,0 +1,12 @@
+session_name: railroads
+start_directory: $HOME/workspace/railroads
+
+windows:
+  - window_name: railroads
+    layout: tiled
+    panes:
+      -
+  - window_name: terms
+    layout: tiled
+    panes:
+      -

@@ -1,0 +1,21 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/realtime-systems.yml"
+
+session_name: Interactive Glasses
+start_directory: $HOME/workspace/Interactive-glasses
+
+windows:
+  - window_name: neovim
+    layout: tiled
+    panes:
+      - fzf-cd-widget
+  - window_name: esp
+    layout: even-horizontal
+    panes:
+      - source ~/workspace/esp/esp-idf/v5.3.1/esp-idf/export.sh
+      - source ~/workspace/esp/esp-idf/v5.3.1/esp-idf/export.sh
+      - source ~/workspace/esp/esp-idf/v5.3.1/esp-idf/export.sh
+    start_directory: $HOME/workspace/Interactive-glasses/code/mesh-lite/smoke_beacon_mesh/src
+  - window_name: wiki
+    layout: tiled
+    panes:
+      - cd ./docs

@@ -8,6 +8,7 @@ export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER="google-chrome-stable"
+export BROWSER_SECONDARY="firefox-developer-edition"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
@@ -27,3 +28,27 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # term
 export TERM="xterm-256color"
 . "$HOME/.cargo/env"
+
+export PATH=$PATH:$HOME/.cargo/bin
+
+export USER_BIN="$HOME/bin"
+export USERBIN="$USER_BIN"
+
+export QT_QPA_PLATFORM=xcb
+
+export PATH=$PATH:/path/to/compiledb
+
+export WORKSPACE="$HOME/workspace"
+
+export NODE_OPTIONS="--max-old-space-size=4096 --max-http-header-size=81920" 
+
+# 1Password
+export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+
+export IDF_PATH="$HOME/workspace/esp/esp-idf"
+
+export STEAM_RUNTIME=0
+
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
+export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"

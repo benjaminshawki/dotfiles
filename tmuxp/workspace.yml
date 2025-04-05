@@ -1,0 +1,14 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/dev.yml"
+
+session_name: dev
+start_directory: $HOME/workspace/
+
+windows:
+  - window_name: terms
+    layout: tiled
+    panes:
+      - cd "$(find . -maxdepth 1 -type d | fzf --preview 'tree -C {}' --preview-window down:5:hidden:wrap --bind '?:toggle-preview')"
+  - window_name: terms
+    layout: tiled
+    panes:
+      -

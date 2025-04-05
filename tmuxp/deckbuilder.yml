@@ -1,0 +1,15 @@
+session_name: deckbuilder
+start_directory: $HOME/workspace/deckbuilder/
+windows:
+  - window_name: Game Design Document
+    layout: tiled
+    panes:
+      - nvim -c "e GDD.md"
+  - window_name: nvim
+    layout: tiled
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"
+  - window_name: runtime
+    layout: tiled
+    panes:
+      -

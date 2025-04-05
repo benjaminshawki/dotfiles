@@ -1,0 +1,18 @@
+# This file should be in "$XDG_CONFIG_HOME/tmuxp/realtime-systems.yml"
+
+session_name: alias
+start_directory: $HOME/dotfiles/zsh/
+
+windows:
+  - window_name: nvim
+    layout: tiled
+    panes:
+      - nvim aliases
+  # - window_name: wiki
+  #   layout: tiled
+  #   panes:
+  #     - cd ./wiki
+  # - window_name: term
+  #   layout: tiled
+  #   panes:
+  #     -

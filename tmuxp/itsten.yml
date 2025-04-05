@@ -1,23 +1,33 @@
 # This file should be in "$XDG_CONFIG_HOME/tmuxp/itsten.yml"
 
 session_name: itsten
-start_directory: $HOME/dev/pintandpillageitsten-main/
+start_directory: $HOME/workspace/pintandpillage-containerized/
 
 windows:
+  - window_name: Container
+    layout: tiled
+    panes:
+      - cd $HOME/workspace/pintandpillage-containerized
   - window_name: Notes
     layout: tiled
     panes: 
       - cd $HOME/Notes/Studies/IN2/ITSTEN/ && ll
-  - window_name: FE
-    layout: tiled
-    panes:
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/ && nvim +FZF
-  - window_name: BE
-    layout: tiled
-    panes:
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/ && nvim +FZF
-  - window_name: start
-    layout: tiled
-    panes:
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageFrontend/ && npm run serve
-      - cd $HOME/dev/pintandpillageitsten-main/PintAndPillageJavaBackend/ && mvn spring-boot:run
+
+# windows:
+#   - window_name: Notes
+#     layout: tiled
+#     panes: 
+#       - cd $HOME/Notes/Studies/IN2/ITSTEN/ && ll
+#   - window_name: FE
+#     layout: tiled
+#     panes:
+#       - cd $HOME/workspace/pintandpillageitsten-main/PintAndPillageFrontend/ && git checkout main && nvim +FZF
+#   - window_name: BE
+#     layout: tiled
+#     panes:
+#       - cd $HOME/workspace/pintandpillageitsten-main/PintAndPillageJavaBackend/ && git checkout main && nvim +FZF
+#   - window_name: start
+#     layout: tiled
+#     panes:
+#       - cd $HOME/workspace/pintandpillageitsten-main/PintAndPillageFrontend/ && git checkout main && npm run serve
+#       - cd $HOME/workspace/pintandpillageitsten-main/PintAndPillageJavaBackend/ && git checkout main && cp $HOME/workspace/pintandpillageitsten-main/PintAndPillageJavaBackend/src/main/resources/application.properties.itsten $HOME/workspace/pintandpillageitsten-main/PintAndPillageJavaBackend/src/main/resources/application.properties && mvn spring-boot:run

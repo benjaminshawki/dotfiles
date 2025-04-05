@@ -1,0 +1,12 @@
+session_name: 18xx
+start_directory: $HOME/workspace/18xx
+
+windows:
+  - window_name: nvim
+    layout: tiled
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"
+  - window_name: make
+    layout: tiled
+    panes:
+      - google-chrome-stable http://localhost:9292/ & disown && make dev_up_b

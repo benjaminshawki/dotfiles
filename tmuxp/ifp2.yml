@@ -1,0 +1,8 @@
+session_name: ifp2
+
+windows:
+  - window_name: Notes
+    start_directory: $HOME/Notes/Studies/IN2/IFP2/
+    layout: tiled
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"

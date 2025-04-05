@@ -4,12 +4,12 @@ session_name: c
 start_directory: $HOME/Notes/cs/c
 
 windows:
-    - window_name: nvim
-      layout: tiled
-      panes: 
-          - nvim +FZF
-    - window_name: terms
-      layout: tiled
-      panes:
-          - zathura "$HOME/Notes/Books/K. N. King - C Programming_ A Modern Approach-W. W. Norton & Company (2008).pdf" &
-          -
+  - window_name: nvim
+    layout: tiled
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"
+  - window_name: terms
+    layout: tiled
+    panes:
+      - zathura "$HOME/Notes/Books/K. N. King - C Programming_ A Modern Approach-W. W. Norton & Company (2008).pdf" &
+      -

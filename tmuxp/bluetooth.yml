@@ -1,0 +1,12 @@
+session_name: bluetooth
+start_directory: $HOME/workspace/bluetooth
+
+windows:
+  - window_name: bluetooth
+    layout: tiled
+    panes:
+      - bluetoothctl
+  - window_name: terms
+    layout: tiled
+    panes:
+      -

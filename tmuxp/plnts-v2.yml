@@ -1,0 +1,13 @@
+session_name: plnts-v2
+start_directory: $HOME/workspace/plnts-v2/
+
+windows:
+  - window_name: nvim
+    layout: tiled
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"
+  - window_name: dev-server
+    layout: tiled
+    panes:
+      - $BROWSER --new-window https://localhost:3000/en & disown && exit
+      - cd $HOME/workspace/plnts-v2/projects/plnts-storefront/ && pn dev

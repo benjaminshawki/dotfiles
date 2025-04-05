@@ -1,0 +1,220 @@
+/* General Waybar styling */
+#waybar {
+	background-color: transparent;
+	font-family: sans-serif;
+}
+
+/* Remove special styling for active monitor's bar to keep consistent colors */
+
+/* Module specific styling */
+#workspaces,
+#mode,
+#window,
+#scratchpad,
+#idle_inhibitor,
+#network,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#battery,
+#clock,
+#pulseaudio,
+#keyboard-state,
+#language,
+#tray,
+#media {
+	background-color: rgba(0, 0, 0, 0.7);
+	color: #c0caf5;
+	padding: 0 10px;
+	border-radius: 4px;
+}
+
+/* Workspace styling */
+#workspaces button {
+	background-color: rgba(0, 0, 0, 0.7);
+	color: #c0caf5;
+}
+
+#workspaces button:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+	color: #000000;
+}
+
+/* Active workspace (focused) - pure white background */
+#workspaces button.focused {
+	background-color: #ffffff;
+	/* Pure white background for focused */
+	color: #000000;
+	/* Black text for contrast */
+	box-shadow: inset 0 -3px 0 #ffffff;
+	/* Inset bottom border equivalent */
+	font-weight: bold;
+}
+
+/* Visible workspace (on a different monitor) */
+#workspaces button.visible {
+	background-color: rgba(255, 255, 255, 0.25);
+	color: #ffffff;
+}
+
+#workspaces button.urgent {
+	background-color: rgba(255, 84, 84, 0.5);
+	color: #ffffff;
+}
+
+/* CPU, Memory, and Temperature */
+#cpu,
+#memory,
+#temperature {
+	color: #e0af68;
+}
+
+/* Network Module Styling */
+#network {
+	color: #7aa2f7;
+}
+
+/* Pulseaudio Volume */
+#pulseaudio {
+	color: #73daca;
+}
+
+.battery-good {
+	color: #9ece6a;
+}
+
+.battery-warning {
+	color: #e0af68;
+}
+
+.battery-critical {
+	color: #f7768e;
+}
+
+/* Clock Styling */
+#clock {
+	color: #c0caf5;
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+.battery-good {
+	color: #9ece6a;
+}
+
+.battery-warning {
+	color: #e0af68;
+}
+
+.battery-critical {
+	color: #f7768e;
+}
+
+/* Clock Styling */
+#clock {
+	color: #c0caf5;
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}
+
+/* Customizing icons based on the module */
+.icon {
+	font-family: "Font Awesome 5 Free";
+}

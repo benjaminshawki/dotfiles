@@ -1,0 +1,12 @@
+session_name: books
+start_directory: $HOME/Notes/Books/
+
+windows:
+  - window_name: books
+    layout: tiled
+    panes:
+      -
+  - window_name: terms
+    layout: tiled
+    panes:
+      -
