@@ -2,6 +2,8 @@ PATH="$HOME/.local/bin:$PATH"
 export npm_config_prefix="$HOME/.local"
 export PATH="$PATH:$HOME/.vim/bundle/vim-superman/bin"
 
+export EDITOR=nvim
+
 fpath=($ZDOTDIR/external $fpath)
 
 source "$XDG_CONFIG_HOME/zsh/aliases"
