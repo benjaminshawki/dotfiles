@@ -302,7 +302,11 @@ mode "$mode_display" {
 }
 bindsym $mod+a mode "$mode_display"
 
+exec --no-startup-id sh "$HOME/.config/X11/default.sh"
 focus_follows_mouse no
+
+# Battery monitor 
+exec_always --no-startup-id $HOME/dotfiles/scripts/battery-monitor.sh
 
 # default window workspace behavior, to find class and instance `xprop | grep WM_CLASS`
 # assign [class="Google-chrome" instance="google-chrome"] $ws2
@@ -353,3 +357,5 @@ bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewi
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 bindsym $mod+b exec $BROWSER &
+
+
