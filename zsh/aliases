@@ -1,3 +1,4 @@
+alias n ="nvim"
 alias ll='ls -lah --color=auto'
 
 # ----------------------
