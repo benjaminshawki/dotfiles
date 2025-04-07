@@ -2,6 +2,8 @@
 # set smooth-scroll "true"
 set scroll-page-aware "true"
 
+set color whie
+
 #set default-bg                  "#151515" #44
 #set default-fg                  "#202020" #01
 ##
