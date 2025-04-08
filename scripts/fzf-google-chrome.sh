@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+# For more information, see: https://junegunn.github.io/fzf/examples/chrome/
+
 require 'rbconfig'
 require 'tempfile'
 require 'json'
