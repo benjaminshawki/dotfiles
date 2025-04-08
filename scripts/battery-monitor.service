@@ -1,0 +1,7 @@
+[Unit]
+Description=Battery Monitor Service
+Documentation=https://github.com/benjaminshawki/dotfiles
+
+[Service]
+Type=oneshot
+ExecStart=%h/dotfiles/scripts/battery-monitor.sh

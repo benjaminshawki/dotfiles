@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Battery Monitor every 5 minutes
+Documentation=https://github.com/benjamin/dotfiles
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

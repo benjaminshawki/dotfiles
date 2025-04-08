@@ -20,6 +20,13 @@ ln -s "$DOTFILES/waybar" "$XDG_CONFIG_HOME"
 rm -rf "$XDG_CONFIG_HOME/sway"
 ln -s "$DOTFILES/sway" "$XDG_CONFIG_HOME"
 
+# Battery monitor (more efficient systemd timer-based solution)
+mkdir -p "$XDG_CONFIG_HOME/systemd/user/"
+cp "$DOTFILES/scripts/battery-monitor.service" "$XDG_CONFIG_HOME/systemd/user/"
+cp "$DOTFILES/scripts/battery-monitor.timer" "$XDG_CONFIG_HOME/systemd/user/"
+systemctl --user daemon-reload
+systemctl --user enable --now battery-monitor.timer
+
 # zsh
 mkdir -p "$XDG_CONFIG_HOME/zsh"
 ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
