@@ -46,6 +46,8 @@ bindsym $mod+Shift+q kill
 
 # FZF Launcher (replace dmenu with fzf in floating terminal)
 bindsym $mod+d exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r i3-msg -t command exec'
+# Custom application launcher with FZF multi-select
+bindsym $mod+Shift+d exec alacritty --class 'launcher' --command "$HOME/dotfiles/scripts/app-launcher.sh"
 for_window [class="^launcher$"] floating enable, border none, resize set width 50 ppt height 50 ppt, move position center
 
 # change focus

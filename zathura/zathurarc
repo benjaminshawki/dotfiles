@@ -2,9 +2,9 @@
 # set smooth-scroll "true"
 set scroll-page-aware "true"
 
-set color whie
+set default-fg "#FFFFFF"
 
-#set default-bg                  "#151515" #44
+set default-bg                  "#151515" #44
 #set default-fg                  "#202020" #01
 ##
 set statusbar-fg                "#707070" #04
@@ -40,6 +40,9 @@ set recolor                     "true"
 set recolor-keephue             "true"
 
 # Rest of your configs go here:
+
+# Try to repair broken files automatically
+set sandbox none
 
 #set browser firefox %s
 

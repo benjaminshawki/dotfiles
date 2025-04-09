@@ -1,0 +1,26 @@
+---
+# Application launcher configuration
+
+# Individual applications
+applications:
+  - name: "Discord"
+    command: "discord"
+  
+  - name: "Steam"
+    command: "steam"
+  
+  - name: "Chrome - WhatsApp"
+    command: "google-chrome-stable --new-window https://web.whatsapp.com"
+  
+  - name: "Chrome - Teams"
+    command: "google-chrome-stable --new-window https://teams.microsoft.com"
+  
+  - name: "Slack"
+    command: "slack"
+
+# Application groups
+groups:
+  - name: "🎮 GAMING"
+    applications:
+      - "Discord"
+      - "Steam"
