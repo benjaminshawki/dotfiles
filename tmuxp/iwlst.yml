@@ -1,7 +1,7 @@
 # This file should be in "$XDG_CONFIG_HOME/tmuxp/iwlst.yml"
 
 session_name: iwlst
-start_directory: $HOME/Notes/Studies/IN2/IWLST/oplevering
+start_directory: $NOTES/Studies/IN2/IWLST/oplevering
 
 windows:
   - window_name: nvim stageverslag
@@ -11,15 +11,15 @@ windows:
   - window_name: nvim onderzoek
     layout: tiled
     panes:
-      - nvim $HOME/Notes/Studies/IN2/IWLST/oplevering/onderzoek.md +StartMdPreview 
+      - nvim $NOTES/Studies/IN2/IWLST/oplevering/onderzoek.md +StartMdPreview 
   - window_name: nvim bib
     layout: tiled
     panes:
-      - nvim $HOME/Notes/Studies/IN2/IWLST/oplevering/ref.bib
+      - nvim $NOTES/Studies/IN2/IWLST/oplevering/ref.bib
   - window_name: nvim apa
     layout: tiled
     panes:
-      - nvim $HOME/Notes/Studies/IN2/IWLST/oplevering/apa.csl
+      - nvim $NOTES/Studies/IN2/IWLST/oplevering/apa.csl
   - window_name: zsh
     layout: tiled
     panes:

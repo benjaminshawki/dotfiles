@@ -1,7 +1,7 @@
 # This file should be in "$XDG_CONFIG_HOME/tmuxp/notes.yml"
 
 session_name: notes
-start_directory: $HOME/Notes/
+start_directory: $NOTES
 
 windows:
     - window_name: notes

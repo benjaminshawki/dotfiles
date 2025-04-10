@@ -11,13 +11,13 @@ windows:
   - window_name: Notes
     layout: tiled
     panes: 
-      - cd $HOME/Notes/Studies/IN2/ITSTEN/ && ll
+      - cd $NOTES/Studies/IN2/ITSTEN/ && ll
 
 # windows:
 #   - window_name: Notes
 #     layout: tiled
 #     panes: 
-#       - cd $HOME/Notes/Studies/IN2/ITSTEN/ && ll
+#       - cd $NOTES/Studies/IN2/ITSTEN/ && ll
 #   - window_name: FE
 #     layout: tiled
 #     panes:

@@ -2,17 +2,17 @@ session_name: afstuderen
 
 windows:
   - window_name: Notes
-    start_directory: $HOME/Notes/Studies/Afstuderen/
+    start_directory: $NOTES/Studies/Afstuderen/
     layout: tiled
     panes:
       - nvim -c "lua require('telescope.builtin').find_files()"
   - window_name: latex
-    start_directory: $HOME/Notes/Studies/Afstuderen/latex/
+    start_directory: $NOTES/Studies/Afstuderen/latex/
     layout: tiled
     panes:
       - nsf
   - window_name: wiki
-    start_directory: $HOME/Notes/Studies/Afstuderen/General/1. Moduledocumentatie/
+    start_directory: $NOTES/Studies/Afstuderen/General/1. Moduledocumentatie/
     layout: tiled
     panes:
       -

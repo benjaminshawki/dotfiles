@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Immediately start nvim with the markdown preview in the foreground
-nvim "$HOME/Notes/Studies/IN2/IWLST/oplevering/stageverslag.md" +StartMdPreview &
+nvim "$NOTES/Studies/IN2/IWLST/oplevering/stageverslag.md" +StartMdPreview &
 
 # Get the PID of the nvim process
 NVIM_PID=$!

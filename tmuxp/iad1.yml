@@ -1,7 +1,7 @@
 # This file should be in "$XDG_CONFIG_HOME/tmuxp/iad1.yml"
 
 session_name: iad1
-start_directory: $HOME/Notes/Studies/IN2/IAD1/
+start_directory: $NOTES/Studies/IN2/IAD1/
 
 windows:
   - window_name: Notes

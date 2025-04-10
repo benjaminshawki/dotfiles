@@ -1,7 +1,7 @@
 # This file should be in "$XDG_CONFIG_HOME/tmuxp/ipsenh.yml"
 
 session_name: ipsenh
-start_directory: $HOME/Notes/Studies/IN2/IPSENH/oplevering/onderzoek/her/
+start_directory: $NOTES/Studies/IN2/IPSENH/oplevering/onderzoek/her/
 
 windows:
   - window_name: onderzoek
@@ -15,10 +15,10 @@ windows:
   - window_name: apa
     layout: tiled
     panes:
-      - nvim $HOME/Notes/Studies/IN2/IWLST/oplevering/apa.csl
+      - nvim $NOTES/Studies/IN2/IWLST/oplevering/apa.csl
   - window_name: book and log
     panes:
-      - zathura "$HOME/Notes/Books/wat is onderzoek_nel verhoeven.epub" & disown && nvim $HOME/Notes/Studies/IN2/IPSENH/oplevering/onderzoek/her/log.md +MarkdownPreview
+      - zathura "$NOTES/Books/wat is onderzoek_nel verhoeven.epub" & disown && nvim $NOTES/Studies/IN2/IPSENH/oplevering/onderzoek/her/log.md +MarkdownPreview
   - window_name: Containerized
     layout: tiled
     start_directory: ~/workspace/pintandpillage-containerized/

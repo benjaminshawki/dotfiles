@@ -51,4 +51,6 @@ export IDF_PATH="$HOME/workspace/esp/esp-idf"
 
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
+export NOTES="$HOME/notes"
+
 export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"

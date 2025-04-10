@@ -1,7 +1,7 @@
 # This file should be in "$XDG_CONFIG_HOME/tmuxp/c.yml"
 
 session_name: c
-start_directory: $HOME/Notes/cs/c
+start_directory: $NOTES/cs/c
 
 windows:
   - window_name: nvim
@@ -11,5 +11,5 @@ windows:
   - window_name: terms
     layout: tiled
     panes:
-      - zathura "$HOME/Notes/Books/K. N. King - C Programming_ A Modern Approach-W. W. Norton & Company (2008).pdf" &
+      - zathura "$NOTES/Books/K. N. King - C Programming_ A Modern Approach-W. W. Norton & Company (2008).pdf" &
       -
