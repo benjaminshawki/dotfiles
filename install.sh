@@ -66,3 +66,7 @@ ln -sf "$DOTFILES/ranger/rc.conf" "$XDG_CONFIG_HOME/ranger/rc.conf"
 # wayvnc
 mkdir -p "$XDG_CONFIG_HOME/wayvnc"
 ln -sf "$DOTFILES/wayvnc/config" "$XDG_CONFIG_HOME/wayvnc/config"
+
+# lazygit
+mkdir -p "$XDG_CONFIG_HOME/lazygit"
+ln -sf "$DOTFILES/lazygit/config.yml" "$XDG_CONFIG_HOME/lazygit/config.yml"

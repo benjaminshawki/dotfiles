@@ -531,7 +531,7 @@ function M.setup()
 				'c_sharp', 'bibtex', 'latex', 'asm', 'cmake', 'comment', 'csv', 'cuda',
 				'dot', 'git_config', 'git_rebase', 'gitignore', 'graphql', 'haskell',
 				'helm', 'http', 'jq', 'json', 'nix', 'ocaml', 'ocaml_interface', 'php',
-				'regex', 'scala', 'sql', 'ssh_config', 'tmux', 'tsx', 'vue', 'zig',
+				'regex', 'scala', 'sql', 'ssh_config', 'tmux', 'tsx', 'vue', 'zig', 'dart',
 			},
 			auto_install = true,
 			highlight = {
