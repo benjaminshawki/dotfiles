@@ -169,6 +169,15 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }--border --min-h
 # # Directly execute the command (Ctrl-X Ctrl-R)
 # # bind "$(bind -s | grep '^"\\C-r"' | sed 's/"/"\\C-x/;s/"$/\\C-m"/')"
 
+glogmd () {
+  local out="${1:-history.md}"       # default filename
+  git -C "${2:-.}" log \
+       --patch --stat --reverse --date=short --no-color \
+       --pretty=format:'### %ad · %h%n%s%n%n```diff%n%+b%n```' -- "${2:-.}" \
+       > "$out"
+  printf "Markdown history written to %s\n" "$out"
+}
+
 
 # Wayland stuff
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then

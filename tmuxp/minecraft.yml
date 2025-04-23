@@ -1,0 +1,8 @@
+session_name: minecraft
+start_directory: $HOME/workspace/potters.tools/minecraft/
+
+windows:
+  - window_name: nvim
+    layout: tiled
+    panes: 
+      -
