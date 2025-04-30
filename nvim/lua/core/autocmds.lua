@@ -14,6 +14,15 @@ function M.setup()
 		pattern = '*',
 	})
 
+	-- Auto-equalize windows when terminal is resized
+	vim.api.nvim_create_autocmd('VimResized', {
+		callback = function()
+			vim.cmd('wincmd =')
+		end,
+		pattern = '*',
+		desc = 'Auto-equalize windows when terminal is resized',
+	})
+
 	-- Lua files are now handled by the global formatter
 
 	-- Set indentation for specific file types
