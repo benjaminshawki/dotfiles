@@ -1,3 +1,4 @@
+alias google-chrome=google-chrome-stable
 alias fixaudio='systemctl --user restart pipewire-pulse.service'
 alias ll='ls -lah --color=auto'
 alias tree='tree -C'

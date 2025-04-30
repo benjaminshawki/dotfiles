@@ -204,26 +204,17 @@ bar {
 # Modes #
 #########
 
-# resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+        bindsym h resize shrink width 5 ppt
+        bindsym j resize grow height 5 ppt
+        bindsym k resize shrink height 5 ppt
+        bindsym l resize grow width 5 ppt
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 30 px or 30 ppt
-        bindsym j resize grow height 30 px or 30 ppt
-        bindsym k resize shrink height 30 px or 30 ppt
-        bindsym l resize grow width 30 px or 30 ppt
+        bindsym Left resize shrink width 5 ppt
+        bindsym Down resize grow height 5 ppt
+        bindsym Up resize shrink height 5 ppt
+        bindsym Right resize grow width 5 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 30 px or 30 ppt
-        bindsym Down resize grow height 30 px or 30 ppt
-        bindsym Up resize shrink height 30 px or 30 ppt
-        bindsym Right resize grow width 30 px or 30 ppt
-
-        # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"

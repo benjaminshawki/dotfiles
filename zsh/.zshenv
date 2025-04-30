@@ -10,6 +10,9 @@ export VISUAL="nvim"
 export BROWSER="google-chrome-stable"
 export BROWSER_SECONDARY="firefox-developer-edition"
 
+
+export MESA_LOADER_DRIVER_OVERRIDE=radeonsi
+
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # History filepath

@@ -183,6 +183,15 @@ function M.setup()
 	require('lspconfig').texlab.setup {
 		filetypes = { "tex", "latex", "bib", "markdown" },
 		on_attach = on_attach,
+		settings = {
+			texlab = {
+				diagnosticsDelay = 3000,
+				formatterLineLength = 120,
+			},
+		},
+		flags = {
+			debounce_text_changes = 300,
+		},
 	}
 
 	-- Initialize workspace-diagnostics
