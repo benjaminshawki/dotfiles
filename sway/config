@@ -1,6 +1,9 @@
 set $mod Mod4
+set $USER_BIN $HOME/bin
 
 font pango:Inconsolata NF 12
+
+# Fix for AMD graphics - prevent NVIDIA driver lookup
 
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -94,8 +97,6 @@ bindsym $mod+Shift+Return exec alacritty -e "$HOME/dotfiles/scripts/tmux-session
 bindsym $mod+Shift+q kill
 
 # FZF Launcher
-exec_always --no-startup-id $USER_BIN/fzf-launcher-close-when-unfocussed.sh
-
 bindsym $mod+d exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec;' 
 for_window [app_id="^launcher$"] floating enable, border none, resize set width 50 ppt height 50 ppt, move position center
 
