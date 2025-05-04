@@ -60,4 +60,8 @@ fi
 sed "s/\${project_name}/$PROJECT_NAME/g" "$HOME/dotfiles/tmuxp/new-project.yml" >"$HOME/dotfiles/tmuxp/$PROJECT_NAME.yml"
 
 echo "Project setup completed!"
+
+# Open a new alacritty window with the tmuxp session
+alacritty -e tmuxp load "$PROJECT_NAME" &
+
 echo "To start working: tmuxp load $PROJECT_NAME"

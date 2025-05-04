@@ -1,12 +1,12 @@
-session_name: ${project_name}
+session_name: bonte-avond-2025
 
 windows:
   - window_name: editor
-    start_directory: $HOME/workspace/${project_name}
+    start_directory: $HOME/workspace/bonte-avond-2025
     layout: main-vertical
     panes:
       - nvim -c "lua require('telescope.builtin').find_files()"
   - window_name: server
-    start_directory: $HOME/workspace/${project_name}
+    start_directory: $HOME/workspace/bonte-avond-2025
     panes:
       - null
