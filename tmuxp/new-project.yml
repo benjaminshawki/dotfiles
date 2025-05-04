@@ -1,0 +1,13 @@
+session_name: ${project_name}
+
+windows:
+  - window_name: editor
+    start_directory: $HOME/workspace/${project_name}
+    layout: main-vertical
+    panes:
+      - null
+      - nvim -c "lua require('telescope.builtin').find_files()"
+  - window_name: server
+    start_directory: $HOME/workspace/${project_name}
+    panes:
+      - null
