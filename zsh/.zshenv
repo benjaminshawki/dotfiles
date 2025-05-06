@@ -55,3 +55,8 @@ export IDF_PATH="$HOME/workspace/esp/esp-idf"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
 export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+
+# Flutter
+export PATH="$PATH:/usr/lib/flutter/bin"
