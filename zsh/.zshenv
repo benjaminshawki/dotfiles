@@ -8,7 +8,7 @@ export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER="google-chrome-stable"
-export BROWSER_SECONDARY="firefox-developer-edition"
+export BROWSER_SECONDARY="google-chrome-unstable"
 
 
 export MESA_LOADER_DRIVER_OVERRIDE=radeonsi
