@@ -23,7 +23,7 @@
 #keyboard-state,
 #language,
 #tray,
-#media {
+#custom-media {
 	background-color: rgba(0, 0, 0, 0.7);
 	color: #c0caf5;
 	padding: 0 10px;
@@ -217,4 +217,18 @@
 /* Customizing icons based on the module */
 .icon {
 	font-family: "Font Awesome 5 Free";
+}
+
+/* Media Player Styling */
+#custom-media {
+	min-width: 100px;
+	color: #bb9af7;
+}
+
+#custom-media.playing {
+	color: #9ece6a;
+}
+
+#custom-media.paused {
+	color: #e0af68;
 }

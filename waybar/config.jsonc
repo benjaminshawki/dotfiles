@@ -5,9 +5,17 @@
 	"modules-left": [
 		"sway/workspaces",
 		"sway/mode",
-		"sway/scratchpad",
-		"custom/media"
+		"sway/scratchpad"
 	],
+	"custom/media": {
+		"format": "{}",
+		"return-type": "json",
+		"exec": "$HOME/bin/tidal-now-playing.sh",
+		"interval": 1,
+				"on-click": "playerctl play-pause",
+		"on-scroll-up": "playerctl next",
+		"on-scroll-down": "playerctl previous"
+	},
 	"sway/workspaces": {
 		"disable-scroll": false,
 		"all-outputs": false,
@@ -30,6 +38,7 @@
 		"sway/window"
 	],
 	"modules-right": [
+		"custom/media",
 		"idle_inhibitor",
 		"pulseaudio",
 		"network",
