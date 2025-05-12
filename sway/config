@@ -241,6 +241,12 @@ focus_follows_mouse no
 assign [class="Slack"] $ws5
 assign [class="slack"] $ws5
 assign [app_id="Slack"] $ws5
+assign [class="discord"] $ws5
+assign [class="Discord"] $ws5
+assign [app_id="discord"] $ws5
+assign [class="tidal-hifi"] $ws5
+assign [class="Tidal"] $ws5
+assign [app_id="tidal-hifi"] $ws5
 
 bindsym XF86MonBrightnessUp exec brightnessctl s 2%+
 bindsym XF86MonBrightnessDown exec brightnessctl s 2%-
