@@ -246,7 +246,13 @@ function M.setup()
 
 		-- Text manipulation
 		'machakann/vim-sandwich',
+		{
 		'wincent/ferret',
+		init = function()
+			-- Disable all default Ferret mappings
+			vim.g.FerretMap = 0
+		end,
+	},
 
 		-- Linting
 		'neomake/neomake',

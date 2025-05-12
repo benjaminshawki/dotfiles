@@ -31,21 +31,21 @@ return {
 		})
 
 		-- Basic keymaps
-		vim.keymap.set("n", "<leader>ee", function() harpoon:list():add() end, { desc = "Harpoon add file" })
-		vim.keymap.set("n", "<leader>el", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon list files" })
+		vim.keymap.set("n", "<leader>pe", function() harpoon:list():add() end, { desc = "Harpoon add file" })
+		vim.keymap.set("n", "<leader>pl", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon list files" })
 
-		vim.keymap.set("n", "<leader>e1", function() harpoon:list():select(1) end, { desc = "Harpoon select file 1" })
-		vim.keymap.set("n", "<leader>e2", function() harpoon:list():select(2) end, { desc = "Harpoon select file 2" })
-		vim.keymap.set("n", "<leader>e3", function() harpoon:list():select(3) end, { desc = "Harpoon select file 3" })
-		vim.keymap.set("n", "<leader>e4", function() harpoon:list():select(4) end, { desc = "Harpoon select file 4" })
+		vim.keymap.set("n", "<leader>p1", function() harpoon:list():select(1) end, { desc = "Harpoon select file 1" })
+		vim.keymap.set("n", "<leader>p2", function() harpoon:list():select(2) end, { desc = "Harpoon select file 2" })
+		vim.keymap.set("n", "<leader>p3", function() harpoon:list():select(3) end, { desc = "Harpoon select file 3" })
+		vim.keymap.set("n", "<leader>p4", function() harpoon:list():select(4) end, { desc = "Harpoon select file 4" })
 
 		-- Toggle previous & next buffers stored within Harpoon list
-		vim.keymap.set("n", "<leader>ep", function() harpoon:list():prev() end, { desc = "Harpoon previous file" })
-		vim.keymap.set("n", "<leader>en", function() harpoon:list():next() end, { desc = "Harpoon next file" })
+		vim.keymap.set("n", "<leader>pp", function() harpoon:list():prev() end, { desc = "Harpoon previous file" })
+		vim.keymap.set("n", "<leader>pn", function() harpoon:list():next() end, { desc = "Harpoon next file" })
 
 		-- Docs list access
-		vim.keymap.set("n", "<leader>ed", function() harpoon:list("docs"):add() end, { desc = "Harpoon add to docs" })
-		vim.keymap.set("n", "<leader>eD", function() harpoon.ui:toggle_quick_menu(harpoon:list("docs")) end, { desc = "Harpoon docs list" })
+		vim.keymap.set("n", "<leader>pd", function() harpoon:list("docs"):add() end, { desc = "Harpoon add to docs" })
+		vim.keymap.set("n", "<leader>pD", function() harpoon.ui:toggle_quick_menu(harpoon:list("docs")) end, { desc = "Harpoon docs list" })
 
 		-- Telescope integration
 		local function toggle_telescope(harpoon_files)
@@ -65,7 +65,7 @@ return {
 			}):find()
 		end
 		
-		vim.keymap.set("n", "<leader>et", function() toggle_telescope(harpoon:list()) end, { desc = "Harpoon telescope" })
+		vim.keymap.set("n", "<leader>pt", function() toggle_telescope(harpoon:list()) end, { desc = "Harpoon telescope" })
 
 		-- Add UI extensions for split viewing
 		harpoon:extend({
