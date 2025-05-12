@@ -1,0 +1,12 @@
+session_name: potters-tools
+
+windows:
+  - window_name: editor
+    start_directory: "$HOME/workspace/potters.tools"
+    layout: main-vertical
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"
+  - window_name: server
+    start_directory: "$HOME/workspace/potters.tools"
+    panes:
+      - null

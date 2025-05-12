@@ -50,11 +50,11 @@ return {
 			}
 
 			-- Setup Volar for Vue
-			-- lspconfig.volar.setup({
-			-- 	on_attach = on_attach,
-			-- 	capabilities = capabilities,
-			-- 	filetypes = { "vue" },
-			-- })
+			lspconfig.volar.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+				filetypes = { "vue" },
+			})
 
 			-- Additional servers
 			local servers = { "html", "cssls", "eslint" }
@@ -67,9 +67,4 @@ return {
 		end
 	},
 
-	-- -- Disable typescript-tools in favor of ts_ls for Vue support
-	-- {
-	-- 	"pmizio/typescript-tools.nvim",
-	-- 	enabled = false
-	-- }
 }

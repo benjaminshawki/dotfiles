@@ -294,17 +294,6 @@ function M.setup()
 		"mbbill/undotree",
 		"editorconfig/editorconfig-vim",
 
-		-- ChatGPT integration
-		-- {
-		-- 	"benjaminshawki/ChatGPT.nvim",
-		-- 	event = "VeryLazy",
-		-- 	dependencies = {
-		-- 		"MunifTanjim/nui.nvim",
-		-- 		"nvim-lua/plenary.nvim",
-		-- 		"folke/trouble.nvim",
-		-- 		"nvim-telescope/telescope.nvim"
-		-- 	},
-		-- },
 
 		-- Diagnostics, references, etc
 		{
@@ -418,6 +407,7 @@ function M.setup()
 		-- Laravel support
 		{
 			"adalessa/laravel.nvim",
+			ft = { "php", "blade" },
 			dependencies = {
 				"nvim-telescope/telescope.nvim",
 				"MunifTanjim/nui.nvim",
@@ -426,7 +416,16 @@ function M.setup()
 				"hrsh7th/nvim-cmp",
 			},
 			config = function()
-				require("laravel").setup()
+				require("laravel").setup({
+					-- Only enable in Laravel projects
+					active = function()
+						local root = vim.fn.getcwd()
+						-- Check if artisan file exists or composer.json contains laravel/framework
+						return vim.fn.filereadable(root .. "/artisan") == 1 or
+							(vim.fn.filereadable(root .. "/composer.json") == 1 and
+								vim.fn.system("grep -q laravel/framework " .. root .. "/composer.json") == 0)
+					end
+				})
 			end,
 		},
 
@@ -472,17 +471,6 @@ function M.setup()
 		pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
 	}
 
-	-- -- Configure ChatGPT.nvim
-	-- local home = vim.fn.expand("$HOME")
-	-- require("chatgpt").setup({
-	-- 	api_key_cmd = "gpg --decrypt " .. home .. "/secret.txt.gpg",
-	-- 	open_ai_params = {
-	-- 		model = "gpt-4-turbo-preview",
-	-- 	},
-	-- 	openai_edit_params = {
-	-- 		model = "gpt-4-turbo-preview",
-	-- 	},
-	-- })
 
 	-- Configure Copilot
 	vim.g.copilot_filetypes = {

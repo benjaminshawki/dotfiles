@@ -78,7 +78,6 @@ function M.setup()
 
 	-- Git related keymaps via which-key
 	wk.add({
-		{ "<leader>g",  group = "git" },
 		{ "<leader>gd", "<cmd>Gdiff<cr>",      desc = "Diff" },
 		{ "<leader>gl", "<cmd>Git pull<cr>",   desc = "Pull" },
 		{ "<leader>gp", "<cmd>Git push<cr>",   desc = "Push" },
@@ -110,8 +109,7 @@ function M.setup()
 	-- register which-key VISUAL mode
 	-- required for visual <leader>hs (hunk stage) to work
 	wk.add({
-		{ "<leader>",  group = "VISUAL <leader>", mode = "v" },
-		{ "<leader>h", desc = "Git [H]unk",       mode = "v" },
+		{ "<leader>h", desc = "Git [H]unk", mode = "v" },
 	})
 end
 
@@ -222,31 +220,14 @@ function M.setup_telescope_keymaps()
 		{ noremap = true, silent = true, desc = 'FZF current directory and open NETRW' })
 end
 
--- Setup ChatGPT specific keymaps
+-- Setup Copilot keymaps
 function M.setup_chatgpt_keymaps()
 	local wk = require("which-key")
 
-	-- ChatGPT Commands group
+	-- Copilot Commands group
 	wk.add({
-		{ "<leader><CR>", group = "ChatGPT" },
+		{ "<leader><CR>", group = "Copilot" },
 	})
-	--
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR><CR>", "<cmd>ChatGPT<CR>", { desc = "ChatGPT" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>c", "<cmd>ChatGPTCompleteCode<CR>", { desc = "Complete Code" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>a", "<cmd>ChatGPTActAs<CR>", { desc = "Act As" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>e", "<cmd>ChatGPTEditWithInstruction<CR>", { desc = "Edit with instruction" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>g", "<cmd>ChatGPTRun grammar_correction<CR>", { desc = "Grammar Correction" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>z", "<cmd>ChatGPTRun translate<CR>", { desc = "Translate" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>k", "<cmd>ChatGPTRun keywords<CR>", { desc = "Keywords" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>d", "<cmd>ChatGPTRun docstring<CR>", { desc = "Docstring" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>t", "<cmd>ChatGPTRun add_tests<CR>", { desc = "Add Tests" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>o", "<cmd>ChatGPTRun optimize_code<CR>", { desc = "Optimize Code" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>s", "<cmd>ChatGPTRun summarize<CR>", { desc = "Summarize" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>f", "<cmd>ChatGPTRun fix_bugs<CR>", { desc = "Fix Bugs" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>x", "<cmd>ChatGPTRun explain_code<CR>", { desc = "Explain Code" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>r", "<cmd>ChatGPTRun roxygen_edit<CR>", { desc = "Roxygen Edit" })
-	-- vim.keymap.set({ "n", "v" }, "<leader><CR>l", "<cmd>ChatGPTRun code_readability_analysis<CR>",
-	--   { desc = "Code Readability Analysis" })
 
 	vim.keymap.set({ "n" }, "<leader><CR>q", "<cmd>Copilot disable<CR>", { desc = "Copilot disable" })
 	vim.keymap.set({ "n" }, "<leader><CR>Q", "<cmd>Copilot enable<CR>", { desc = "Copilot enable" })
