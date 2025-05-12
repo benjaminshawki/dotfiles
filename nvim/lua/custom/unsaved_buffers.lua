@@ -1,10 +1,6 @@
-local pickers = require('telescope.pickers')
-local finders = require('telescope.finders')
-local conf = require('telescope.config').values
-local actions = require('telescope.actions')
-local action_state = require('telescope.actions.state')
-
-local function get_unsaved_buffers()
+-- Lazy load telescope modules only when function is called
+local function open_unsaved_buffers_picker()
+	-- Get unsaved buffers first
 	local results = {}
 	for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
 		if vim.api.nvim_buf_is_loaded(bufnr)
@@ -20,20 +16,23 @@ local function get_unsaved_buffers()
 			})
 		end
 	end
-	return results
-end
 
-local function open_unsaved_buffers_picker()
-	local unsaved = get_unsaved_buffers()
-	if #unsaved == 0 then
+	if #results == 0 then
 		vim.notify("No unsaved buffers found", vim.log.levels.INFO)
 		return
 	end
 
+	-- Load telescope modules only when needed
+	local pickers = require('telescope.pickers')
+	local finders = require('telescope.finders')
+	local conf = require('telescope.config').values
+	local actions = require('telescope.actions')
+	local action_state = require('telescope.actions.state')
+
 	pickers.new({}, {
 		prompt_title = "Unsaved Buffers",
 		finder = finders.new_table {
-			results = unsaved,
+			results = results,
 			entry_maker = function(entry)
 				return {
 					value = entry.bufnr,

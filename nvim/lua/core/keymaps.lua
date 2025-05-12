@@ -233,20 +233,34 @@ function M.setup_chatgpt_keymaps()
 	vim.keymap.set({ "n" }, "<leader><CR>Q", "<cmd>Copilot enable<CR>", { desc = "Copilot enable" })
 end
 
--- Setup NPM package info keymaps
+-- Setup NPM package info keymaps (defer loading for faster startup)
 function M.setup_package_info_keymaps()
-	pcall(require("telescope").load_extension, "package_info")
-	vim.keymap.set({ "n" }, "<LEADER>ns", require("package-info").show, { silent = true, noremap = true, desc = 'show' })
-	vim.keymap.set({ "n" }, "<LEADER>nc", require("package-info").hide, { silent = true, noremap = true, desc = 'hide' })
-	vim.keymap.set({ "n" }, "<LEADER>nt", require("package-info").toggle,
+	-- Defer the package-info loading until it's needed
+	local package_info_loaded = false
+
+	-- Helper function to ensure package-info is loaded before using
+	local function ensure_package_info()
+		if not package_info_loaded then
+			pcall(require("telescope").load_extension, "package_info")
+			package_info_loaded = true
+		end
+		return require("package-info")
+	end
+
+	-- Create lazy-loading wrapper for each function
+	vim.keymap.set({ "n" }, "<LEADER>ns", function() ensure_package_info().show() end,
+		{ silent = true, noremap = true, desc = 'show' })
+	vim.keymap.set({ "n" }, "<LEADER>nc", function() ensure_package_info().hide() end,
+		{ silent = true, noremap = true, desc = 'hide' })
+	vim.keymap.set({ "n" }, "<LEADER>nt", function() ensure_package_info().toggle() end,
 		{ silent = true, noremap = true, desc = 'toggle' })
-	vim.keymap.set({ "n" }, "<LEADER>nu", require("package-info").update,
+	vim.keymap.set({ "n" }, "<LEADER>nu", function() ensure_package_info().update() end,
 		{ silent = true, noremap = true, desc = 'update' })
-	vim.keymap.set({ "n" }, "<LEADER>nd", require("package-info").delete,
+	vim.keymap.set({ "n" }, "<LEADER>nd", function() ensure_package_info().delete() end,
 		{ silent = true, noremap = true, desc = 'delete' })
-	vim.keymap.set({ "n" }, "<LEADER>ni", require("package-info").install,
+	vim.keymap.set({ "n" }, "<LEADER>ni", function() ensure_package_info().install() end,
 		{ silent = true, noremap = true, desc = 'install' })
-	vim.keymap.set({ "n" }, "<LEADER>np", require("package-info").change_version,
+	vim.keymap.set({ "n" }, "<LEADER>np", function() ensure_package_info().change_version() end,
 		{ silent = true, noremap = true, desc = 'change_version' })
 end
 

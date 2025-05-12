@@ -41,23 +41,8 @@ function M.setup()
 			},
 		},
 
-		{
-			-- Autocompletion
-			'hrsh7th/nvim-cmp',
-			dependencies = {
-				-- Snippet Engine & its associated nvim-cmp source
-				'L3MON4D3/LuaSnip',
-				'saadparwaiz1/cmp_luasnip',
-
-				-- Adds LSP completion capabilities
-				'hrsh7th/cmp-nvim-lsp',
-				'hrsh7th/cmp-path',
-
-				-- Adds a number of user-friendly snippets
-				'rafamadriz/friendly-snippets',
-				"mlaursen/vim-react-snippets",
-			},
-		},
+		-- Autocompletion is now handled by custom/plugins/nvim-cmp.lua
+		-- with lazy loading on InsertEnter and CmdlineEnter
 
 		-- Useful plugin to show you pending keybinds.
 		{
@@ -91,80 +76,7 @@ function M.setup()
 		},
 
 		-- Git signs
-		{
-			-- Adds git related signs to the gutter, as well as utilities for managing changes
-			'lewis6991/gitsigns.nvim',
-			opts = {
-				-- See `:help gitsigns.txt`
-				signs = {
-					change = { text = '~' },
-					topdelete = { text = '‾' },
-					delete = { text = '_' },
-					add = { text = '+' },
-					changedelete = { text = '~' },
-				},
-				on_attach = function(bufnr)
-					local gs = package.loaded.gitsigns
-
-					local function map(mode, l, r, opts)
-						opts = opts or {}
-						opts.buffer = bufnr
-						vim.keymap.set(mode, l, r, opts)
-					end
-
-					-- Navigation
-					map({ 'n', 'v' }, ']c', function()
-						if vim.wo.diff then
-							return ']c'
-						end
-						vim.schedule(function()
-							gs.next_hunk()
-						end)
-						return '<Ignore>'
-					end, { expr = true, desc = 'Jump to next hunk' })
-
-					map({ 'n', 'v' }, '[c', function()
-						if vim.wo.diff then
-							return '[c'
-						end
-						vim.schedule(function()
-							gs.prev_hunk()
-						end)
-						return '<Ignore>'
-					end, { expr = true, desc = 'Jump to previous hunk' })
-
-					-- Actions
-					-- visual mode
-					map('v', '<leader>hs', function()
-						gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
-					end, { desc = 'stage git hunk' })
-					map('v', '<leader>hr', function()
-						gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
-					end, { desc = 'reset git hunk' })
-					-- normal mode
-					map('n', '<leader>hs', gs.stage_hunk, { desc = 'git stage hunk' })
-					map('n', '<leader>hr', gs.reset_hunk, { desc = 'git reset hunk' })
-					map('n', '<leader>hS', gs.stage_buffer, { desc = 'git Stage buffer' })
-					map('n', '<leader>hu', gs.undo_stage_hunk, { desc = 'undo stage hunk' })
-					map('n', '<leader>hR', gs.reset_buffer, { desc = 'git Reset buffer' })
-					map('n', '<leader>hp', gs.preview_hunk, { desc = 'preview git hunk' })
-					map('n', '<leader>hb', function()
-						gs.blame_line { full = false }
-					end, { desc = 'git blame line' })
-					map('n', '<leader>hd', gs.diffthis, { desc = 'git diff against index' })
-					map('n', '<leader>hD', function()
-						gs.diffthis '~'
-					end, { desc = 'git diff against last commit' })
-
-					-- Toggles
-					map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
-					map('n', '<leader>t<Del>', gs.toggle_deleted, { desc = 'toggle git show deleted' })
-
-					-- Text object
-					map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'select git hunk' })
-				end,
-			},
-		},
+		-- GitSigns moved to custom/plugins/gitsigns.lua with lazy loading
 
 		-- Color scheme
 		{
@@ -175,10 +87,11 @@ function M.setup()
 		},
 
 		-- Status line
+		-- Set lualine as statusline
 		{
-			-- Set lualine as statusline
 			'nvim-lualine/lualine.nvim',
 			-- See `:help lualine.txt`
+			event = "VeryLazy", -- Load after initial startup
 			opts = {
 				options = {
 					icons_enabled = false,
@@ -225,46 +138,83 @@ function M.setup()
 		},
 
 		-- Workspace diagnostics
-		{ "artemave/workspace-diagnostics.nvim" },
-
-		-- Treesitter
 		{
-			-- Highlight, edit, and navigate code
-			'nvim-treesitter/nvim-treesitter',
-			dependencies = {
-				'nvim-treesitter/nvim-treesitter-textobjects',
-			},
-			build = ':TSUpdate',
+			"artemave/workspace-diagnostics.nvim",
+			event = "LspAttach", -- Only load when LSP attaches to buffer
+			cmd = { "WorkspaceDiagnostics" },
 		},
 
+		-- Treesitter
+		-- Treesitter is now optimized in custom/plugins/treesitter.lua
+
 		-- Buffer and window management
-		'moll/vim-bbye',
-		'simeji/winresizer',
+		{
+			'moll/vim-bbye',
+			cmd = { "Bdelete", "Bwipeout" },
+		},
+		{
+			'simeji/winresizer',
+			cmd = "WinResizerStartResize",
+			keys = { "<C-e>" }, -- Assuming this is the default key mapping
+		},
 
 		-- Fuzzy finding
-		{ "junegunn/fzf",                       build = "./install --bin" },
+		{
+			"junegunn/fzf",
+			build = "./install --bin",
+			event = "VeryLazy", -- Load a bit later
+		},
 
 		-- Text manipulation
-		'machakann/vim-sandwich',
 		{
-		'wincent/ferret',
-		init = function()
-			-- Disable all default Ferret mappings
-			vim.g.FerretMap = 0
-		end,
-	},
+			'machakann/vim-sandwich',
+			event = { "BufReadPost", "BufNewFile" }, -- Load when buffer is read
+		},
+		{
+			'wincent/ferret',
+			cmd = { "Ack", "Acks", "Lack", "Lacks", "Back", "Black" }, -- All Ferret commands without invalid ones
+			init = function()
+				-- Disable all default Ferret mappings
+				vim.g.FerretMap = 0
+			end,
+		},
 
 		-- Linting
-		'neomake/neomake',
+		{
+			'neomake/neomake',
+			event = { "BufWritePost" }, -- Only load when saving files
+			cmd = { "Neomake" },
+		},
 
 		-- tmux integration
-		'wellle/tmux-complete.vim',
-		'simnalamburt/vim-mundo',
-		'christoomey/vim-tmux-navigator',
+		{
+			'wellle/tmux-complete.vim',
+			cond = function()
+				return os.getenv("TMUX") ~= nil
+			end,
+			event = "InsertEnter", -- Only load when entering insert mode
+		},
+		{
+			'simnalamburt/vim-mundo',
+			cmd = { "MundoShow", "MundoToggle" }, -- Only load when command is run
+		},
+		{
+			'christoomey/vim-tmux-navigator',
+			cond = function()
+				return os.getenv("TMUX") ~= nil
+			end,
+			event = "VeryLazy", -- Can be loaded a bit later
+		},
 
 		-- Misc utilities
-		'jez/vim-superman', -- Man page viewer
-		'github/copilot.vim', -- GitHub Copilot
+		{
+			'jez/vim-superman', -- Man page viewer
+			cmd = "SuperMan",
+		},
+		{
+			'github/copilot.vim', -- GitHub Copilot
+			event = { "InsertEnter" }, -- Only load in insert mode
+		},
 
 		-- Markdown preview
 		{
@@ -446,25 +396,27 @@ function M.setup()
 		end,
 	})
 
-	-- Configure Telescope
-	require('telescope').setup {
-		defaults = {
-			mappings = {
-				i = {
-					['<C-u>'] = false,
-					['<C-d>'] = false,
+	-- Defer Telescope configuration for faster startup
+	vim.defer_fn(function()
+		require('telescope').setup {
+			defaults = {
+				mappings = {
+					i = {
+						['<C-u>'] = false,
+						['<C-d>'] = false,
+					},
+				},
+				winblend = 14,
+				layout_config = {
+					width = .99,
+					height = .99,
 				},
 			},
-			winblend = 14,
-			layout_config = {
-				width = .99,
-				height = .99,
-			},
-		},
-	}
+		}
 
-	-- Enable telescope fzf native, if installed
-	pcall(require('telescope').load_extension, 'fzf')
+		-- Enable telescope fzf native, if installed
+		pcall(require('telescope').load_extension, 'fzf')
+	end, 50)
 
 	-- Configure Comment.nvim with ts_context_commentstring
 	require('Comment').setup {
@@ -512,83 +464,7 @@ function M.setup()
 	-- Configure Markdown Preview
 	vim.g.mkdp_browser = 'google-chrome-stable'
 
-	-- Set up Treesitter
-	-- Defer Treesitter setup after first render to improve startup time
-	vim.defer_fn(function()
-		require('nvim-treesitter.configs').setup {
-			-- Add languages to be installed here that you want installed for treesitter
-			ensure_installed = {
-				'c', 'cpp', 'go', 'lua', 'luadoc', 'python', 'rust', 'tsx',
-				'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'markdown',
-				'markdown_inline', 'css', 'html', 'dockerfile', 'java', 'jsdoc',
-				'llvm', 'make', 'sql', 'toml', 'query', 'xml', 'yaml', 'dockerfile',
-				'c_sharp', 'bibtex', 'latex', 'asm', 'cmake', 'comment', 'csv', 'cuda',
-				'dot', 'git_config', 'git_rebase', 'gitignore', 'graphql', 'haskell',
-				'helm', 'http', 'jq', 'json', 'nix', 'ocaml', 'ocaml_interface', 'php',
-				'regex', 'scala', 'sql', 'ssh_config', 'tmux', 'tsx', 'vue', 'zig', 'dart',
-			},
-			auto_install = true,
-			highlight = {
-				enable = true,
-				disable = { "latex" },
-				additional_vim_regex_highlighting = false,
-			},
-			indent = { enable = true },
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					node_incremental = '<c-space>',
-					init_selection = '<c-space>',
-					scope_incremental = '<c-s>',
-					node_decremental = '<Esc>[32;2u',
-				},
-			},
-			textobjects = {
-				select = {
-					enable = true,
-					lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-					keymaps = {
-						-- You can use the capture groups defined in textobjects.scm
-						['aa'] = '@parameter.outer',
-						['ia'] = '@parameter.inner',
-						['af'] = '@function.outer',
-						['if'] = '@function.inner',
-						['ac'] = '@class.outer',
-						['ic'] = '@class.inner',
-					},
-				},
-				move = {
-					enable = true,
-					set_jumps = true, -- whether to set jumps in the jumplist
-					goto_next_start = {
-						[']m'] = '@function.outer',
-						[']]'] = '@class.outer',
-					},
-					goto_next_end = {
-						[']M'] = '@function.outer',
-						[']['] = '@class.outer',
-					},
-					goto_previous_start = {
-						['[m'] = '@function.outer',
-						['[['] = '@class.outer',
-					},
-					goto_previous_end = {
-						['[M'] = '@function.outer',
-						['[]'] = '@class.outer',
-					},
-				},
-				swap = {
-					enable = true,
-					swap_next = {
-						['<leader>j'] = '@parameter.inner',
-					},
-					swap_previous = {
-						['<leader>k'] = '@parameter.inner',
-					},
-				},
-			},
-		}
-	end, 0)
+	-- Treesitter setup moved to custom/plugins/treesitter.lua for optimized loading
 end
 
 return M

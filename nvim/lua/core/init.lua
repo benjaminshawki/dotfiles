@@ -15,7 +15,7 @@ function M.setup()
 
 	-- Load LSP configuration
 	require('core.lsp').setup()
-	require('core.lsp').setup_completion()
+	-- setup_completion is now handled by the custom nvim-cmp plugin
 
 	-- Load keymaps (after plugins and LSP since some depend on them)
 	require('core.keymaps').setup()

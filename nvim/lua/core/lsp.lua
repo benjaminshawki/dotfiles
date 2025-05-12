@@ -206,13 +206,24 @@ function M.setup_completion()
 	-- [[ Configure nvim-cmp ]]
 	-- See `:help cmp`
 	local cmp = require('cmp')
-	require("vim-react-snippets").lazy_load()
+
+	-- Only load react snippets when needed
+	local ft = vim.bo.filetype
+	if ft == "javascriptreact" or ft == "typescriptreact" then
+		require("vim-react-snippets").lazy_load()
+	end
+
 	local luasnip = require('luasnip')
-	require('luasnip.loaders.from_vscode').lazy_load()
-	require("luasnip.loaders.from_lua").lazy_load({ paths = "$HOME/.config/nvim/lua/custom/snippets" })
+
+	-- Defer snippet loading to make startup faster
+	vim.defer_fn(function()
+		require('luasnip.loaders.from_vscode').lazy_load()
+		require("luasnip.loaders.from_lua").lazy_load({ paths = "$HOME/.config/nvim/lua/custom/snippets" })
+	end, 100)
+
+	-- Simpler configuration during startup
 	luasnip.config.setup {
 		history = true,
-		updateevents = "TextChanged,TextChangedI",
 		enable_autosnippets = true
 	}
 
