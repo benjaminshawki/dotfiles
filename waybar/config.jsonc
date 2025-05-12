@@ -39,9 +39,7 @@
 	],
 	"modules-right": [
 		"custom/media",
-		"idle_inhibitor",
 		"pulseaudio",
-		"network",
 		"cpu",
 		"memory",
 		"temperature",
@@ -84,8 +82,28 @@
 	},
 	"clock": {
 		"timezone": "Europe/Amsterdam",
-		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		"format-alt": "{:%Y-%m-%d}"
+		"tooltip": true,
+		"format": "{:%H:%M}",
+		"format-alt": "{:%Y-%m-%d}",
+		"tooltip-format": "<tt><big>{calendar}</big></tt>",
+		"calendar": {
+			"mode": "year",
+			"weeks-pos": "right",
+			"on-scroll": 1,
+			"on-click-right": "mode",
+			"format": {
+				"months": "<span color='#ffcc66'>{}</span>",
+				"days": "<span color='#ecc6d9'>{}</span>",
+				"weeks": "<span color='#99ffdd'>W{}</span>",
+				"weekdays": "<span color='#ffcc66'>{}</span>",
+				"today": "<span color='#ff6699'>{}</span>"
+			}
+		},
+		"actions": {
+			"on-click": "mode",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+		}
 	},
 	"cpu": {
 		"format": "{usage}% CPU",

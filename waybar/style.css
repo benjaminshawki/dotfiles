@@ -26,7 +26,8 @@
 #custom-media {
 	background-color: rgba(0, 0, 0, 0.7);
 	color: #c0caf5;
-	padding: 0 10px;
+	padding: 0 8px;
+	margin: 0 2px;
 	border-radius: 4px;
 }
 
@@ -231,4 +232,20 @@
 
 #custom-media.paused {
 	color: #e0af68;
+}
+
+/* Enhanced Calendar Styling */
+#clock {
+	color: #7aa2f7;
+}
+
+tooltip.tooltip {
+	background-color: rgba(30, 30, 46, 0.95);
+	border: 1px solid #7aa2f7;
+	border-radius: 8px;
+}
+
+tooltip.tooltip label {
+	font-family: monospace;
+	color: #c0caf5;
 }
