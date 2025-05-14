@@ -9,9 +9,11 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER="google-chrome-stable"
 export BROWSER_SECONDARY="google-chrome-unstable"
+export MANPAGER="nvim -c 'Man!' -"
 
-
+# Use AMD driver instead of NVIDIA
 export MESA_LOADER_DRIVER_OVERRIDE=radeonsi
+export GBM_BACKEND=radeonsi
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 

@@ -354,6 +354,7 @@ include /etc/sway/config.d/*
 
 # Autostart
 exec 1password
+exec tidal-hifi
 
 # Battery monitor (using systemd timer instead of continuous script)
 # exec_always --no-startup-id $HOME/dotfiles/scripts/battery-monitor.sh
