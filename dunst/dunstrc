@@ -1,54 +1,50 @@
 [global]
     font = Inconsolata 12
-    icon_position = left
+    icon_position = right
     markup = full
     format = "<b>%s</b>\n%b"
     
     sort = yes
     indicate_hidden = no
-    alignment = center
+    alignment = left
     show_age_threshold = 60
     word_wrap = yes
     ignore_newline = no
     
     stack_duplicates = true
     
-    # Bigger notification size
+    # Notification size
     width = 400
-    # Use new height syntax (0, 300) for dynamic height with max of 300
     height = (0, 300)
-    # Use new offset syntax
     offset = (30, 20)
-    # Deprecated - using RGBA colors for opacity control instead
-    # transparency = 15
+    
     idle_threshold = 999
     monitor = 0
- 
     follow = keyboard
-    #sticky_history = no
     
-    line_height = 0
+    # Appearance
+    corner_radius = 10
+    frame_width = 1
+    frame_color = "#444444"
     separator_height = 2
     padding = 12
     horizontal_padding = 12
     separator_color = "#444444"
     
-    # Rounded corners
-    corner_radius = 8
-    
-    # Ensure image fits popover
-    min_icon_size = 32
+    # Image settings
+    min_icon_size = 64
     max_icon_size = 128
     
-    # Progress bar settings
+    # Progress bar (for timeout)
     progress_bar = true
-    progress_bar_height = 5
+    progress_bar_height = 3
     progress_bar_frame_width = 0
     progress_bar_min_width = 150
     progress_bar_max_width = 400
     
-    # Animation settings
     enable_recursive_icon_lookup = true
+    
+    # Mouse actions
     mouse_left_click = close_current
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
@@ -57,20 +53,17 @@
     browser = /usr/bin/google-chrome-stable
  
 [urgency_low]
-    # 85% opacity with RGBA (D8 = 85% of FF)
-    background = "#303030D8"
+    background = "#303030AA"
     foreground = "#87AF87"
     highlight = "#87AF87"
-    timeout = 5
+    timeout = 4
  
 [urgency_normal]
-    # 85% opacity with RGBA (D8 = 85% of FF)
-    background = "#303030D8"
+    background = "#303030AA"
     foreground = "#C6C6C6"
-    timeout = 10
+    timeout = 6
  
 [urgency_critical]
-    # 85% opacity with RGBA (D8 = 85% of FF)
-    background = "#d75f5fD8"
+    background = "#d75f5fAA"
     foreground = "#303030"
-    timeout = 20
+    timeout = 8

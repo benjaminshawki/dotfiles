@@ -228,7 +228,7 @@ bindsym $mod+r mode "resize"
 ##########
 
 # dunst
-exec --no-startup-id dunst
+exec_always --no-startup-id killall dunst; dunst
 
 # dunst keyboard shortcuts
 bindsym $mod+x exec dunstctl close-all
@@ -368,4 +368,3 @@ exec tidal-hifi
 #for_window [class="Alacritty" instance="scratchpad_htop"] move to scratchpad, border none
 #bindsym $mod+Shift+p [instance="scratchpad_htop"] scratchpad show
 #exec alacritty --class Alacritty,scratchpad_htop -e htop
-
