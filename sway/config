@@ -248,6 +248,10 @@ assign [class="tidal-hifi"] $ws5
 assign [class="Tidal"] $ws5
 assign [app_id="tidal-hifi"] $ws5
 
+# Enable blur for specific windows/applications
+for_window [app_id="dunst"] blur enable
+for_window [app_id="dunst"] shadows enable
+
 bindsym XF86MonBrightnessUp exec brightnessctl s 2%+
 bindsym XF86MonBrightnessDown exec brightnessctl s 2%-
 
@@ -328,6 +332,12 @@ set $white2 #FFFFFF
 # Design adjustments for Tokyo Night theme feel
 # hide borders
 hide_edge_borders both
+
+# Blur settings
+# blur enable
+# blur_xray off
+# blur_passes 3
+# blur_radius 5
 
 
 # Display
