@@ -1,6 +1,7 @@
 alias google-chrome=google-chrome-stable
 alias fixaudio='systemctl --user restart pipewire-pulse.service'
 alias ll='ls -lah --color=auto'
+alias lt='ls -lahtr --color=auto'
 alias tree='tree -C'
 alias nixos-v='sudo nixos-rebuild switch --show-trace --print-build-logs --verbose'
 alias remarkable='wine .wine/drive_c/Program\ Files/reMarkable/reMarkable.exe &'
