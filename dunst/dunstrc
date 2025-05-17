@@ -53,17 +53,17 @@
     browser = /usr/bin/google-chrome-stable
  
 [urgency_low]
-    background = "#303030AA"
+    background = "#30303077"
     foreground = "#87AF87"
     highlight = "#87AF87"
-    timeout = 4
+    timeout = 3
  
 [urgency_normal]
-    background = "#303030AA"
+    background = "#30303077"
     foreground = "#C6C6C6"
-    timeout = 6
+    timeout = 4
  
 [urgency_critical]
-    background = "#d75f5fAA"
+    background = "#d75f5f77"
     foreground = "#303030"
-    timeout = 8
+    timeout = 0
