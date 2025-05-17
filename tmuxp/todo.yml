@@ -1,0 +1,11 @@
+session_name: todo
+start_directory: $HOME/Notes/current/
+
+windows:
+  - window_name: todo
+    layout: main-vertical
+    panes:
+      - shell_command:
+          - filename=$(date "+%Y-%m-%d.md")
+          - printf "# %s\n\n- [ ] \n\n" "$(date '+%Y-%m-%d %H:%M:%S')" >> "$filename"
+          - nvim +"normal! 3G0f]la" "$filename"
