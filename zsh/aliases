@@ -69,6 +69,8 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
 alias cdgit='cd $(git rev-parse --show-toplevel)'
 
+alias gdlcsc='nvim -p $(git diff --name-only HEAD~1..HEAD | xargs grep -lE "//|/\*")'
+
 # TMUX
 alias tmuxl='tmux list-session'
 alias tmuxa='tmux attatch-session -t'
