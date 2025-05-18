@@ -1,3 +1,6 @@
+# ----------------------
+# System Commands
+# ----------------------
 alias google-chrome=google-chrome-stable
 alias fixaudio='systemctl --user restart pipewire-pulse.service'
 alias ll='ls -lah --color=auto'
@@ -8,19 +11,31 @@ alias remarkable='wine .wine/drive_c/Program\ Files/reMarkable/reMarkable.exe &'
 alias mvli='ls -t ~/Pictures | head -n 1 | xargs -I {} cp ~/Pictures/{} .'
 alias cpli='[ -e "$HOME/Pictures/$(ls -t $HOME/Pictures/ | head -n1)" ] && cp "$HOME/Pictures/$(ls -t $HOME/Pictures/ | head -n1)"'
 alias copyf=$USER_BIN/copy-files.sh
+
+# ----------------------
+# Development Tools
+# ----------------------
+alias n=nvim
+alias lg=lazygit
 alias nvimsf='nvim -c "lua require(\"telescope.builtin\").find_files()"'
 alias nsf='nvim -c "lua require(\"telescope.builtin\").find_files()"'
 alias nsG='nvim -c "LiveGrepGitRoot"'
 alias nsg='nvim -c "lua require(\"telescope.builtin\").live_grep()"'
+alias pn='pnpm'
+
+# ----------------------
+# FPGA Tools
+# ----------------------
 alias quartus='_JAVA_AWT_WM_NONREPARENTING=1 QT_QPA_PLATFORM=xcb quartus &'
 alias fpgamon='_JAVA_AWT_WM_NONREPARENTING=1 QT_QPA_PLATFORM=xcb "/home/benjamin/intelFPGA/University_Program/Monitor_Program/bin/intel-fpga-monitor-program"'
 alias intel_embedded_sh='~/intelFPGA/20.1/embedded/embedded_command_shell.sh'
+
+# ----------------------
+# Other Tools
+# ----------------------
 alias rsync='$HOME/bin/rsync-no-trail.sh'
-
-
-
-alias n=nvim
-alias lg=lazygit
+alias nvusage="watch -n 0.5 nvidia-smi"
+alias prime='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
 
 # ----------------------
 # Git Aliases
@@ -62,29 +77,28 @@ alias gsts='git stash save'
 alias gfo='git fetch origin'
 alias gmos='git merge origin/staging'
 
+# ----------------------
+# Git Custom Commands
+# ----------------------
 alias gdmain="git diff origin/main -- . ':(exclude)package-lock.json' | wl-copy"
+alias gdlcsc='nvim -p $(git diff --name-only HEAD~1..HEAD | xargs grep -lE "//|/\*")'
+alias cdgit='cd $(git rev-parse --show-toplevel)'
 
+# ----------------------
+# Navigation
+# ----------------------
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
-alias cdgit='cd $(git rev-parse --show-toplevel)'
-
-alias gdlcsc='nvim -p $(git diff --name-only HEAD~1..HEAD | xargs grep -lE "//|/\*")'
-
+# ----------------------
 # TMUX
-alias tmuxl='tmux list-session'
-alias tmuxa='tmux attatch-session -t'
+# ----------------------
+alias tmuxl='tmux list-sessions'
+alias tmuxa='tmux attach-session -t'
 alias tmuxn='tmux new-session -s'
 alias tmuxk='tmux kill-session -t'
 
-# nviddia-smi
-alias nvusage="watch -n 0.5 nvidia-smi"
-
-# pnpm
-alias pn='pnpm'
-
-# Connect to hsleidenvpn (not sure if this is working)
+# ----------------------
+# Network
+# ----------------------
 alias vpn-hsleiden='sudo openconnect --protocol=fortinet -C "$(openfortivpn-webview vpn-ssl.hsleiden.nl)" vpn-ssl.hsleiden.nl'
-
-# use prime renderer oflload
-alias prime='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
