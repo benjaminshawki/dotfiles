@@ -411,6 +411,9 @@ function M.setup()
 					width = .99,
 					height = .99,
 				},
+				file_ignore_patterns = {
+					"^.git/", "^node_modules/", "^__pycache__/",
+				},
 			},
 		}
 
