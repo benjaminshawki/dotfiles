@@ -23,6 +23,15 @@ function M.setup()
 		desc = 'Auto-equalize windows when terminal is resized',
 	})
 
+	-- Set Jenkinsfile to use groovy syntax highlighting
+	vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+		pattern = { "Jenkinsfile", "Jenkinsfile*", "*.Jenkinsfile", "Jenkinsfile.*" },
+		callback = function()
+			vim.cmd("set filetype=groovy")
+		end,
+		desc = 'Set Jenkinsfile to use groovy syntax highlighting',
+	})
+
 	-- Lua files are now handled by the global formatter
 
 	-- Set indentation for specific file types

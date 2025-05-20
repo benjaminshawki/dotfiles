@@ -93,6 +93,7 @@ return {
         'dot', 'git_config', 'git_rebase', 'gitignore', 'graphql', 'haskell',
         'helm', 'http', 'jq', 'json', 'nix', 'ocaml', 'ocaml_interface', 'php',
         'regex', 'scala', 'sql', 'ssh_config', 'tmux', 'tsx', 'vue', 'zig', 'dart',
+        'groovy',
       })
     end, 200) -- Longer delay for background installation
   end
