@@ -10,7 +10,7 @@ windows:
     start_directory: $HOME/workspace/opserve-portal/opserve-frontend/
     layout:
     panes:
-      - npm run serve
+      - npm run dev
   - window_name: BE
     start_directory: $HOME/workspace/opserve-portal/opserve-api/
     layout:
