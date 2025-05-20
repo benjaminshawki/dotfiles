@@ -320,6 +320,7 @@ bindsym Mod1+Shift+Print exec $USER_BIN/screenshot-window-ocr.sh &
 
 bindsym $mod+b exec $BROWSER &
 bindsym $mod+Shift+b exec $BROWSER_SECONDARY &
+bindsym $mod+Mod1+b exec $BROWSER --new-window "https://claude.ai/" &
 bindsym $mod+n exec alacritty --class 'chrome-fzf' --command "$HOME/dotfiles/scripts/fzf-google-chrome.sh" &
 for_window [app_id="^chrome-fzf$"] floating enable, border none, resize set width 70 ppt height 70 ppt, move position center
 
