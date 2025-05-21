@@ -137,6 +137,9 @@ bindsym $mod+CTRL+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
+# Toggle tmux pane fullscreen
+bindsym $mod+Shift+f exec --no-startup-id "tmux resize-pane -Z"
+
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
