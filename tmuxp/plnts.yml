@@ -2,11 +2,9 @@ session_name: plnts
 start_directory: $HOME/workspace/plnts.com/
 
 windows:
-  - window_name: nvim
-    layout: tiled
-    panes:
-      - nvim -c "lua require('telescope.builtin').find_files()"
   - window_name: terms
+    shell_command_before:
+      - alacritty -e tmuxp load -y tmuxp/plnts/plnts-editor &
     layout: tiled
     panes:
       - $BROWSER --new-window http://localhost:3333/en & && exit

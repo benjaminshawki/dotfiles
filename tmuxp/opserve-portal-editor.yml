@@ -1,0 +1,7 @@
+session_name: opserve-portal-editor
+
+windows:
+  - window_name: frontend
+    start_directory: $HOME/workspace/opserve-portal/opserve-frontend
+    panes:
+      - nvim -c "lua require('telescope.builtin').find_files()"

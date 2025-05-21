@@ -1,13 +1,10 @@
 session_name: opserve-portal
 
 windows:
-  - window_name: term
-    start_directory: $HOME/workspace/opserve-portal
-    layout:
-    panes:
-      - nvim -c "lua require('telescope.builtin').find_files()"
   - window_name: FE
     start_directory: $HOME/workspace/opserve-portal/opserve-frontend/
+    shell_command_before:
+      - alacritty -e tmuxp load -y tmuxp/opserve/opserve-portal-editor &
     layout:
     panes:
       - npm run dev
