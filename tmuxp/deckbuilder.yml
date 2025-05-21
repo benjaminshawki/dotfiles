@@ -3,7 +3,7 @@ start_directory: $HOME/workspace/deckbuilder/
 windows:
   - window_name: runtime
     shell_command_before:
-      - alacritty -e tmuxp load -y tmuxp/deckbuilder/deckbuilder-editor &
+      - alacritty -e tmuxp load -y deckbuilder-editor &
     layout: tiled
     panes:
       -

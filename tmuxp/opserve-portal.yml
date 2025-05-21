@@ -4,7 +4,7 @@ windows:
   - window_name: FE
     start_directory: $HOME/workspace/opserve-portal/opserve-frontend/
     shell_command_before:
-      - alacritty -e tmuxp load -y tmuxp/opserve/opserve-portal-editor &
+      - alacritty -e tmuxp load -y opserve-portal-editor &
     layout:
     panes:
       - npm run dev
