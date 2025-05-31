@@ -1,5 +1,5 @@
 session_name: todo
-start_directory: $HOME/Notes/current/
+start_directory: $HOME/Notes/TODO/
 
 windows:
   - window_name: todo

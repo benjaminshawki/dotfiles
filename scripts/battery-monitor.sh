@@ -23,7 +23,7 @@ send_notification() {
 	local icon=$2
 	local urgency=$3
 
-	notify-send -u "$urgency" "$icon Battery Low: $level%" "Connect charger soon to avoid data loss."
+	notify-send -u "$urgency" "$icon Battery Low: $level%"
 }
 
 # Load notification state from file

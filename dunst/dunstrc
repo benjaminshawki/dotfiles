@@ -14,7 +14,7 @@
     stack_duplicates = true
     
     # Notification size
-    width = 400
+    width = 300
     height = (0, 300)
     offset = (30, 20)
     
@@ -53,17 +53,17 @@
     browser = /usr/bin/google-chrome-stable
  
 [urgency_low]
-    background = "#30303077"
+    background = "#303030"
     foreground = "#87AF87"
     highlight = "#87AF87"
     timeout = 3
  
 [urgency_normal]
-    background = "#30303077"
-    foreground = "#C6C6C6"
+    background = "#303030"
+    foreground = "#FFFFFF"
     timeout = 4
  
 [urgency_critical]
-    background = "#d75f5f77"
-    foreground = "#303030"
+    background = "#d75f5f"
+    foreground = "#FFFFFF"
     timeout = 0

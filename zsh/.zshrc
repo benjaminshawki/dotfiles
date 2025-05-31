@@ -237,3 +237,4 @@ PERL_MB_OPT="--install_base \"/home/benjamin/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/benjamin/perl5"; export PERL_MM_OPT;
 
 source ~/.zshenv_hidden
+alias claude="/home/benjamin/.claude/local/claude"

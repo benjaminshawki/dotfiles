@@ -1,0 +1,18 @@
+session_name: laatste-loodjes-bachalor
+start_directory: ~/workspace/laatste-loodjes-bachalor
+windows:
+  - window_name: main
+    layout: main-vertical
+    panes:
+      - shell_command:
+        - nvim .
+      - shell_command:
+        - ls -la
+  - window_name: git
+    panes:
+      - shell_command:
+        - git status
+  - window_name: shell
+    panes:
+      - shell_command:
+        - echo "Ready to work on laatste-loodjes-bachalor"
