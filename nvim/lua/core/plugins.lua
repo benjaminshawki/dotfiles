@@ -327,7 +327,7 @@ function M.setup()
 		{
 			"olrtg/nvim-emmet",
 			config = function()
-				vim.keymap.set({ "n", "v" }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
+				vim.keymap.set({ "n", "v" }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation, { desc = "Wrap with Emmet abbreviation" })
 			end,
 		},
 
@@ -391,8 +391,8 @@ function M.setup()
 		-- optionally use on_attach to set keymaps when aerial has attached to a buffer
 		on_attach = function(bufnr)
 			-- Jump forwards/backwards with '{' and '}'
-			vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
-			vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+			vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr, desc = "Go to previous aerial symbol" })
+			vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr, desc = "Go to next aerial symbol" })
 		end,
 	})
 
@@ -461,8 +461,8 @@ function M.setup()
 	vim.g.copilot_debug = true
 	vim.keymap.del('i', '<Tab>')
 	vim.g.copilot_no_tab_map = true
-	vim.keymap.set('i', '<M-Y>', 'copilot#Accept("<CR>")', { expr = true, replace_keycodes = false, silent = true })
-	vim.keymap.set('i', '<M-y>', '<Plug>(copilot-accept-word)')
+	vim.keymap.set('i', '<M-Y>', 'copilot#Accept("<CR>")', { expr = true, replace_keycodes = false, silent = true, desc = "Accept Copilot suggestion" })
+	vim.keymap.set('i', '<M-y>', '<Plug>(copilot-accept-word)', { desc = "Accept Copilot suggestion (word)" })
 
 	-- Configure Markdown Preview
 	vim.g.mkdp_browser = 'google-chrome-stable'

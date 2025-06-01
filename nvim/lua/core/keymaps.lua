@@ -21,8 +21,8 @@ function M.setup()
 	vim.api.nvim_set_keymap('n', 's', '<Nop>', { noremap = true, silent = true })
 
 	-- Word wrap navigation
-	vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-	vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+	vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = 'Move up (respecting word wrap)' })
+	vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc = 'Move down (respecting word wrap)' })
 
 	-- Diagnostic keymaps
 	vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -31,12 +31,12 @@ function M.setup()
 	vim.keymap.set('n', '<leader>qq', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 	-- Buffer and window keymaps
-	vim.api.nvim_set_keymap('n', '<leader>bn', ':bn<CR>', { noremap = true })
-	vim.api.nvim_set_keymap('n', '<leader>tn', 'gt', { noremap = true })
-	vim.api.nvim_set_keymap('n', '<C-w>h', '<C-w>s', { noremap = true })
+	vim.api.nvim_set_keymap('n', '<leader>bn', ':bn<CR>', { noremap = true, desc = 'Next buffer' })
+	vim.api.nvim_set_keymap('n', '<leader>tn', 'gt', { noremap = true, desc = 'Next tab' })
+	vim.api.nvim_set_keymap('n', '<C-w>h', '<C-w>s', { noremap = true, desc = 'Split window horizontally' })
 
 	-- Aerial (code outline) keymaps
-	vim.keymap.set("n", "<leader>ta", "<cmd>AerialToggle!<CR>")
+	vim.keymap.set("n", "<leader>ta", "<cmd>AerialToggle!<CR>", { desc = "Toggle Aerial (code outline)" })
 
 	-- Toggle diagnostics
 	vim.keymap.set('n', '<leader>td', function()

@@ -49,3 +49,8 @@ set adjust-open "best-fit"
 #set guioptions                  "" # Nothing visible at startup
 
 set selection-clipboard clipboard
+
+# Zoom settings
+set zoom-max 5000
+set zoom-min 10
+set zoom-step 10
