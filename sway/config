@@ -251,44 +251,7 @@ assign [class="tidal-hifi"] $ws5
 assign [class="Tidal"] $ws5
 assign [app_id="tidal-hifi"] $ws5
 
-# Window-specific effects
-for_window [app_id="dunst"] blur enable
-for_window [app_id="dunst"] shadows enable
-for_window [app_id="dunst"] corner_radius 10
-
-# Layer shell effects for waybar and notifications
-
-blur enable
-blur_xray enable
-blur_passes 3
-blur_radius 5
-shadow_blur_radius 15
-corner_radius 8
-
-layer_effects "waybar" {
-    blur enable;
-    shadows enable;
-    corner_radius 10;
-}
-
-layer_effects "gtk-layer-shell" {
-    blur enable;
-    shadows enable;
-    corner_radius 8;
-}
-
-layer_effects "dunst" {
-    blur enable;
-    blur_xray enable;
-    blur_ignore_transparent enable;
-    shadows enable;
-    corner_radius 10;
-}
-
-# Dim inactive windows
-default_dim_inactive 0.1
-dim_inactive_colors.unfocused #00000080
-dim_inactive_colors.urgent #90000080
+# Window-specific effects removed (swayfx-specific)
 
 bindsym XF86MonBrightnessUp exec brightnessctl s 2%+
 bindsym XF86MonBrightnessDown exec brightnessctl s 2%-
@@ -376,24 +339,6 @@ set $white2 #FFFFFF
 # Design adjustments for Tokyo Night theme feel
 # hide borders
 hide_edge_borders both
-
-# SwayfX Blur settings
-blur enable
-blur_xray disable
-blur_passes 3
-blur_radius 5
-
-# Additional blur settings
-blur_noise 0.1
-blur_brightness 0.8
-blur_contrast 0.9
-blur_saturation 1.0
-
-# Window effects
-corner_radius 8
-shadows enable
-shadow_blur_radius 15
-shadow_color #0000007F
 
 
 # Display
