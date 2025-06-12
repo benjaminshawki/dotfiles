@@ -17,10 +17,10 @@ alias copyf=$USER_BIN/copy-files.sh
 # ----------------------
 alias n=nvim
 alias lg=lazygit
-alias nvimsf='nvim -c "autocmd VimEnter * Telescope find_files"'
-alias nsf='nvim -c "autocmd VimEnter * Telescope find_files"'
-alias nsG='nvim -c "autocmd VimEnter * LiveGrepGitRoot"'
-alias nsg='nvim -c "autocmd VimEnter * Telescope live_grep"'
+alias nvimsf='nvim -c "autocmd VimEnter * ++nested lua vim.defer_fn(function() require(\"telescope.builtin\").find_files() end, 100)"'
+alias nsf='nvim -c "autocmd VimEnter * ++nested lua vim.defer_fn(function() require(\"telescope.builtin\").find_files() end, 100)"'
+alias nsG='nvim -c "autocmd VimEnter * ++nested lua vim.defer_fn(function() vim.cmd(\"LiveGrepGitRoot\") end, 100)"'
+alias nsg='nvim -c "autocmd VimEnter * ++nested lua vim.defer_fn(function() require(\"telescope.builtin\").live_grep() end, 100)"'
 alias pn='pnpm'
 
 # ----------------------
