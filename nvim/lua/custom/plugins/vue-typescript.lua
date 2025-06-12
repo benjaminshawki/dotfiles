@@ -49,8 +49,8 @@ return {
 				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 			}
 
-			-- Setup Volar for Vue
-			lspconfig.volar.setup({
+			-- Setup Vue Language Server
+			lspconfig.vue_ls.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
 				filetypes = { "vue" },
