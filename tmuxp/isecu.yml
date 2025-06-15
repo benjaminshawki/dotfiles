@@ -5,7 +5,7 @@ windows:
   - window_name: nvim
     layout: tiled
     panes:
-      - nvim nvim -c "lua require('telescope.builtin').find_files()"
+      - nvim nsf
   - window_name: terms
     layout: tiled
     panes:

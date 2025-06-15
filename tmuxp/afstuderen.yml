@@ -5,7 +5,7 @@ windows:
     start_directory: $HOME/Notes/Studies/Afstuderen/
     layout: tiled
     panes:
-      - nvim -c "lua require('telescope.builtin').find_files()"
+      - nsf
   - window_name: latex
     start_directory: $HOME/Notes/Studies/Afstuderen/latex/afstudeerverslag/
     layout: tiled

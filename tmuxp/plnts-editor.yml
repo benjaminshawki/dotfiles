@@ -4,4 +4,4 @@ start_directory: $HOME/workspace/plnts.com/
 windows:
   - window_name: nvim
     panes:
-      - nvim -c "lua require('telescope.builtin').find_files()"
+      - nsf
