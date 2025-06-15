@@ -85,7 +85,8 @@ function M.setup()
 		pyright = {},
 		rust_analyzer = {},
 		bashls = {},
-		-- ts_ls = {},
+		-- ts_ls = {}, -- Handled in vue-typescript.lua
+		-- volar = {}, -- Handled in vue-typescript.lua
 		html = { filetypes = { 'html', 'twig', 'hbs' } },
 		jdtls = {},
 		yamlls = {},

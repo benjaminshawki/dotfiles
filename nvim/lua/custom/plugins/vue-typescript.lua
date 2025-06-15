@@ -41,7 +41,7 @@ return {
 					plugins = {
 						{
 							name = "@vue/typescript-plugin",
-							location = os.getenv("HOME") .. "/.volta/tools/image/packages/@vue/typescript-plugin/lib/node_modules/@vue/typescript-plugin",
+							location = os.getenv("HOME") .. "/.config/local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/typescript-plugin",
 							languages = { "vue" },
 						},
 					},
@@ -49,11 +49,16 @@ return {
 				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 			}
 
-			-- Setup Volar for Vue
+			-- Setup Volar for Vue with hybrid mode disabled
 			lspconfig.volar.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
 				filetypes = { "vue" },
+				init_options = {
+					vue = {
+						hybridMode = false,
+					},
+				},
 			})
 
 			-- Additional servers
