@@ -84,8 +84,31 @@ function M.setup()
 		{ "<leader>gs", "<cmd>Git status<cr>", desc = "Status" },
 	})
 
+	-- Ferret (Ack) keymaps
+	vim.keymap.set('n', '<leader>aa', '<Plug>(FerretAck)', { desc = 'Ack search' })
+	vim.keymap.set('n', '<leader>as', '<Plug>(FerretAckWord)', { desc = 'Ack word under cursor' })
+	vim.keymap.set('n', '<leader>ar', '<Plug>(FerretAcks)', { desc = 'Ack substitute' })
+	vim.keymap.set('n', '<leader>al', '<Plug>(FerretLack)', { desc = 'Lack (location list)' })
+	vim.keymap.set('n', '<leader>ab', '<Plug>(FerretBack)', { desc = 'Back (search buffers)' })
+	vim.keymap.set('n', '<leader>aB', '<Plug>(FerretBlack)', { desc = 'Black (buffers location list)' })
+	vim.keymap.set('n', '<leader>aq', '<Plug>(FerretQuack)', { desc = 'Quack (search quickfix files)' })
+	
+	-- Quickfix navigation with centering
+	vim.keymap.set('n', ']q', ':cnext<CR>zz', { desc = 'Next quickfix item' })
+	vim.keymap.set('n', '[q', ':cprev<CR>zz', { desc = 'Previous quickfix item' })
+	vim.keymap.set('n', ']Q', ':cfirst<CR>zz', { desc = 'First quickfix item' })
+	vim.keymap.set('n', '[Q', ':clast<CR>zz', { desc = 'Last quickfix item' })
+	
+	-- Location list navigation with centering
+	vim.keymap.set('n', ']l', ':lnext<CR>zz', { desc = 'Next location list item' })
+	vim.keymap.set('n', '[l', ':lprev<CR>zz', { desc = 'Previous location list item' })
+	vim.keymap.set('n', ']L', ':lfirst<CR>zz', { desc = 'First location list item' })
+	vim.keymap.set('n', '[L', ':llast<CR>zz', { desc = 'Last location list item' })
+
 	-- document existing key chains
 	wk.add({
+		{ "<leader>a",  group = "[A]ck/Ferret" },
+		{ "<leader>a_", hidden = true },
 		{ "<leader>c",  group = "[C]ode" },
 		{ "<leader>c_", hidden = true },
 		{ "<leader>d",  group = "[D]ocument" },
