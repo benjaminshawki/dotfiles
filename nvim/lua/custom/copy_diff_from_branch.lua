@@ -17,7 +17,7 @@ local function copy_diff_from_branch()
 				local branch = selection.value
 
 				local cmd = string.format(
-					"git diff origin/%s -- . ':(exclude)package-lock.json' | wl-copy",
+					"git diff origin/%s -- . ':(exclude)package-lock.json' | xclip -selection clipboard",
 					branch
 				)
 

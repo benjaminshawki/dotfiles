@@ -42,7 +42,7 @@ set recolor-keephue             "true"
 # Rest of your configs go here:
 
 # Try to repair broken files automatically
-set sandbox none
+# set sandbox none
 
 #set browser firefox %s
 
