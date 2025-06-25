@@ -4,7 +4,7 @@ start_directory: $HOME/workspace/opserve-frontend-v2/
 windows:
   - window_name: run
     shell_command_before:
-      - alacritty -e tmuxp load -y opserve-fe-v2-editor &
+      - foot -e tmuxp load -y opserve-fe-v2-editor &
     layout:
     panes:
       - $BROWSER --new-window http://localhost:5173/ & disown && exit

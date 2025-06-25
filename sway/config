@@ -89,15 +89,15 @@ bindgesture pinch:3:inward+left move left
 bindgesture pinch:3:inward+right move right
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec foot
 # open tmux session chooser
-bindsym $mod+Shift+Return exec alacritty -e "$HOME/dotfiles/scripts/tmux-session-chooser.sh"
+bindsym $mod+Shift+Return exec foot -e "$HOME/dotfiles/scripts/tmux-session-chooser.sh"
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # FZF Launcher
-bindsym $mod+d exec alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec;' 
+bindsym $mod+d exec foot --app-id='launcher' -- bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec;' 
 for_window [app_id="^launcher$"] floating enable, border none, resize set width 50 ppt height 50 ppt, move position center
 
 # Emoji picker with FZF
@@ -287,11 +287,11 @@ bindsym Mod1+Shift+Print exec $USER_BIN/screenshot-window-ocr.sh &
 bindsym $mod+b exec $BROWSER &
 bindsym $mod+Shift+b exec $BROWSER_SECONDARY &
 bindsym $mod+Mod1+b exec $BROWSER --new-window "https://claude.ai/" &
-bindsym $mod+n exec alacritty --class 'chrome-fzf' --command "$HOME/dotfiles/scripts/fzf-google-chrome.sh" &
+bindsym $mod+n exec foot --app-id='chrome-fzf' -- "$HOME/dotfiles/scripts/fzf-google-chrome.sh" &
 for_window [app_id="^chrome-fzf$"] floating enable, border none, resize set width 70 ppt height 70 ppt, move position center
 
 # Monitor profile switcher
-bindsym $mod+m exec alacritty --class 'monitor-profile' --command "$HOME/dotfiles/sway/profiles/fzf-monitor-profile.sh" &
+bindsym $mod+m exec foot --app-id='monitor-profile' -- "$HOME/dotfiles/sway/profiles/fzf-monitor-profile.sh" &
 for_window [app_id="^monitor-profile$"] floating enable, border none, resize set width 60 ppt height 40 ppt, move position center
 
 # Color picker
@@ -373,9 +373,9 @@ exec tidal-hifi
 # scratchpad
 #for_window [class="Alacritty" instance="scratchpad_terminal"] move to scratchpad, border none
 #bindsym $mod+Shift+t [instance="scratchpad_terminal"] scratchpad show
-##exec alacritty --class Alacritty,scratchpad_terminal
+##exec foot --app-id=Foot,scratchpad_terminal
 #exec "$DOTFILES/zsh/scratchpad.sh"
 #
 #for_window [class="Alacritty" instance="scratchpad_htop"] move to scratchpad, border none
 #bindsym $mod+Shift+p [instance="scratchpad_htop"] scratchpad show
-#exec alacritty --class Alacritty,scratchpad_htop -e htop
+#exec foot --app-id=Foot,scratchpad_htop -e htop

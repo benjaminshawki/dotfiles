@@ -44,6 +44,10 @@ cp -rf "$DOTFILES/fonts" "$XDG_DATA_HOME"
 rm -rf "$XDG_CONFIG_HOME/alacritty"
 ln -s "$DOTFILES/alacritty" "$XDG_CONFIG_HOME"
 
+# foot
+rm -rf "$XDG_CONFIG_HOME/foot"
+ln -s "$DOTFILES/foot" "$XDG_CONFIG_HOME"
+
 # dunst
 mkdir -p "$XDG_CONFIG_HOME/dunst"
 ln -sf "$DOTFILES/dunst/dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"

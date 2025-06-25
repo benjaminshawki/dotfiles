@@ -4,7 +4,7 @@ start_directory: $HOME/workspace/plnts-v2/
 windows:
   - window_name: dev-server
     shell_command_before:
-      - alacritty -e tmuxp load -y plnts-v2-editor &
+      - foot -e tmuxp load -y plnts-v2-editor &
     layout: tiled
     panes:
       - $BROWSER --new-window https://localhost:3000/en & disown && exit

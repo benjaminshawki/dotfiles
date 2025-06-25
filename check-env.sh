@@ -76,7 +76,7 @@ if [[ -n "$XDG_CONFIG_HOME" ]]; then
     echo -e "${YELLOW}Checking configurations:${NC}"
     check_symlink "$XDG_CONFIG_HOME/nvim" "Neovim"
     check_symlink "$XDG_CONFIG_HOME/tmux/tmux.conf" "Tmux"
-    check_symlink "$XDG_CONFIG_HOME/alacritty" "Alacritty"
+    check_symlink "$XDG_CONFIG_HOME/foot" "Foot"
     check_symlink "$XDG_CONFIG_HOME/sway" "Sway"
 fi
 

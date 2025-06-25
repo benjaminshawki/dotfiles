@@ -100,7 +100,7 @@ fi
 read -p "Open tmuxp session now? (y/n): " OPEN_SESSION
 if [[ $OPEN_SESSION =~ ^[Yy]$ ]]; then
 	# Open a new alacritty window with the tmuxp session
-	alacritty -e tmuxp load "$PROJECT_NAME" &
+	foot -e tmuxp load "$PROJECT_NAME" &
 else
 	echo "To start working: tmuxp load $PROJECT_NAME"
 fi

@@ -35,7 +35,7 @@ This allows you to:
 ### Window Management
 - **Sway** - Tiling window manager configuration
 - **Waybar** - Status bar for Wayland
-- **Alacritty** - GPU-accelerated terminal emulator
+- **Foot** - Fast, lightweight Wayland terminal emulator
 - **dunst** - Notification daemon
 
 ### Utilities

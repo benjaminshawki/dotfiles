@@ -49,7 +49,7 @@ declare -A packages=(
     # Window management
     ["sway"]="pacman"
     ["waybar"]="pacman"
-    ["alacritty"]="pacman"
+    ["foot"]="pacman"
     ["dunst"]="pacman"
     
     # Utilities
@@ -79,7 +79,7 @@ declare -A descriptions=(
     ["python-pip"]="Python package manager"
     ["sway"]="Tiling Wayland compositor"
     ["waybar"]="Wayland bar for Sway"
-    ["alacritty"]="GPU-accelerated terminal"
+    ["foot"]="GPU-accelerated terminal"
     ["dunst"]="Notification daemon"
     ["ranger"]="Terminal file manager"
     ["zathura"]="PDF viewer"
@@ -93,7 +93,7 @@ declare -A descriptions=(
 # Categories for organization
 declare -A categories=(
     ["Core"]="neovim tmux zsh git ripgrep fd fzf nodejs npm python python-pip"
-    ["Window Management"]="sway waybar alacritty dunst"
+    ["Window Management"]="sway waybar foot dunst"
     ["Utilities"]="ranger zathura zathura-pdf-mupdf lazygit wayvnc"
     ["Fonts"]="ttf-inconsolata nerd-fonts-complete"
 )
