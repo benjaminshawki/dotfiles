@@ -17,18 +17,7 @@ function M.setup()
 			vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
 		end
 
-		if client.server_capabilities.documentFormattingProvider then
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = vim.api.nvim_create_augroup("Format", { clear = true }),
-				buffer = bufnr,
-				callback = function()
-					-- Only format if global autoformatting is enabled
-					if vim.g["autoformat_enabled"] == 1 then
-						vim.lsp.buf.format({ bufnr = bufnr })
-					end
-				end
-			})
-		end
+		-- Autoformat on save disabled - use <leader>f for manual formatting
 
 		require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
 
@@ -55,7 +44,7 @@ function M.setup()
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		end, '[W]orkspace [L]ist Folders')
 
-		vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { buffer = bufnr, desc = 'Format code' })
+		-- Format keybinding is defined globally in keymaps.lua
 
 		-- Create a command `:Format` local to the LSP buffer
 		vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)

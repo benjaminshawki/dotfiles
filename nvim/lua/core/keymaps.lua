@@ -65,6 +65,23 @@ function M.setup()
 		end
 	end, { desc = "Toggle Copilot" })
 
+	-- Format code with Prettier or LSP
+	vim.keymap.set('n', '<leader>f', function()
+		local ft = vim.bo.filetype
+		local prettier_fts = {
+			'javascript', 'typescript', 'javascriptreact', 'typescriptreact',
+			'vue', 'json', 'jsonc', 'css', 'scss', 'less', 'html', 
+			'markdown', 'yaml', 'graphql', 'mjs', 'mts'
+		}
+		
+		-- Check if current filetype should use Prettier
+		if vim.tbl_contains(prettier_fts, ft) then
+			vim.cmd('Prettier')
+		else
+			vim.lsp.buf.format({ timeout_ms = 2000 })
+		end
+	end, { desc = "Format code" })
+
 	-- Pasting image from clipboard in markdown
 	vim.api.nvim_set_keymap('n', '<Leader>pp', ':call mdip#MarkdownClipboardImage()<CR>',
 		{ noremap = false, silent = true, desc = 'Paste image from clipboard in markdown' })
@@ -113,6 +130,7 @@ function M.setup()
 		{ "<leader>c_", hidden = true },
 		{ "<leader>d",  group = "[D]ocument" },
 		{ "<leader>d_", hidden = true },
+		{ "<leader>f",  desc = "Format code" },
 		{ "<leader>g",  group = "[G]it" },
 		{ "<leader>g_", hidden = true },
 		{ "<leader>h",  group = "Git [H]unk" },
