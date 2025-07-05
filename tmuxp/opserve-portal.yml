@@ -8,6 +8,11 @@ windows:
     layout:
     panes:
       - npm run dev
+  - window_name: FE_OLD 
+    start_directory: $HOME/workspace/opserve-portal/opserve-portal-old/opserve-frontend/
+    layout:
+    panes:
+      -
   - window_name: BE
     start_directory: $HOME/workspace/opserve-portal/opserve-api/
     layout:
@@ -18,8 +23,3 @@ windows:
     layout:
     panes:
       - docker compose up
-  - window_name: sonar_qube
-    start_directory: $HOME/workspace/opserve-portal/opserve-api/
-    layout:
-    panes:
-      - docker start sonarqube && mvn verify sonar:sonar -Dsonar.token=$SONAR_TOKEN

@@ -62,3 +62,6 @@ export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
 # Flutter
 export PATH="$PATH:/usr/lib/flutter/bin"
+
+# k9s
+KUBE_EDITOR=nvim
