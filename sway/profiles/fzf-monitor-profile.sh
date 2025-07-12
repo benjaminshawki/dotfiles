@@ -12,6 +12,7 @@ profiles=(
     "Auto-detect:Automatically detect and apply appropriate profile"
     "LG UltraGear:3440x1440@160Hz, internal display disabled"
     "XREAL One Pro:1920x1080@120Hz 1.5x scale, internal display disabled"
+    "HDMI Only:External HDMI 1920x1080@60Hz, internal display disabled"
     "Dual Default:External monitor on top, laptop screen centered below"
     "Internal Only:Use only laptop display"
 )
@@ -49,6 +50,15 @@ case "$profile_name" in
         external=$(echo "$outputs_json" | jq -r '.[] | select(.name != "eDP-1" and .active) | .name' | head -1)
         if [ -n "$external" ]; then
             profile_xreal "$external"
+        else
+            echo "No external monitor detected"
+        fi
+        ;;
+    "HDMI Only")
+        # Find the external monitor
+        external=$(echo "$outputs_json" | jq -r '.[] | select(.name != "eDP-1" and .active) | .name' | head -1)
+        if [ -n "$external" ]; then
+            profile_hdmi_only "$external"
         else
             echo "No external monitor detected"
         fi
