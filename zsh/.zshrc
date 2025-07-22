@@ -237,3 +237,12 @@ PERL_MB_OPT="--install_base \"/home/benjamin/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/benjamin/perl5"; export PERL_MM_OPT;
 
 source ~/.zshenv_hidden
+
+# neovim-remote configuration for lazygit
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+    export VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+    export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+else
+    export VISUAL="nvim"
+    export EDITOR="nvim"
+fi

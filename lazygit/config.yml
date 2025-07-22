@@ -1,2 +1,4 @@
 git:
   overrideGpg: true
+os:
+  edit: "nvr --remote-wait +'set bufhidden=wipe' {{filename}}"

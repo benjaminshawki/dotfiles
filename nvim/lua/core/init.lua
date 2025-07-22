@@ -28,10 +28,20 @@ function M.setup()
 	require('core.autocmds').setup_markdown()
 	require('core.autocmds').setup_latex()
 	require('core.autocmds').setup_formatting()
+	require('core.autocmds').setup_lazygit_keymap()
 
 	-- Load custom modules
 	require('custom.unsaved_buffers')
 	require('custom.copy_diff_from_branch')
+	
+	-- Set GIT_EDITOR to use nvr if Neovim and nvr are available
+	if vim.fn.has('nvim') == 1 and vim.fn.executable('nvr') == 1 then
+		vim.env.GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
+		-- Set server address for nvr
+		if vim.v.servername == '' then
+			vim.fn.serverstart('/tmp/nvimsocket')
+		end
+	end
 end
 
 return M

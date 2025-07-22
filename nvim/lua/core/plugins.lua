@@ -72,7 +72,35 @@ function M.setup()
 			-- order to load the plugin when the command is run for the first time
 			keys = {
 				{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-			}
+			},
+			config = function()
+				-- Function to edit file from lazygit in main window
+				function LazygitEdit(original_buffer)
+					local bufnr = vim.fn.bufnr("%")
+					local channel_id = vim.fn.getbufvar(bufnr, "terminal_job_id")
+
+					if not channel_id then
+						vim.notify("No terminal job ID found.", vim.log.levels.ERROR)
+						return
+					end
+
+					-- Use <c-o> to copy the relative file path in Lazygit
+					vim.fn.chansend(channel_id, "\15") -- \15 is <c-o>
+					vim.cmd("close") -- Close Lazygit
+
+					-- Get the file path and open it
+					vim.defer_fn(function()
+						local relative_filepath = vim.fn.getreg("+")
+						if relative_filepath and relative_filepath ~= "" then
+							local winid = vim.fn.bufwinid(original_buffer)
+							if winid ~= -1 then
+								vim.fn.win_gotoid(winid)
+								vim.cmd("edit " .. vim.fn.fnameescape(relative_filepath))
+							end
+						end
+					end, 100)
+				end
+			end
 		},
 
 		-- Git signs
