@@ -225,33 +225,6 @@ function M.setup_formatting()
 	vim.g["prettier#Autoformat_require_pragma"] = 0
 end
 
--- Setup lazygit custom keymap
-function M.setup_lazygit_keymap()
-	vim.api.nvim_create_autocmd("TermOpen", {
-		pattern = "*lazygit*",
-		callback = function()
-			local current_buffer = vim.fn.bufnr("%")
-			-- Find the original buffer (the one that was active before lazygit opened)
-			local original_buffer = nil
-			for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-				if vim.api.nvim_buf_is_valid(bufnr) and bufnr ~= current_buffer then
-					local buftype = vim.api.nvim_buf_get_option(bufnr, 'buftype')
-					if buftype == '' then -- Normal file buffer
-						original_buffer = bufnr
-						break
-					end
-				end
-			end
-			
-			if original_buffer then
-				-- Set custom keymap for 'e' within the lazygit terminal
-				vim.api.nvim_buf_set_keymap(current_buffer, "t", "e", 
-					string.format([[<Cmd>lua LazygitEdit(%d)<CR>]], original_buffer), 
-					{ noremap = true, silent = true })
-			end
-		end,
-	})
-end
 
 return M
 

@@ -28,7 +28,6 @@ function M.setup()
 	require('core.autocmds').setup_markdown()
 	require('core.autocmds').setup_latex()
 	require('core.autocmds').setup_formatting()
-	require('core.autocmds').setup_lazygit_keymap()
 
 	-- Load custom modules
 	require('custom.unsaved_buffers')

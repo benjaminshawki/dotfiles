@@ -93,7 +93,7 @@ function M.setup()
 		dockerls = {},
 		docker_compose_language_service = {},
 		awk_ls = {},
-		phpactor = {},
+		intelephense = {},
 		-- omnisharp = {},
 
 		-- grammarly = {
@@ -180,6 +180,16 @@ function M.setup()
 		},
 		flags = {
 			debounce_text_changes = 300,
+		},
+	}
+
+	-- Use Intelephense instead of phpactor due to phpactor bugs
+	require('lspconfig').intelephense.setup {
+		capabilities = capabilities,
+		on_attach = on_attach,
+		handlers = {
+			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { winblend = 14 }),
+			["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { winblend = 14 }),
 		},
 	}
 
