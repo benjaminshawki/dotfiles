@@ -1,0 +1,19 @@
+session_name: ppp
+start_directory: $HOME/workspace/plants-purchasing-platform/
+
+windows:
+  - window_name: docker compose
+    shell_command_before:
+      - foot -e tmuxp load -y ppp-editor &
+      - $BROWSER --new-window http://localhost:8000/ & disown && exit
+    layout: tiled
+    panes:
+      - docker compose up
+  - window_name: vite
+    layout: tiled
+    panes:
+      - npm run dev
+  - window_name: laravel
+    layout: tiled
+    panes:
+      - php artisan serve

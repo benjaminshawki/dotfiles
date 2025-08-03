@@ -25,7 +25,13 @@ function M.setup()
 		nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
 		nmap('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
-		nmap('gr', builtin.lsp_references, '[G]oto [R]eferences')
+		nmap('gr', function()
+			-- Try telescope first, fallback to native LSP
+			local ok, _ = pcall(builtin.lsp_references)
+			if not ok then
+				vim.lsp.buf.references()
+			end
+		end, '[G]oto [R]eferences')
 		nmap('gI', builtin.lsp_implementations, '[G]oto [I]mplementation')
 		nmap('gy', builtin.lsp_type_definitions, '[G]oto [T]ypeDefinition')
 		nmap('<leader>D', builtin.lsp_type_definitions, 'Type [D]efinition')
@@ -93,7 +99,7 @@ function M.setup()
 		dockerls = {},
 		docker_compose_language_service = {},
 		awk_ls = {},
-		intelephense = {},
+		phpactor = {},
 		-- omnisharp = {},
 
 		-- grammarly = {
@@ -183,10 +189,22 @@ function M.setup()
 		},
 	}
 
-	-- Use Intelephense instead of phpactor due to phpactor bugs
-	require('lspconfig').intelephense.setup {
+	-- Configure phpactor with proper settings
+	require('lspconfig').phpactor.setup {
 		capabilities = capabilities,
 		on_attach = on_attach,
+		root_dir = require('lspconfig').util.root_pattern('composer.json', '.phpactor.json', '.phpactor.yml', '.git'),
+		init_options = {
+			["language_server.diagnostics_on_update"] = false,
+			["language_server.diagnostics_on_open"] = false,
+			["language_server.diagnostics_on_save"] = false,
+			["completion_worse_score.enabled"] = false,
+		},
+		settings = {
+			phpactor = {
+				completion_worse_score = { enabled = false },
+			}
+		},
 		handlers = {
 			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { winblend = 14 }),
 			["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { winblend = 14 }),

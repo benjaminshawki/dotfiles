@@ -1,0 +1,8 @@
+session_name: ppp-editor
+start_directory: $HOME/workspace/plants-purchasing-platform/
+
+windows:
+  - window_name: nvim
+    layout: tiled
+    panes:
+      - nsf

@@ -7,8 +7,8 @@ export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 
 export EDITOR="nvim"
 export VISUAL="nvim"
-export BROWSER="google-chrome-stable"
-export BROWSER_SECONDARY="google-chrome-unstable"
+export BROWSER="google-chrome-stable --password-store=basic"
+export BROWSER_SECONDARY="google-chrome-unstable --password-store=basic"
 export MANPAGER="nvim -c 'Man!' -"
 
 # Use AMD driver instead of NVIDIA
