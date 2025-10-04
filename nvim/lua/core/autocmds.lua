@@ -32,6 +32,17 @@ function M.setup()
 		desc = 'Set Jenkinsfile to use groovy syntax highlighting',
 	})
 
+	-- Set Strudel files to use strudel filetype
+	vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+		pattern = { "*.str", "*.std", "*.strudel" },
+		callback = function()
+			vim.cmd("set filetype=strudel")
+			-- Use JavaScript syntax highlighting as fallback
+			vim.cmd("set syntax=javascript")
+		end,
+		desc = 'Set Strudel files to use strudel filetype with JS syntax',
+	})
+
 	-- Lua files are now handled by the global formatter
 
 	-- Set indentation for specific file types

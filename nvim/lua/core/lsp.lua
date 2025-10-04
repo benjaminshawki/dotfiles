@@ -214,6 +214,23 @@ function M.setup()
 			return vim.fn.systemlist("git ls-files")
 		end,
 	})
+
+	-- Strudel LSP configuration
+	vim.lsp.config('strudel_lsp', {
+		cmd = { 'strudel-lsp' },
+		filetypes = { 'strudel', 'str', 'std' },
+		root_dir = vim.fs.root(0, {'.git', 'package.json', '.strudelrc'}),
+		on_attach = on_attach,
+		capabilities = capabilities,
+		settings = {
+			strudelLanguageServer = {
+				maxNumberOfProblems = 1000,
+			},
+		},
+	})
+
+	-- Start the server for matching files
+	vim.lsp.enable('strudel_lsp')
 end
 
 -- Setup completion
