@@ -22,6 +22,7 @@ function M.setup()
 	require('core.keymaps').setup_telescope_keymaps()
 	require('core.keymaps').setup_chatgpt_keymaps()
 	require('core.keymaps').setup_package_info_keymaps()
+	require('core.keymaps').setup_strudel_keymaps()
 
 	-- Load autocommands
 	require('core.autocmds').setup()

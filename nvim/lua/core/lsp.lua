@@ -2,6 +2,7 @@
 
 local M = {}
 
+
 function M.setup()
 	-- This function gets run when an LSP connects to a particular buffer.
 	local on_attach = function(client, bufnr)
@@ -129,7 +130,7 @@ function M.setup()
 		ensure_installed = vim.tbl_keys(servers),
 		handlers = {
 			function(server_name)
-				require('lspconfig')[server_name].setup {
+				vim.lsp.config(server_name, {
 					capabilities = capabilities,
 					on_attach = on_attach,
 					settings = servers[server_name],
@@ -138,7 +139,7 @@ function M.setup()
 						["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { winblend = 14 }),
 						["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { winblend = 14 }),
 					},
-				}
+				})
 			end,
 		}
 	}
@@ -149,11 +150,11 @@ function M.setup()
 	clangd_capabilities.offsetEncoding = { "utf-8" }
 
 	-- Setup clangd with specific capabilities and initializationOptions
-	require('lspconfig').clangd.setup {
+	vim.lsp.config('clangd', {
 		on_attach = on_attach,
 		capabilities = clangd_capabilities,
 		cmd = { "clangd" },
-		root_dir = require('lspconfig').util.root_pattern('compile_commands.json', '.clangd', '.git') or vim.loop.cwd(),
+		root_dir = vim.fs.root(0, {'compile_commands.json', '.clangd', '.git'}) or vim.loop.cwd(),
 		init_options = {
 			fallbackFlags = {
 				"--target=arm-none-eabi",
@@ -161,10 +162,10 @@ function M.setup()
 				"--query-driver=/usr/bin/arm-none-eabi-*",
 			},
 		},
-	}
+	})
 
 	-- Setup VHDL LS
-	require('lspconfig').vhdl_ls.setup {
+	vim.lsp.config('vhdl_ls', {
 		cmd = { "vhdl_ls" }, -- Ensure vhdl_ls is installed and in PATH
 		root_dir = function(_)
 			return vim.loop.cwd() -- Set root directory to the current working directory
@@ -172,10 +173,10 @@ function M.setup()
 		on_attach = function(client)
 			print("VHDL LS attached to " .. client.name)
 		end,
-	}
+	})
 
 	-- TeXLab setup
-	require('lspconfig').texlab.setup {
+	vim.lsp.config('texlab', {
 		filetypes = { "tex", "latex", "bib", "markdown" },
 		on_attach = on_attach,
 		settings = {
@@ -187,29 +188,25 @@ function M.setup()
 		flags = {
 			debounce_text_changes = 300,
 		},
-	}
+	})
 
 	-- Configure phpactor with proper settings
-	require('lspconfig').phpactor.setup {
+	vim.lsp.config('phpactor', {
 		capabilities = capabilities,
 		on_attach = on_attach,
-		root_dir = require('lspconfig').util.root_pattern('composer.json', '.phpactor.json', '.phpactor.yml', '.git'),
+		root_dir = vim.fs.root(0, {'composer.json', '.phpactor.json', '.phpactor.yml', '.git'}),
 		init_options = {
 			["language_server.diagnostics_on_update"] = false,
 			["language_server.diagnostics_on_open"] = false,
 			["language_server.diagnostics_on_save"] = false,
-			["completion_worse_score.enabled"] = false,
 		},
 		settings = {
-			phpactor = {
-				completion_worse_score = { enabled = false },
-			}
 		},
 		handlers = {
 			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { winblend = 14 }),
 			["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { winblend = 14 }),
 		},
-	}
+	})
 
 	-- Initialize workspace-diagnostics
 	require("workspace-diagnostics").setup({

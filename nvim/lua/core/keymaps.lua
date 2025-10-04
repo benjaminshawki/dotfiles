@@ -276,6 +276,37 @@ function M.setup_chatgpt_keymaps()
 	vim.keymap.set({ "n" }, "<leader><CR>Q", "<cmd>Copilot enable<CR>", { desc = "Copilot enable" })
 end
 
+-- Setup Strudel keymaps
+function M.setup_strudel_keymaps()
+	local wk = require("which-key")
+
+	-- Strudel Commands group
+	wk.add({
+		{ "<leader>z", group = "Strudel" },
+	})
+
+	-- Defer strudel loading until it's needed
+	local strudel_loaded = false
+	local function ensure_strudel()
+		if not strudel_loaded then
+			local ok, strudel = pcall(require, "strudel")
+			if ok then
+				strudel_loaded = true
+				return strudel
+			end
+		end
+		return require("strudel")
+	end
+
+	vim.keymap.set("n", "<leader>zl", function() ensure_strudel().launch() end, { desc = "Launch Strudel" })
+	vim.keymap.set("n", "<leader>zq", function() ensure_strudel().quit() end, { desc = "Quit Strudel" })
+	vim.keymap.set("n", "<leader>zt", function() ensure_strudel().toggle() end, { desc = "Strudel Toggle Play/Stop" })
+	vim.keymap.set("n", "<leader>zu", function() ensure_strudel().update() end, { desc = "Strudel Update" })
+	vim.keymap.set("n", "<leader>zs", function() ensure_strudel().stop() end, { desc = "Strudel Stop Playback" })
+	vim.keymap.set("n", "<leader>zb", function() ensure_strudel().set_buffer() end, { desc = "Strudel set current buffer" })
+	vim.keymap.set("n", "<leader>zx", function() ensure_strudel().execute() end, { desc = "Strudel set current buffer and update" })
+end
+
 -- Setup NPM package info keymaps (defer loading for faster startup)
 function M.setup_package_info_keymaps()
 	-- Defer the package-info loading until it's needed

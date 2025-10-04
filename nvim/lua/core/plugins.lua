@@ -323,6 +323,30 @@ function M.setup()
 		-- Image pasting
 		"img-paste-devs/img-paste.vim",
 
+		-- CSV viewing
+		{
+			"hat0uma/csvview.nvim",
+			---@module "csvview"
+			---@type CsvView.Options
+			opts = {
+				parser = { comments = { "#", "//" } },
+				keymaps = {
+					-- Text objects for selecting fields
+					textobject_field_inner = { "if", mode = { "o", "x" } },
+					textobject_field_outer = { "af", mode = { "o", "x" } },
+					-- Excel-like navigation:
+					-- Use <Tab> and <S-Tab> to move horizontally between fields.
+					-- Use <Enter> and <S-Enter> to move vertically between rows and place the cursor at the end of the field.
+					-- Note: In terminals, you may need to enable CSI-u mode to use <S-Tab> and <S-Enter>.
+					jump_next_field_end = { "<Tab>", mode = { "n", "v" } },
+					jump_prev_field_end = { "<S-Tab>", mode = { "n", "v" } },
+					jump_next_row = { "<Enter>", mode = { "n", "v" } },
+					jump_prev_row = { "<S-Enter>", mode = { "n", "v" } },
+				},
+			},
+			cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
+		},
+
 		-- Emmet for HTML/CSS
 		{
 			"olrtg/nvim-emmet",
@@ -364,6 +388,7 @@ function M.setup()
 				"nvim-lua/plenary.nvim",
 				"kevinhwang91/promise-async",
 				"hrsh7th/nvim-cmp",
+				"nvim-neotest/nvim-nio",
 			},
 			config = function()
 				require("laravel").setup({
@@ -374,7 +399,13 @@ function M.setup()
 						return vim.fn.filereadable(root .. "/artisan") == 1 or
 							(vim.fn.filereadable(root .. "/composer.json") == 1 and
 								vim.fn.system("grep -q laravel/framework " .. root .. "/composer.json") == 0)
-					end
+					end,
+					-- Configure environments
+					environments = {
+						env_variable = "NVIM_LARAVEL_ENV",
+						auto_discover = false,  -- Disable auto discovery
+						default = "local",      -- Force default to local
+					},
 				})
 			end,
 		},

@@ -40,7 +40,7 @@ input type:touchpad {
 input "2321:21128:PNP0C50:0b_0911:5288_Touchpad" {
     #dwt enabled
 		# Temporary disabled since it was generating input commands that were not expected
-		events disabled
+		# events disabled
     tap enabled
     # middle_emulation enabled
 }
@@ -92,6 +92,8 @@ bindgesture pinch:3:inward+right move right
 bindsym $mod+Return exec foot
 # open tmux session chooser
 bindsym $mod+Shift+Return exec foot -e "$HOME/dotfiles/scripts/tmux-session-chooser.sh"
+# enhanced session launcher
+bindsym $mod+Ctrl+Return exec foot --title="Session Launcher" -- "$HOME/dotfiles/scripts/session-launcher.sh"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -338,11 +340,11 @@ set $white2 #FFFFFF
 
 # Design adjustments for Tokyo Night theme feel
 # hide borders
-hide_edge_borders both
+# hide_edge_borders both
 
 
 # Display
-output * bg #000000 solid_color
+output * bg $HOME/Pictures/duuzxj0nheze1.png fill
 
 
 # Run monitor setup script at startup
@@ -360,6 +362,11 @@ client.unfocused #333333 #222222 #888888 #292d2e #222222
 client.urgent $red1 $red1 $white2 $red1 $red1
 client.placeholder #000000 #0c0c0c $white2 #000000 #0c0c0c
 
+gaps inner 3
+gaps outer 3
+
+default_border pixel 3
+smart_gaps off
 
 include /etc/sway/config.d/*
 
