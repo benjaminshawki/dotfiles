@@ -305,6 +305,23 @@ function M.setup_strudel_keymaps()
 	vim.keymap.set("n", "<leader>zs", function() ensure_strudel().stop() end, { desc = "Strudel Stop Playback" })
 	vim.keymap.set("n", "<leader>zb", function() ensure_strudel().set_buffer() end, { desc = "Strudel set current buffer" })
 	vim.keymap.set("n", "<leader>zx", function() ensure_strudel().execute() end, { desc = "Strudel set current buffer and update" })
+	
+	-- Toggle Strudel LSP
+	vim.keymap.set("n", "<leader>zL", function()
+		local lspconfig = require('lspconfig')
+		local client = vim.lsp.get_clients({ name = 'strudel_lsp' })[1]
+		
+		if client then
+			-- Stop the LSP
+			vim.lsp.stop_client(client.id)
+			print("Strudel LSP disabled")
+		else
+			-- Start the LSP
+			lspconfig.strudel_lsp.setup({})
+			vim.cmd('edit') -- Trigger reattach
+			print("Strudel LSP enabled")
+		end
+	end, { desc = "Toggle Strudel LSP" })
 end
 
 -- Setup NPM package info keymaps (defer loading for faster startup)

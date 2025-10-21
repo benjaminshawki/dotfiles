@@ -8,7 +8,7 @@ return {
 				maximise_menu_panel = true,
 				hide_menu_panel = false,
 				hide_top_bar = false,
-				hide_code_editor = true,
+				hide_code_editor = false,
 				hide_error_display = false,
 			},
 			update_on_save = true,
