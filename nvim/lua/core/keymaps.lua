@@ -27,7 +27,7 @@ function M.setup()
 	-- Diagnostic keymaps
 	vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 	vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-	vim.keymap.set('n', '<leader>ee', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+	vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 	vim.keymap.set('n', '<leader>qq', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 	-- Buffer and window keymaps
@@ -99,6 +99,10 @@ function M.setup()
 		{ "<leader>gl", "<cmd>Git pull<cr>",   desc = "Pull" },
 		{ "<leader>gp", "<cmd>Git push<cr>",   desc = "Push" },
 		{ "<leader>gs", "<cmd>Git status<cr>", desc = "Status" },
+		{ "<leader>gb", "<cmd>Gitsigns blame<cr>", desc = "Blame (full buffer)" },
+		{ "<leader>gB", function() require('gitsigns').blame_line{full=true} end, desc = "Blame line (full)" },
+		{ "<leader>gq", function() require('gitsigns').setqflist() end, desc = "Quickfix list (hunks)" },
+		{ "<leader>gL", function() require('gitsigns').setloclist() end, desc = "Location list (hunks)" },
 	})
 
 	-- Ferret (Ack) keymaps
@@ -146,6 +150,12 @@ function M.setup()
 		{ "<leader>w",  group = "[W]orkspace" },
 		{ "<leader>w_", hidden = true },
 	})
+	
+	-- Additional Git hunk navigation (for when not in diff mode)
+	vim.keymap.set('n', ']h', function() require('gitsigns').nav_hunk('next') end, { desc = 'Next git hunk' })
+	vim.keymap.set('n', '[h', function() require('gitsigns').nav_hunk('prev') end, { desc = 'Previous git hunk' })
+	vim.keymap.set('n', ']H', function() require('gitsigns').nav_hunk('last') end, { desc = 'Last git hunk' })
+	vim.keymap.set('n', '[H', function() require('gitsigns').nav_hunk('first') end, { desc = 'First git hunk' })
 
 	-- register which-key VISUAL mode
 	-- required for visual <leader>hs (hunk stage) to work
