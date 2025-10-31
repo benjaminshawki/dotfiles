@@ -6,10 +6,6 @@ windows:
     layout: main-vertical
     panes:
       - nsf
-  - window_name: term
-    start_directory: $HOME/workspace/the-alchemist/dune.rs/
-    panes:
-      - nsf
   - window_name: reading
     start_directory: $HOME/workspace/the-alchemist/dune.rs/
     panes:
