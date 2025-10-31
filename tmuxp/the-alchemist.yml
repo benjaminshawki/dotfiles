@@ -6,6 +6,8 @@ windows:
     layout: main-vertical
     panes:
       - nsf
+      # - $BROWSER --new-window https://localhost:3000/en & disown && exit
+      # - cd $HOME/workspace/plnts-v2/projects/plnts-storefront/ && pn dev
   - window_name: server
     start_directory: $HOME/workspace/the-alchemist
     panes:

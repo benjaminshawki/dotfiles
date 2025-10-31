@@ -1,0 +1,16 @@
+session_name: dune_rs
+
+windows:
+  - window_name: nvim
+    start_directory: $HOME/workspace/the-alchemist/dune.rs/
+    layout: main-vertical
+    panes:
+      - nsf
+  - window_name: term
+    start_directory: $HOME/workspace/the-alchemist/dune.rs/
+    panes:
+      - nsf
+  - window_name: reading
+    start_directory: $HOME/workspace/the-alchemist/dune.rs/
+    panes:
+      - $HOME/bin/reading-list/reading-list.sh --tmuxp "dune_rs" & disown && exit
