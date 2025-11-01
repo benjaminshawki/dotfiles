@@ -64,6 +64,11 @@ function M.setup()
 		float = {
 			winblend = 14,
 		},
+		virtual_text = {
+			spacing = 4,
+			source = "if_many",
+		},
+		severity_sort = true,
 	}
 
 	-- Setup neovim lua configuration
