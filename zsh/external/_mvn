@@ -1,0 +1,203 @@
+#compdef mvn mvnDebug mvnw
+# Maven completion for zsh
+
+_mvn() {
+    local curcontext="$curcontext" state line
+    typeset -A opt_args
+    
+    local -a mvn_goals mvn_lifecycle mvn_plugins mvn_options mvn_properties
+    
+    mvn_lifecycle=(
+        'validate:Validate the project is correct'
+        'initialize:Initialize build state'
+        'generate-sources:Generate source code'
+        'process-sources:Process source code'
+        'generate-resources:Generate resources'
+        'process-resources:Process and copy resources'
+        'compile:Compile source code'
+        'process-classes:Post-process generated files'
+        'generate-test-sources:Generate test source code'
+        'process-test-sources:Process test source code'
+        'generate-test-resources:Generate test resources'
+        'process-test-resources:Process test resources'
+        'test-compile:Compile test source code'
+        'process-test-classes:Post-process test files'
+        'test:Run unit tests'
+        'prepare-package:Prepare for packaging'
+        'package:Package compiled code'
+        'pre-integration-test:Pre-integration test actions'
+        'integration-test:Run integration tests'
+        'post-integration-test:Post-integration test actions'
+        'verify:Verify the package'
+        'install:Install package to local repository'
+        'deploy:Deploy package to remote repository'
+    )
+    
+    mvn_goals=(
+        'clean:Clean up after the build'
+        'site:Generate project site documentation'
+        'site-deploy:Deploy generated site'
+        $mvn_lifecycle
+    )
+    
+    mvn_plugins=(
+        'archetype\:generate:Generate project from archetype'
+        'archetype\:create-from-project:Create archetype from project'
+        'compiler\:compile:Compile main sources'
+        'compiler\:testCompile:Compile test sources'
+        'surefire\:test:Run unit tests'
+        'failsafe\:integration-test:Run integration tests'
+        'failsafe\:verify:Verify integration test results'
+        'jar\:jar:Build a JAR'
+        'war\:war:Build a WAR'
+        'ear\:ear:Build an EAR'
+        'dependency\:tree:Display dependency tree'
+        'dependency\:list:List dependencies'
+        'dependency\:analyze:Analyze dependencies'
+        'dependency\:copy-dependencies:Copy dependencies'
+        'dependency\:resolve:Resolve dependencies'
+        'dependency\:purge-local-repository:Purge local repository'
+        'versions\:display-dependency-updates:Display dependency updates'
+        'versions\:display-plugin-updates:Display plugin updates'
+        'versions\:display-property-updates:Display property updates'
+        'versions\:set:Set project version'
+        'versions\:commit:Commit version changes'
+        'versions\:revert:Revert version changes'
+        'help\:describe:Describe plugin goals'
+        'help\:effective-pom:Display effective POM'
+        'help\:effective-settings:Display effective settings'
+        'help\:system:Display system information'
+        'spring-boot\:run:Run Spring Boot application'
+        'spring-boot\:start:Start Spring Boot application'
+        'spring-boot\:stop:Stop Spring Boot application'
+        'spring-boot\:repackage:Repackage as executable jar/war'
+        'exec\:java:Execute Java class'
+        'exec\:exec:Execute system command'
+        'release\:prepare:Prepare for release'
+        'release\:perform:Perform release'
+        'release\:clean:Clean up release'
+        'release\:rollback:Rollback release'
+        'javadoc\:javadoc:Generate Javadoc'
+        'javadoc\:jar:Build Javadoc JAR'
+        'source\:jar:Build sources JAR'
+        'assembly\:single:Create assembly'
+        'enforcer\:enforce:Enforce rules'
+        'resources\:resources:Copy resources'
+        'resources\:testResources:Copy test resources'
+    )
+    
+    mvn_options=(
+        '-am:Also make dependents'
+        '-amd:Also make dependents'
+        '-B:Run in batch mode'
+        '-b:Alternate path for settings.xml'
+        '-C:Fail build if checksums do not match'
+        '-c:Fail build if checksums do not match'
+        '-cpu:Check for plugin updates'
+        '-D:Define system property'
+        '-e:Show full stack traces'
+        '-emp:Encrypt master password'
+        '-ep:Encrypt password'
+        '-f:Force use of alternate POM'
+        '-fae:Fail at end'
+        '-ff:Fail fast'
+        '-fn:Fail never'
+        '-gs:Alternate path for global settings'
+        '-gt:Alternate path for global toolchains'
+        '-h:Display help'
+        '-l:Log file where build output is written'
+        '-llr:Use plugin versions from local repo'
+        '-N:Do not recurse into sub-projects'
+        '-npr:Do not display transfer progress'
+        '-npu:No plugin updates'
+        '-nsu:No snapshot updates'
+        '-o:Work offline'
+        '-P:Activate profiles'
+        '-pl:Build specified modules'
+        '-q:Quiet output'
+        '-rf:Resume from specified module'
+        '-s:Alternate path for user settings'
+        '-T:Thread count'
+        '-t:Alternate path for user toolchains'
+        '-U:Update snapshots'
+        '-up:Update plugins'
+        '-V:Display version'
+        '-v:Display version'
+        '-X:Debug output'
+    )
+    
+    mvn_properties=(
+        'skipTests:Skip test execution'
+        'maven.test.skip:Skip test compilation and execution'
+        'maven.javadoc.skip:Skip javadoc generation'
+        'maven.source.skip:Skip source jar generation'
+        'maven.deploy.skip:Skip deployment'
+        'maven.install.skip:Skip installation'
+        'maven.site.skip:Skip site generation'
+        'gpg.skip:Skip GPG signing'
+        'enforcer.skip:Skip enforcer rules'
+        'findbugs.skip:Skip FindBugs analysis'
+        'checkstyle.skip:Skip Checkstyle checks'
+        'pmd.skip:Skip PMD analysis'
+        'spotbugs.skip:Skip SpotBugs analysis'
+        'jacoco.skip:Skip JaCoCo coverage'
+        'sonar.skip:Skip SonarQube analysis'
+    )
+    
+    local ret=1
+    
+    _arguments -C \
+        '(-h --help)'{-h,--help}'[Display help information]' \
+        '(-v --version)'{-v,--version}'[Display version information]' \
+        '(-q --quiet)'{-q,--quiet}'[Quiet output - only show errors]' \
+        '(-X --debug)'{-X,--debug}'[Produce execution debug output]' \
+        '(-e --errors)'{-e,--errors}'[Produce execution error messages]' \
+        '(-B --batch-mode)'{-B,--batch-mode}'[Run in non-interactive mode]' \
+        '(-V --show-version)'{-V,--show-version}'[Display version information WITHOUT stopping build]' \
+        '(-D --define)'{-D,--define}'[Define a system property]:property:->properties' \
+        '(-P --activate-profiles)'{-P,--activate-profiles}'[Activate profiles]:profiles' \
+        '(-f --file)'{-f,--file}'[Force use of alternate POM file]:POM file:_files -g "*.xml"' \
+        '(-s --settings)'{-s,--settings}'[Alternate path for user settings file]:settings file:_files -g "*.xml"' \
+        '(-gs --global-settings)'{-gs,--global-settings}'[Alternate path for global settings file]:settings file:_files -g "*.xml"' \
+        '(-t --toolchains)'{-t,--toolchains}'[Alternate path for user toolchains file]:toolchains file:_files -g "*.xml"' \
+        '(-gt --global-toolchains)'{-gt,--global-toolchains}'[Alternate path for global toolchains file]:toolchains file:_files -g "*.xml"' \
+        '(-l --log-file)'{-l,--log-file}'[Log file to where all build output will go]:log file:_files' \
+        '(-o --offline)'{-o,--offline}'[Work offline]' \
+        '(-U --update-snapshots)'{-U,--update-snapshots}'[Update snapshots]' \
+        '(-N --non-recursive)'{-N,--non-recursive}'[Do not recurse into sub-projects]' \
+        '(-pl --projects)'{-pl,--projects}'[Build specified reactor projects]:projects' \
+        '(-am --also-make)'{-am,--also-make}'[Build project dependencies]' \
+        '(-amd --also-make-dependents)'{-amd,--also-make-dependents}'[Build project dependents]' \
+        '(-rf --resume-from)'{-rf,--resume-from}'[Resume reactor from project]:project' \
+        '(-T --threads)'{-T,--threads}'[Thread count for parallel builds]:threads' \
+        '(-t --toolchains)'{-t,--toolchains}'[Location of toolchains file]:file:_files' \
+        '(-fae --fail-at-end)'{-fae,--fail-at-end}'[Fail build at end]' \
+        '(-ff --fail-fast)'{-ff,--fail-fast}'[Stop at first failure]' \
+        '(-fn --fail-never)'{-fn,--fail-never}'[Never fail the build]' \
+        '--builder[Id of build strategy to use]:builder' \
+        '--no-transfer-progress[Do not display transfer progress]' \
+        '*:goal:->goals' && ret=0
+    
+    case $state in
+        goals)
+            local -a all_goals
+            all_goals=($mvn_goals $mvn_plugins)
+            _describe -t goals 'maven goals' all_goals && ret=0
+            ;;
+        properties)
+            _describe -t properties 'maven properties' mvn_properties && ret=0
+            ;;
+    esac
+    
+    return ret
+}
+
+_mvn_profiles() {
+    local profiles
+    if [[ -f pom.xml ]]; then
+        profiles=(${(f)"$(xmllint --xpath "//profile/id/text()" pom.xml 2>/dev/null)"})
+        _values -s ',' 'profiles' $profiles
+    fi
+}
+
+_mvn "$@"

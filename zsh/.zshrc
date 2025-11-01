@@ -29,6 +29,10 @@ source ~/dotfiles/zsh/external/completion.zsh
 
 autoload -Uz prompt_purification_setup; prompt_purification_setup
 
+# Maven inline completions
+source ~/dotfiles/zsh/external/maven-inline.zsh
+source ~/dotfiles/zsh/external/maven-pom-completion.zsh
+
 # Push the current directory visited on to the stack.
 setopt AUTO_PUSHD
 # Do not store duplicate directories in the stack
