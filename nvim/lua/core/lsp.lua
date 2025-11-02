@@ -69,6 +69,7 @@ function M.setup()
 			source = "if_many",
 		},
 		severity_sort = true,
+		update_in_insert = true,
 	}
 
 	-- Setup neovim lua configuration
@@ -84,7 +85,19 @@ function M.setup()
 		clangd = {},
 		gopls = {},
 		pyright = {},
-		rust_analyzer = {},
+		rust_analyzer = {
+			["rust-analyzer"] = {
+				check = {
+					command = "check",
+				},
+				cargo = {
+					allFeatures = true,
+				},
+				procMacro = {
+					enable = true,
+				},
+			},
+		},
 		bashls = {},
 		-- ts_ls = {}, -- Handled in vue-typescript.lua
 		-- volar = {}, -- Handled in vue-typescript.lua
@@ -236,6 +249,34 @@ function M.setup()
 
 	-- Start the server for matching files
 	vim.lsp.enable('strudel_lsp')
+
+	-- Setup rust_analyzer with specific configuration
+	vim.lsp.config('rust_analyzer', {
+		cmd = { vim.fn.exepath('rust-analyzer') },
+		filetypes = { 'rust' },
+		root_dir = vim.fs.root(0, {'Cargo.toml', 'rust-project.json', '.git'}),
+		on_attach = on_attach,
+		capabilities = capabilities,
+		settings = {
+			["rust-analyzer"] = {
+				check = {
+					command = "check",
+				},
+				cargo = {
+					allFeatures = true,
+				},
+				procMacro = {
+					enable = true,
+				},
+			},
+		},
+		handlers = {
+			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { winblend = 14 }),
+			["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { winblend = 14 }),
+		},
+	})
+
+	vim.lsp.enable('rust_analyzer')
 end
 
 return M
