@@ -246,3 +246,17 @@ else
     export VISUAL="nvim"
     export EDITOR="nvim"
 fi
+
+# Jira CLI token management
+jira() {
+    # Check if token is empty or contains a 1Password reference
+    if [ -z "$JIRA_API_TOKEN" ] || [[ "$JIRA_API_TOKEN" == *"op item get"* ]]; then
+        echo "Retrieving JIRA_API_TOKEN from 1Password..."
+        export JIRA_API_TOKEN=$(op item get "${OP_JIRA_ITEM_ID:-jira}" --fields password --reveal)
+        if [ $? -ne 0 ]; then
+            echo "Failed to retrieve token from 1Password"
+            return 1
+        fi
+    fi
+    command jira "$@"
+}

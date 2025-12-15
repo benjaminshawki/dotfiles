@@ -1,0 +1,12 @@
+session_name: reading_list
+
+windows:
+  - window_name: nvim
+    start_directory: $HOME/workspace/reading-list/
+    layout: main-vertical
+    panes:
+      - nsf
+  - window_name: reading
+    start_directory: $HOME/workspace/reading-list/
+    panes:
+      - $HOME/bin/reading-list/reading-list.sh --tmuxp "dune_rs" & disown && exit
