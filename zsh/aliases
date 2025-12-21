@@ -106,3 +106,7 @@ alias python='python3'
 # Network
 # ----------------------
 alias vpn-hsleiden='sudo openconnect --protocol=fortinet -C "$(openfortivpn-webview vpn-ssl.hsleiden.nl)" vpn-ssl.hsleiden.nl'
+
+# PHP
+alias php82="$HOME/local/php-versions/8.2.29/bin/php"
+alias composer82="php82 $HOME/local/php-versions/8.2.29/bin/composer"

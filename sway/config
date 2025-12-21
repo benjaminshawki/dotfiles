@@ -40,7 +40,7 @@ input type:touchpad {
 input "2321:21128:PNP0C50:0b_0911:5288_Touchpad" {
     #dwt enabled
 		# Temporary disabled since it was generating input commands that were not expected
-		events disabled
+		#events disabled
     tap enabled
     # middle_emulation enabled
 }

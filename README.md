@@ -1,6 +1,6 @@
 # Benjamin Shawki's Dotfiles
 
-A comprehensive collection of configuration files for my development environment, featuring Neovim, tmux, Sway, and more.
+A comprehensive collection of configuration files for my development environment, featuring Neovim, tmux, Sway, and more. Keep in mind that this is for my personal use and without any guarantees. This repository also uses some of my other scripts https://github.com/benjaminshawki/scripts
 
 ## 🚀 Quick Start
 
