@@ -1,0 +1,9 @@
+session_name: dashboard-at-home 
+start_directory: $HOME/workspace/dashboard-at-home/
+windows:
+  - window_name: compose
+    panes:
+      - docker compose up
+  - window_name: runtime
+    panes:
+      - nsf
