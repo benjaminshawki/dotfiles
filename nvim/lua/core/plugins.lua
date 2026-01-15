@@ -215,12 +215,13 @@ function M.setup()
 			'github/copilot.vim', -- GitHub Copilot
 			event = { "InsertEnter" }, -- Only load in insert mode
 		},
-		{
-			"m4xshen/hardtime.nvim",
-			lazy = false,
-			dependencies = { "MunifTanjim/nui.nvim" },
-			opts = {},
-		},
+		-- Practice hard mode (disable arrow keys, etc)
+		-- {
+		-- 	"m4xshen/hardtime.nvim",
+		-- 	lazy = false,
+		-- 	dependencies = { "MunifTanjim/nui.nvim" },
+		-- 	opts = {},
+		-- },
 
 		-- Markdown preview
 		{
@@ -465,6 +466,7 @@ function M.setup()
 
 
 	-- Configure Copilot
+	vim.g.copilot_enabled = 0
 	vim.g.copilot_filetypes = {
 		assembly = true,
 		markdown = true,
