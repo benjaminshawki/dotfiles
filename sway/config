@@ -348,7 +348,7 @@ set $white2 #FFFFFF
 
 
 # Display
-output * bg $HOME/Pictures/duuzxj0nheze1.png fill
+# output * bg $HOME/Pictures/duuzxj0nheze1.png fill
 
 
 # Run monitor setup script at startup
