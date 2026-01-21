@@ -53,17 +53,18 @@ function M.setup()
 	end, {})
 	vim.keymap.set('n', '<leader>ts', ':ToggleSpell<CR>', { desc = "Toggle Spell Checking" })
 
-	-- Toggle Copilot
-	vim.keymap.set('n', '<leader>tc', function()
-		local enabled = vim.b.copilot_enabled or vim.g.copilot_enabled or false
-		if enabled then
-			vim.cmd('Copilot disable')
-			print('Copilot disabled')
-		else
-			vim.cmd('Copilot enable')
-			print('Copilot enabled')
-		end
-	end, { desc = "Toggle Copilot" })
+	-- Copilot controls
+	vim.keymap.set('n', '<leader>tce', function()
+		vim.g.copilot_enabled = 1
+		vim.b.copilot_enabled = 1
+		print('Copilot enabled')
+	end, { desc = "Enable Copilot" })
+
+	vim.keymap.set('n', '<leader>tcd', function()
+		vim.g.copilot_enabled = 0
+		vim.b.copilot_enabled = 0
+		print('Copilot disabled')
+	end, { desc = "Disable Copilot" })
 
 	-- Format code with Prettier or LSP
 	vim.keymap.set('n', '<leader>f', function()
@@ -273,18 +274,6 @@ function M.setup_telescope_keymaps()
 		{ noremap = true, silent = true, desc = 'FZF current directory and open NETRW' })
 end
 
--- Setup Copilot keymaps
-function M.setup_chatgpt_keymaps()
-	local wk = require("which-key")
-
-	-- Copilot Commands group
-	wk.add({
-		{ "<leader><CR>", group = "Copilot" },
-	})
-
-	vim.keymap.set({ "n" }, "<leader><CR>q", "<cmd>Copilot disable<CR>", { desc = "Copilot disable" })
-	vim.keymap.set({ "n" }, "<leader><CR>Q", "<cmd>Copilot enable<CR>", { desc = "Copilot enable" })
-end
 
 -- Setup Strudel keymaps
 function M.setup_strudel_keymaps()

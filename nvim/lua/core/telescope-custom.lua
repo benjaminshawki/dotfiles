@@ -121,25 +121,25 @@ M.find_files_rg_sort = function()
 			end
 		end
 
-		-- Move to next sort method
 		current_index = current_index % #sort_order + 1
 		current_sort = sort_order[current_index]
 		vim.g.telescope_rg_sort = current_sort
 
-		-- Close current picker and reopen with new sort
 		actions.close(prompt_bufnr)
 		M.find_files_rg_sort()
 	end
 
-	local opts = sort_methods[current_sort]
-	opts.attach_mappings = function(_, map)
-		-- Add sort cycling to both insert and normal mode
-		map('i', '<C-s>', cycle_sort)
-		map('n', '<C-s>', cycle_sort)
-		return true
-	end
-
-	builtin.find_files(opts)
+	local method = sort_methods[current_sort]
+	builtin.find_files({
+		prompt_title = method.prompt_title,
+		find_command = method.find_command,
+		cwd = vim.loop.cwd(),
+		attach_mappings = function(_, map)
+			map('i', '<C-s>', cycle_sort)
+			map('n', '<C-s>', cycle_sort)
+			return true
+		end,
+	})
 end
 
 return M

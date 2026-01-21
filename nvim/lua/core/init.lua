@@ -20,7 +20,6 @@ function M.setup()
 	-- Load keymaps (after plugins and LSP since some depend on them)
 	require('core.keymaps').setup()
 	require('core.keymaps').setup_telescope_keymaps()
-	require('core.keymaps').setup_chatgpt_keymaps()
 	require('core.keymaps').setup_package_info_keymaps()
 	require('core.keymaps').setup_strudel_keymaps()
 
